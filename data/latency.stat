@@ -1,0 +1,2 @@
+IOC_MTCA:MCU-thread-latency-max[150753] 1868.0..10736.0, mean: 2853.168958495022, std: 1231.2894932168476
+IOC_MTCA:ec0-domainfailcountertotal[1] 540.0..540.0, mean: 540.0, std: 0.0
