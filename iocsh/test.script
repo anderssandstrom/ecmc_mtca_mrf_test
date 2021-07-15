@@ -1,0 +1,163 @@
+##############################################################################
+## Startscript for MUTS logger:
+##   Logging data from displacements sensors, phase error and encoder value.
+##   The encoder and displacement sensors are linked to ecmc fft plugin.
+##
+## Hardware:
+##   1. One sin/cos 1VPP encoder input
+##   2. Four analog inputs for telemess distance sensors
+##   3. Timesatmped inputs for phase error calculation
+##   Note: Calibration of telemess sensors by use of epics breaktables (bptTypeTelemessCalib.dbd).
+##         The breaktables are used for both ai records and FFT plugins.
+##
+## Author: Anders Sandström, anders.sandstrom@ess.eu
+##
+
+##############################################################################
+## Initiation:
+epicsEnvSet("IOC" ,"$(IOC="IOC_MTCA")")
+epicsEnvSet("ECMCCFG_INIT" ,"")  #Only run startup once (auto at PSI, need call at ESS), variable set to "#" in startup.cmd
+epicsEnvSet("SCRIPTEXEC" ,"$(SCRIPTEXEC="iocshLoad")")
+
+require ecmccfg 6.3.2
+
+# run module startup.cmd (only needed at ESS  PSI auto call at require)
+$(ECMCCFG_INIT)$(SCRIPTEXEC) ${ecmccfg_DIR}startup.cmd, "IOC=$(IOC),ECMC_VER=6.3.2,EC_RATE=1000"
+
+##############################################################################
+## Load breaktables with calibration data for Telemess sensors.
+#require iocshutils 2.10.0  # For updateMenuConvert()
+dbLoadRecords ../src/bptTypeTelemessCalib.dbd
+updateMenuConvert
+dbDumpBreaktable
+
+##############################################################################
+## Configure hardware:
+system "ethercat slaves"
+
+epicsEnvSet("ECMC_EC_SLAVE_NUM",              "0")
+${SCRIPTEXEC} ${ecmccfg_DIR}addSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=EK1100"
+
+epicsEnvSet("ECMC_EC_SLAVE_NUM",              "1")
+${SCRIPTEXEC} ${ecmccfg_DIR}addSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=EL5021, SUBST_FILE=../db/amo.substitutions"
+
+# Enable reset on c-latch (index track)
+#ecmcConfigOrDie "Cfg.EcAddSdo($(ECMC_EC_SLAVE_NUM),0x8000,0x1,1,1)"
+
+epicsEnvSet("ECMC_EC_SLAVE_NUM",              "2")
+${SCRIPTEXEC} ${ecmccfg_DIR}addSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=EL3174_0to10V, SUBST_FILE=../db/telemessEddyCurrentSensors.substitutions"
+
+# Configure analog sensors common (filter settings valid for all channles)
+${SCRIPTEXEC} ${ecmccfg_DIR}ecmcEL31XX-Sensor-common.cmd
+
+# Example of default configuration of analog sensor CH0
+epicsEnvSet("ECMC_EC_SDO_INDEX",         "0x8000")
+${SCRIPTEXEC} ${ecmccfg_DIR}ecmcEL3164-Sensor-chX-default.cmd
+
+# Example of default configuration of analog sensor CH1
+epicsEnvSet("ECMC_EC_SDO_INDEX",         "0x8010")
+${SCRIPTEXEC} ${ecmccfg_DIR}ecmcEL3164-Sensor-chX-default.cmd
+
+# Example of default configuration of analog sensor CH2
+epicsEnvSet("ECMC_EC_SDO_INDEX",         "0x8020")
+${SCRIPTEXEC} ${ecmccfg_DIR}ecmcEL3164-Sensor-chX-default.cmd
+
+# Example of default configuration of analog sensor CH3
+epicsEnvSet("ECMC_EC_SDO_INDEX",         "0x8030")
+${SCRIPTEXEC} ${ecmccfg_DIR}ecmcEL3164-Sensor-chX-default.cmd
+
+epicsEnvSet("ECMC_EC_SLAVE_NUM",              "3")
+${SCRIPTEXEC} ${ecmccfg_DIR}addSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=EL9505"
+
+#epicsEnvSet("ECMC_SAMPLE_RATE_MS", 1)
+epicsEnvSet("ECMC_EC_SLAVE_NUM",              "4")
+${SCRIPTEXEC} ${ecmccfg_DIR}addSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=EL1252"
+#epicsEnvSet("ECMC_SAMPLE_RATE_MS", 10)
+#Apply hardware configuration
+ecmcConfigOrDie "Cfg.EcApplyConfig(1)"
+
+##############################################################################
+## Prepare FFT plugins
+#require ecmc_plugin_fft master  # to get access to db file..
+
+# Decide how many revs to FFT then calc buffer size
+epicsEnvSet("ECMC_REVS_TO_FFT", 10)
+epicsEnvSet("ECMC_FFT_RATE", 1000)
+ecmcEpicsEnvSetCalc("ECMC_FFT_NELM",   "${ECMC_REVS_TO_FFT=2}*36.0/14.0*${ECMC_FFT_RATE=1000}","%d")
+
+# Scale encoder in deg (21 bit per rev)
+ecmcEpicsEnvSetCalc("ECMC_ENC_SCALE",   "360/2097152","%lf")
+
+##############################################################################
+## Load plugin: FFT AMO encoder
+epicsEnvSet(ECMC_FFT_ID, 0)
+epicsEnvSet(ECMC_PLUGIN_FILNAME,"${HOME}/epics/base-7.0.4/require/${E3_REQUIRE_VERSION}/siteMods/ecmc_plugin_fft/master/lib/${EPICS_HOST_ARCH=linux-x86_64}/libecmc_plugin_fft.so")
+epicsEnvSet(ECMC_PLUGIN_CONFIG,"SOURCE=ec0.s1.POSITION;RM_LIN=1;DBG_PRINT=0;NFFT=${ECMC_FFT_NELM};RATE=${ECMC_FFT_RATE};RM_DC=1;SCALE=${ECMC_ENC_SCALE};MODE=CONT;ENABLE=1;")
+#${SCRIPTEXEC} ${ecmccfg_DIR}loadPlugin.cmd, "PLUGIN_ID=${ECMC_FFT_ID},FILE=${ECMC_PLUGIN_FILNAME},CONFIG='${ECMC_PLUGIN_CONFIG}', REPORT=0"
+# Note: INDEX is the index of FFT object in FFT plugin and not PLUGIN_ID. In this case the same
+#dbLoadRecords(ecmcPluginFFT.template,"P=$(IOC):,INDEX=${ECMC_FFT_ID}, NELM=${ECMC_FFT_NELM}, ,AMP_DESC='Position amplitude',AMP_EGU='°',RAW_DESC='Position',RAW_EGU='°',TITLE='FFT for rotational AMO encoder'")
+
+##############################################################################
+## Load plugin: FFT AI CH1 : Telemess 0..15
+epicsEnvSet(ECMC_FFT_ID, 1)
+
+epicsEnvSet(ECMC_PLUGIN_CONFIG,"SOURCE=ec0.s2.CH1_VALUE;DBG_PRINT=0;NFFT=${ECMC_FFT_NELM};RATE=${ECMC_FFT_RATE};RM_DC=1;SCALE=1;MODE=CONT;ENABLE=1;BREAKTABLE=typeTelemess33020_21877;")
+#${SCRIPTEXEC} ${ecmccfg_DIR}loadPlugin.cmd, "PLUGIN_ID=${ECMC_FFT_ID},FILE=${ECMC_PLUGIN_FILNAME},CONFIG='${ECMC_PLUGIN_CONFIG}', REPORT=1"
+# Note: INDEX is the index of FFT object in FFT plugin and not PLUGIN_ID. In this case the same
+#dbLoadRecords(ecmcPluginFFT.template,"P=$(IOC):,INDEX=${ECMC_FFT_ID}, NELM=${ECMC_FFT_NELM},AMP_DESC='Position amplitude',AMP_EGU='mm',RAW_DESC='Position',RAW_EGU='mm',TITLE='FFT for Telemess sensor 0°'")
+
+##############################################################################
+## Load plugin: FFT AI CH2 : Telemess 0..15
+epicsEnvSet(ECMC_FFT_ID, 2)
+
+epicsEnvSet(ECMC_PLUGIN_CONFIG,"SOURCE=ec0.s2.CH2_VALUE;DBG_PRINT=0;NFFT=${ECMC_FFT_NELM};RATE=${ECMC_FFT_RATE};RM_DC=1;SCALE=1;MODE=CONT;ENABLE=1;BREAKTABLE=typeTelemess33021_21878;")
+#${SCRIPTEXEC} ${ecmccfg_DIR}loadPlugin.cmd, "PLUGIN_ID=${ECMC_FFT_ID},FILE=${ECMC_PLUGIN_FILNAME},CONFIG='${ECMC_PLUGIN_CONFIG}', REPORT=0"
+# Note: INDEX is the index of FFT object in FFT plugin and not PLUGIN_ID. In this case the same
+#dbLoadRecords(ecmcPluginFFT.template,"P=$(IOC):,INDEX=${ECMC_FFT_ID}, NELM=${ECMC_FFT_NELM},AMP_DESC='Position amplitude',AMP_EGU='mm',RAW_DESC='Position',RAW_EGU='mm',TITLE='FFT for Telemess sensor 120°'")
+
+##############################################################################
+## Load plugin: FFT AI CH3 : Telemess 0..15
+epicsEnvSet(ECMC_FFT_ID, 3)
+
+epicsEnvSet(ECMC_PLUGIN_CONFIG,"SOURCE=ec0.s2.CH3_VALUE;DBG_PRINT=0;NFFT=${ECMC_FFT_NELM};RATE=${ECMC_FFT_RATE};RM_DC=1;SCALE=1;MODE=CONT;ENABLE=1;BREAKTABLE=typeTelemess33018_21876;")
+#${SCRIPTEXEC} ${ecmccfg_DIR}loadPlugin.cmd, "PLUGIN_ID=${ECMC_FFT_ID},FILE=${ECMC_PLUGIN_FILNAME},CONFIG='${ECMC_PLUGIN_CONFIG}', REPORT=0"
+# Note: INDEX is the index of FFT object in FFT plugin and not PLUGIN_ID. In this case the same
+#dbLoadRecords(ecmcPluginFFT.template,"P=$(IOC):,INDEX=${ECMC_FFT_ID}, NELM=${ECMC_FFT_NELM}, ,AMP_DESC='Position amplitude',AMP_EGU='mm',RAW_DESC='Position',RAW_EGU='mm',TITLE='FFT for Telemess sensor 240°'")
+
+##############################################################################
+## Load plugin: FFT AI CH4 : Telemess 0..20
+epicsEnvSet(ECMC_FFT_ID, 4)
+
+epicsEnvSet(ECMC_PLUGIN_CONFIG,"SOURCE=ec0.s2.CH4_VALUE;DBG_PRINT=0;NFFT=${ECMC_FFT_NELM};RATE=${ECMC_FFT_RATE};RM_DC=1;SCALE=1;MODE=CONT;ENABLE=1;BREAKTABLE=typeTelemess32900_21875;")
+#${SCRIPTEXEC} ${ecmccfg_DIR}loadPlugin.cmd, "PLUGIN_ID=${ECMC_FFT_ID},FILE=${ECMC_PLUGIN_FILNAME},CONFIG='${ECMC_PLUGIN_CONFIG}', REPORT=0"
+# Note: INDEX is the index of FFT object in FFT plugin and not PLUGIN_ID. In this case the same
+#dbLoadRecords(ecmcPluginFFT.template,"P=$(IOC):,INDEX=${ECMC_FFT_ID}, NELM=${ECMC_FFT_NELM},AMP_DESC='Position amplitude',AMP_EGU='mm',RAW_DESC='Position',RAW_EGU='mm',TITLE='FFT for Telemess sensor vertical'")
+
+##############################################################################
+## PLC 0: For calculating the phase error
+#$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=0, SAMPLE_RATE_MS=10,FILE=./plc/phaseError.plc, PLC_MACROS='DBG=#,PLC_ID=0,PHOTOCELL_POSTIME=ec0.s4.CH1_LATCH_POS,TIMING_POSTIME=ec0.s4.CH2_LATCH_POS,MIN_PHASE_ERROR=0,MAX_PHASE_ERROR=5'")
+#dbLoadRecords("ecmcPlcAnalog.db","P=$(IOC):,PORT=MC_CPU1,ASYN_NAME=plcs.plc0.static.phaseErrorMM,REC_NAME=-PhaseErrorMM,TSE=0,T_SMP_MS=10")
+
+##############################################################################
+## Cleanup:
+epicsEnvUnset(ECMC_FFT_ID)
+epicsEnvUnset(ECMC_FFT_NELM)
+epicsEnvUnset(ECMC_REVS_TO_FFT)
+epicsEnvUnset(ECMC_PLUGIN_CONFIG)
+epicsEnvUnset(ECMC_PLUGIN_FILNAME)
+epicsEnvUnset(ECMC_ENC_SCALE)
+
+##############################################################################
+## Configure diagnostics:
+ecmcConfigOrDie "Cfg.EcSetDiagnostics(1)"
+ecmcConfigOrDie "Cfg.EcEnablePrintouts(0)"
+ecmcConfigOrDie "Cfg.EcSetDomainFailedCyclesLimit(100)"
+
+##############################################################################
+## go active
+$(SCRIPTEXEC) ($(ecmccfg_DIR)setAppMode.cmd)
+iocInit()
+
+##############################################################################
+## Store Records to file
+dbl > pvs.log
