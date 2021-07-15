@@ -48,10 +48,15 @@ ${SCRIPTEXEC} ${ecmccfg_DIR}ecmcEL3164-Sensor-chX-default.cmd
 epicsEnvSet("ECMC_EC_SLAVE_NUM",              "3")
 ${SCRIPTEXEC} ${ecmccfg_DIR}addSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=EL9505"
 
-#epicsEnvSet("ECMC_SAMPLE_RATE_MS", 1)
+epicsEnvSet("ECMC_SAMPLE_RATE_MS", 1)
 epicsEnvSet("ECMC_EC_SLAVE_NUM",              "4")
 ${SCRIPTEXEC} ${ecmccfg_DIR}addSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=EL1252"
-#epicsEnvSet("ECMC_SAMPLE_RATE_MS", 10)
+
+# Note NELM equals oversampling factor in this case. Use +-320mv Config file for all 4 channels
+epicsEnvSet("NELM",              "20")
+epicsEnvSet("ECMC_EC_SLAVE_NUM",              "5")
+${SCRIPTEXEC} ${ecmccfg_DIR}configureSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=ELM3604, NELM=${NELM=20}, CONFIG=-Sensor_+-320mV"
+epicsEnvSet("ECMC_SAMPLE_RATE_MS", 10)
 #Apply hardware configuration
 ecmcConfigOrDie "Cfg.EcApplyConfig(1)"
 
