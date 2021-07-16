@@ -4,7 +4,7 @@
 In the call with Jerzy we concluded that one maybe better way would be to syncronize the 1kHz cloc (to get timestamps directlly from evr in 1khz).
 So basically there are two solutions:
 
-1. time2ntp, shared memory, chrony, CLOCK_REALTIME
+1. time2ntp, shared memory, chrony, CLOCK_REALTIME (could also be used with ptp)
 
 2. direct (would be best). Callbacks direct from mrf (over epics or direct from mrf)
 
