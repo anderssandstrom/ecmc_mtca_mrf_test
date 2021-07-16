@@ -4,9 +4,9 @@
 In the call with Jerzy we concluded that one maybe better way would be to syncronize the 1kHz cloc (to get timestamps directlly from evr in 1khz).
 So basically there are two solutions:
 
-1. time2ntp 
+1. time2ntp, shared memory, chrony, CLOCK_REALTIME
 
-2. direct (would be best)
+2. direct (would be best). Callbacks direct from mrf (over epics or direct from mrf)
 
 Test both!
 
@@ -21,4 +21,6 @@ https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/blob/master/cmds/IocExamples/Io
 
 Not sure:
 https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/blob/master/cmds/evr-mtca.cmd
+
+The PCI id needs to be checked withn lspci command.
 
