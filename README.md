@@ -12,8 +12,13 @@ Test both!
 
 Jerzy could help to setup system in end of aug if I give him the host name.
 
-Link to repository with examples:
+Link to repository with examples (test those):
 https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/tree/master/cmds
-Maybe this one?
+
+Exacute these ones:
+https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/blob/master/cmds/IocExamples/IocEvrLb/st.cmd
+https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/blob/master/cmds/IocExamples/IocEvrLb/iocrc.iocsh
+
+Not sure:
 https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/blob/master/cmds/evr-mtca.cmd
 
