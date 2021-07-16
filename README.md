@@ -14,4 +14,6 @@ Jerzy could help to setup system in end of aug if I give him the host name.
 
 Link to repository with examples:
 https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/tree/master/cmds
+Maybe this one?
+https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/blob/master/cmds/evr-mtca.cmd
 
