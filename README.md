@@ -24,3 +24,7 @@ https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/blob/master/cmds/evr-mtca.cmd
 
 The PCI id needs to be checked withn lspci command.
 
+
+modprobe mrf (need mrf kernel module)
+lsmod | grep mrf to check
+
