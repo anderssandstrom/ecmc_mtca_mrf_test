@@ -21,8 +21,13 @@ epicsEnvSet("MainEvtCODE" "14")
 #
 iocshLoad("$(mrfioc2_DIR)/evr-mtca-300.iocsh", "P=$(PREFIX), S=, DEV=$(DISDEVID), PCIID=$(PCIID)")
 
+# Make the EVR the time sources for the machine
+time2ntp("$(DISDEVID)", 2)
+
 iocInit()
 
 # The following script should be called after iocInit()
 iocshLoad("$(mrfioc2_DIR)/evr-standalone-mode.iocsh", "PREFIX=$(PREFIX)")
+
+#dbpf TEST:Ctrl-EVR-001:TimeSrc-Sel 1
 
