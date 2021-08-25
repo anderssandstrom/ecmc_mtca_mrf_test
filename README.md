@@ -51,10 +51,15 @@ $ history
    28  2021-08-25 08:47:00 sudo reboot
    
    # add row to /etc/chrony.conf "refclock SHM 2:perm=0666 poll 4 precision 1e-9 filter 64 prefer refid EVR2"
+   # and comment out the first row "# pool ntp-relay-cslab01.cslab.esss.lu.se iburst"
    28 sudo nano /etc/chrony.conf
    # restart chronyd and check status
    28 sudo systemctl restart chronyd
    28 sudo systemctl status chronyd
+   
+   check chrony status with:
+   chronyc sources
+   chronyc tracking
    
    # Check Xilinx address
    29  2021-08-25 08:50:02 lspci | grep Xilinx
