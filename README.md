@@ -46,7 +46,7 @@ $ history
    21  2021-08-25 08:45:30 git tag
    22  2021-08-25 08:45:42 git checkout 2.2.1
    24  2021-08-25 08:46:13 sudo yum install nano
-   25  2021-08-25 08:46:28 nano /etc/fstab 
+   # Add /epics NFS
    26  2021-08-25 08:46:40 sudo nano /etc/fstab    
    28  2021-08-25 08:47:00 sudo reboot
    
