@@ -1,12 +1,11 @@
 registerChannelProviderLocal firstTime true
-macLib: macro SECSUB is undefined (expanding string epicsEnvSet("PREFIX", "$(SECSUB):$(DISDEVID):"))
 Notice: devPCIFindSpec() expect B:D.F in hex
 Found SFP Strangeness 00000000
 #
-# Start at "2021-W34-Aug25-0926-34-CEST"
+# Start at "2021-W34-Aug25-1357-06-CEST"
 #
 # Version information:
-# European Spallation Source ERIC : iocsh.bash (3.3.0-PID-2264)
+# European Spallation Source ERIC : iocsh.bash (3.3.0-PID-4993)
 #
 # --->--> snip -->--> 
 # Please Use Version and other environment variables
@@ -14,7 +13,7 @@ Found SFP Strangeness 00000000
 #
 # HOSTDISPLAY=""
 # WINDOWID=""
-# PWD="/home/anderssandstrom/sources/e3-mrfioc2"
+# PWD="/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh"
 # USER="anderssandstrom"
 # LOGNAME="anderssandstrom"
 # EPICS_HOST_ARCH="linux-x86_64"
@@ -34,13 +33,13 @@ Found SFP Strangeness 00000000
 # --->--> snip -->--> 
 #
 # Set REQUIRE_IOC for its internal PVs
-epicsEnvSet REQUIRE_IOC "REQMOD:ccpu-33584-004-2264"
+epicsEnvSet REQUIRE_IOC "REQMOD:ccpu-33584-004-4993"
 #
 # Enable an exit subroutine for sotfioc
-dbLoadRecords "/epics/base-7.0.4/db/softIocExit.db" "IOC=REQMOD:ccpu-33584-004-2264"
+dbLoadRecords "/epics/base-7.0.4/db/softIocExit.db" "IOC=REQMOD:ccpu-33584-004-4993"
 #
 # Set E3_IOCSH_TOP for the absolute path where iocsh.bash is executed.
-epicsEnvSet E3_IOCSH_TOP "/home/anderssandstrom/sources/e3-mrfioc2"
+epicsEnvSet E3_IOCSH_TOP "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh"
 #
 # 
 # Load require module, which has the version 3.3.0
@@ -51,9 +50,9 @@ require_registerRecordDeviceDriver
 Loading module info records for require
 # 
 # Set E3_CMD_TOP for the absolute path where evr_mtca_300_standalone.cmd exists
-epicsEnvSet E3_CMD_TOP "/home/anderssandstrom/sources/e3-mrfioc2/cmds"
+epicsEnvSet E3_CMD_TOP "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh"
 #
-iocshLoad 'cmds/evr_mtca_300_standalone.cmd','PREFIX=TEST:'
+iocshLoad 'evr_mtca_300_standalone.cmd','SECSUB=TEST'
 require mrfioc2,2.2.1rc3
 Module mrfioc2 version 2.2.1-rc.3.2 found in /epics/base-7.0.4/require/3.3.0/siteMods/mrfioc2/2.2.1-rc.3.2/
 Module mrfioc2 depends on devlib2 2.9.0
@@ -71,6 +70,7 @@ Loading module info records for mrfioc2
 epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES","10000000")
 epicsEnvSet("SYSSUB", "LAB-010")
 epicsEnvSet("DISDEVID", "Ctrl-EVR-001")
+epicsEnvSet("PREFIX", "TEST:Ctrl-EVR-001:")
 epicsEnvSet("PCIID", "08:00.0")
 # Not use in this script, but it is needed for the expansion. 
 epicsEnvSet("MainEvtCODE" "14")
@@ -79,7 +79,7 @@ epicsEnvSet("MainEvtCODE" "14")
 # "P" is mandatory, "R" is optional (default empty), "S" is optional (defaul separator ":")
 # "DEV" is a unique identifier of the EVR card used by mrfioc2 device support layer
 #
-iocshLoad("/epics/base-7.0.4/require/3.3.0/siteMods/mrfioc2/2.2.1-rc.3.2//evr-mtca-300.iocsh", "P=TEST:, S=, DEV=Ctrl-EVR-001, PCIID=08:00.0")
+iocshLoad("/epics/base-7.0.4/require/3.3.0/siteMods/mrfioc2/2.2.1-rc.3.2//evr-mtca-300.iocsh", "P=TEST:Ctrl-EVR-001:, S=, DEV=Ctrl-EVR-001, PCIID=08:00.0")
 #                       $(P)$(R)$(S=:)SubDev-Signal-SD
 #  RT             - software timestamp source w/o RT thread scheduling
 #                   wtRT : diable software timestamp source
@@ -89,86 +89,6 @@ Device Ctrl-EVR-001  8:0.0 slot=1-1
 Using IRQ 142
 FWVersion 0x18070207
 Found version 519
-Sequencer capability detected
-mTCA: Out FP:4 FPUNIV:18 RB:0 IFP:32 GPIO:2
-EVR FIFO task start
-Enabling inteStarting iocInit
+Sequencer capabilitStarting iocInit
 iocRun: All initialization complete
-rrupts
-dbLoadRecords("evr-mtca-300u-ess.db","P=TEST:, R=, S=, OBJ=Ctrl-EVR-001, FEVT=88.0525")
-iocshRun('$(SWTIMESTAMP_$(RT=woRT)=) var(evrMrmTimeNSOverflowThreshold, 100000)', "SWTIMESTAMP_wtRT=#") 
-iocInit()
-############################################################################
-## EPICS R7.0.4-E3-7.0.4-patch
-## Rev. 2020-07-02T15:59+0200
-############################################################################
-Set EVR clock 88052500.000000
-# The following script should be called after iocInit()
-iocshLoad("/epics/base-7.0.4/require/3.3.0/siteMods/mrfioc2/2.2.1-rc.3.2//evr-standalone-mode.iocsh", "PREFIX=TEST:")
-dbpf TEST:TimeSrc-Sel "Sys. Clock"
-DBF_STRING:         "Sys. Clock"        
-dbpf TEST:DC-Tgt-SP 70
-DBF_DOUBLE:         70        
-dbpf TEST:PS0-Div-SP 6289464
-DBF_LONG:           6289464 = 0x5ff838  
-dbpf TEST:SoftSeq0-RunMode-Sel "Normal"
-DBF_STRING:         "Normal"  
-dbpf TEST:SoftSeq0-TrigSrc-2-Sel "Prescaler 0"
-DBF_STRING:         "Prescaler 0"       
-dbpf TEST:SoftSeq0-TsResolution-Sel "uSec"
-DBF_STRING:         "uSec"    
-dbpf TEST:SoftSeq0-Load-Cmd 1
-DBF_STRING:         "1"       
-dbpf TEST:SoftSeq0-Enable-Cmd 1
-DBF_STRING:         "1"       
-system("/bin/bash /epics/base-7.0.4/require/3.3.0/siteMods/mrfioc2/2.2.1-rc.3.2/configure_sequencer_14Hz.bash TEST:")
-# Set the IOC Prompt String One 
-epicsEnvSet IOCSH_PS1 "ccpu-33584-004-2264 > "
-#
-[?1034hccpu-33584-004-2264 > helkp[K[Kp
-Type 'help <command>' to see the arguments of <command>.
-#               ClockTime_Report                ClockTime_Shutdown
-FracSynthAnalyze                FracSynthControlWord            afterInit
-asDumpHash      asInit          asSetFilename   asSetSubstitutions
-ascar           asdbdump        asphag          aspmem          asprules
-aspuag          astac           callbackParallelThreads         
-callbackQueueShow               callbackSetQueueSize            casr
-cd              coreRelease     date            dbDumpBreaktable
-dbDumpDevice    dbDumpDriver    dbDumpField     dbDumpFunction  dbDumpLink
-dbDumpMenu      dbDumpPath      dbDumpRecord    dbDumpRecordType
-dbDumpRegistrar dbDumpVariable  dbLoadDatabase  dbLoadRecords   dbLoadTemplate
-dbLockShowLocked                dbNotifyDump    dbPutAttribute  dbPvdDump
-dbPvdTableSize  dbReportDeviceConfig            dbStateClear    dbStateCreate
-dbStateSet      dbStateShow     dbStateShowAll  dba             dbap
-dbb             dbc             dbcar           dbd             dbel
-dbgf            dbgl            dbgrep          dbhcr           dbior
-dbjlr           dbl             dbla            dbli            dblsr
-dbnr            dbp             dbpf            dbpr            dbpvar
-dbs             dbsr            dbstat          dbtgf           dbtpf
-dbtpn           dbtr            devLibPCIUse    devPCIShow      
-devlib2_registerRecordDeviceDriver              dlload          dol
-dor             echo            eltc            epicsEnvSet     epicsEnvShow
-epicsEnvUnset   epicsMutexShowAll               epicsParamShow  
-epicsPrtEnvParams               epicsThreadResume               
-epicsThreadShow epicsThreadShowAll              epicsThreadSleep
-errlog          errlogInit      errlogInit2     exit            flasherase
-flashinfo       flashread       flashwrite      generalTimeReport
-gft             help            installLastResortEventProvider  iocBuild
-iocInit         iocLogInit      iocLogPrefix    iocLogShow      iocPause
-iocRun          iocshCmd        iocshLoad       iocshRun        ld
-libversionShow  loadIocsh       mrfioc2_registerRecordDeviceDriver
-mrmEvgSetupPCI  mrmEvgSetupVME  mrmEvrDumpMap   mrmEvrForward   mrmEvrLoopback
-mrmEvrSetupPCI  mrmEvrSetupVME  on              pathAdd         pciconfread
-pcidiagset      pciread         pciwrite        pft             postEvent
-pval            pvasr           pvdbl           pwd             refdiff
-refmon          refsave         refshow         registryDeviceSupportFind
-registryDriverSupportFind       registryDump    registryFunctionFind
-registryRecordTypeFind          require         
-require_registerRecordDeviceDriver              runScript       
-scanOnceQueueShow               scanOnceSetQueueSize            scanpel
-scanpiol        scanppl         setIocLogDisable                
-softIocPVA_registerRecordDeviceDriver           startPVAServer  stopPVAServer
-system          taskwdShow      time2ntp        tpn             var
-vmecsrdump      vmecsrprint     vmeirq          vmeirqattach    vmeread
-vmewrite        
-ccpu-33584-004-2264 > 
+Starting NTP SHM writer for segment 2
