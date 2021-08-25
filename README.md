@@ -24,12 +24,13 @@ https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/blob/master/cmds/evr-mtca.cmd
 
 The PCI id needs to be checked withn lspci command.
 
-
+```
 modprobe mrf (need mrf kernel module)
 lsmod | grep mrf to check
-
+```
 
 todo to get working:
+```
 2021-08-24 15:27:28 ip addr
     2  2021-08-24 15:27:33 lspci
     7  2021-08-24 15:28:48 mkdir sources
@@ -55,6 +56,5 @@ todo to get working:
    36  2021-08-25 08:57:14 nano cmds/evr_mtca_300_standalone.cmd    
    #### Test ioc
    40  2021-08-25 08:58:29 iocsh.bash cmds/evr_mtca_300_standalone.cmd PREFIX=TEST: | tee log.log
-  
-
+```
 
