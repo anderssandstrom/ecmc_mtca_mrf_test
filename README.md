@@ -28,3 +28,33 @@ The PCI id needs to be checked withn lspci command.
 modprobe mrf (need mrf kernel module)
 lsmod | grep mrf to check
 
+
+todo to get working:
+2021-08-24 15:27:28 ip addr
+    2  2021-08-24 15:27:33 lspci
+    7  2021-08-24 15:28:48 mkdir sources
+    8  2021-08-24 15:28:51 cd sources/   
+   12  2021-08-25 08:44:08 git clone https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2.git
+   17  2021-08-25 08:45:12 git clone https://github.com/anderssandstrom/ecmc_mtca_mrf_test.git
+   18  2021-08-25 08:45:17 ls
+   19  2021-08-25 08:45:22 cd e3-mrfioc2/
+   21  2021-08-25 08:45:30 git tag
+   22  2021-08-25 08:45:42 git checkout 2.2.1
+   24  2021-08-25 08:46:13 sudo yum install nano
+   25  2021-08-25 08:46:28 nano /etc/fstab 
+   26  2021-08-25 08:46:40 sudo nano /etc/fstab    
+   28  2021-08-25 08:47:00 sudo reboot
+  ####check xilinx address
+   29  2021-08-25 08:50:02 lspci
+   30  2021-08-25 08:55:52 ls
+   31  2021-08-25 08:55:54 cd sources/   
+   33  2021-08-25 08:56:07 . /epics/base-7.0.4/require/3.3.0/bin/setE3Env.bash 
+   34  2021-08-25 08:56:44 cd e3-mrfioc2/
+   
+   ####Add xilinx address to startup cmd.
+   36  2021-08-25 08:57:14 nano cmds/evr_mtca_300_standalone.cmd    
+   #### Test ioc
+   40  2021-08-25 08:58:29 iocsh.bash cmds/evr_mtca_300_standalone.cmd PREFIX=TEST: | tee log.log
+  
+
+
