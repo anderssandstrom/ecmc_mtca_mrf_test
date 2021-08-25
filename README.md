@@ -34,6 +34,8 @@ todo to get working:
 ```
 $ history
 2021-08-24 15:27:28 ip addr
+
+   # Prepare system
     2  2021-08-24 15:27:33 lspci
     7  2021-08-24 15:28:48 mkdir sources
     8  2021-08-24 15:28:51 cd sources/   
