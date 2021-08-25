@@ -30,7 +30,9 @@ lsmod | grep mrf to check
 ```
 
 todo to get working:
+
 ```
+$ history
 2021-08-24 15:27:28 ip addr
     2  2021-08-24 15:27:33 lspci
     7  2021-08-24 15:28:48 mkdir sources
@@ -45,16 +47,19 @@ todo to get working:
    25  2021-08-25 08:46:28 nano /etc/fstab 
    26  2021-08-25 08:46:40 sudo nano /etc/fstab    
    28  2021-08-25 08:47:00 sudo reboot
-  ####check xilinx address
-   29  2021-08-25 08:50:02 lspci
+   
+   # Check Xilinx address
+   29  2021-08-25 08:50:02 lspci | grep Xilinx
    30  2021-08-25 08:55:52 ls
    31  2021-08-25 08:55:54 cd sources/   
+   
+   # Must use this old version otherwise script will not work
    33  2021-08-25 08:56:07 . /epics/base-7.0.4/require/3.3.0/bin/setE3Env.bash 
    34  2021-08-25 08:56:44 cd e3-mrfioc2/
    
-   ####Add xilinx address to startup cmd.
+   # Add xilinx address to startup cmd.
    36  2021-08-25 08:57:14 nano cmds/evr_mtca_300_standalone.cmd    
-   #### Test ioc
+   
+   # Test ioc
    40  2021-08-25 08:58:29 iocsh.bash cmds/evr_mtca_300_standalone.cmd PREFIX=TEST: | tee log.log
 ```
-
