@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>EVR DlyGen</name>
+  <width>735</width>
+  <height>40</height>
+  <grid_visible>false</grid_visible>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>$(N)</text>
+    <x>9</x>
+    <y>7</y>
+    <width>25</width>
+    <font>
+      <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="TEXT" red="25" green="25" blue="25">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button</name>
+    <pv_name>$(P)$(R)$(Q)-Polarity-Sel</pv_name>
+    <bit>-1</bit>
+    <x>125</x>
+    <y>10</y>
+    <width>65</width>
+    <height>20</height>
+    <off_label>Normal</off_label>
+    <off_color>
+      <color name="Button_Background" red="236" green="236" blue="236">
+      </color>
+    </off_color>
+    <on_label>Invert</on_label>
+    <on_color>
+      <color name="RED-BACKGROUND" red="225" green="192" blue="188">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_1</name>
+    <pv_name>$(P)$(R)$(Q)-Ena-Sel</pv_name>
+    <bit>-1</bit>
+    <x>65</x>
+    <y>10</y>
+    <width>50</width>
+    <height>20</height>
+    <off_color>
+      <color name="OFF" red="90" green="110" blue="90">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="ON" red="70" green="255" blue="70">
+      </color>
+    </on_color>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>$(P)$(R)$(Q)-Delay-SP.EGU</pv_name>
+    <x>480</x>
+    <y>10</y>
+    <width>20</width>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input_7</name>
+    <pv_name>$(P)$(R)$(Q)-Label-I</pv_name>
+    <x>205</x>
+    <y>10</y>
+    <width>130</width>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <format>6</format>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input_8</name>
+    <pv_name>$(P)$(R)$(Q)-Prescaler-SP</pv_name>
+    <x>350</x>
+    <y>10</y>
+    <width>50</width>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <show_units>false</show_units>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input_9</name>
+    <pv_name>$(P)$(R)$(Q)-Delay-SP</pv_name>
+    <x>415</x>
+    <y>10</y>
+    <width>65</width>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <show_units>false</show_units>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input_11</name>
+    <pv_name>$(P)$(R)$(Q)-Width-SP</pv_name>
+    <x>515</x>
+    <y>10</y>
+    <width>65</width>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <show_units>false</show_units>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_4</name>
+    <pv_name>$(P)$(R)$(Q)-Width-SP.EGU</pv_name>
+    <x>580</x>
+    <y>10</y>
+    <width>20</width>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input_12</name>
+    <pv_name>$(P)$(R)$(Q)-Evt-Trig0-SP</pv_name>
+    <x>615</x>
+    <y>10</y>
+    <width>30</width>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <show_units>false</show_units>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input_13</name>
+    <pv_name>$(P)$(R)$(Q)-Evt-Trig1-SP</pv_name>
+    <x>650</x>
+    <y>10</y>
+    <width>30</width>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <show_units>false</show_units>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input_14</name>
+    <pv_name>$(P)$(R)$(Q)-Evt-Trig2-SP</pv_name>
+    <x>685</x>
+    <y>10</y>
+    <width>30</width>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <show_units>false</show_units>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+</display>
