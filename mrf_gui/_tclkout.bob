@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>tclkout</name>
+  <width>760</width>
+  <height>390</height>
+  <background_color>
+    <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_1</name>
+    <x>220</x>
+    <y>5</y>
+    <width>425</width>
+    <height>192</height>
+    <line_width>0</line_width>
+    <line_color>
+      <color name="BLACK-BORDER" red="121" green="121" blue="121">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="0" green="0" blue="0" alpha="16">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_6</name>
+    <macros>
+      <O>TCLKA</O>
+    </macros>
+    <file>_evroutput.bob</file>
+    <y>64</y>
+    <width>745</width>
+    <height>40</height>
+    <resize>2</resize>
+    <border_color>
+      <color name="WHITE" red="255" green="255" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_7</name>
+    <macros>
+      <O>TCLKB</O>
+    </macros>
+    <file>_evroutput.bob</file>
+    <y>110</y>
+    <width>745</width>
+    <height>40</height>
+    <resize>2</resize>
+    <border_color>
+      <color name="WHITE" red="255" green="255" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_8</name>
+    <macros>
+      <O>Int</O>
+    </macros>
+    <file>_evroutput.bob</file>
+    <y>157</y>
+    <width>745</width>
+    <height>40</height>
+    <resize>2</resize>
+    <border_color>
+      <color name="WHITE" red="255" green="255" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_72</name>
+    <text>ID</text>
+    <x>18</x>
+    <y>35</y>
+    <width>50</width>
+    <font>
+      <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_73</name>
+    <text>Output Source Options</text>
+    <x>240</x>
+    <y>5</y>
+    <width>395</width>
+    <height>30</height>
+    <font>
+      <font family="Source Sans Pro" style="BOLD_ITALIC" size="14.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_74</name>
+    <text>Label</text>
+    <x>94</x>
+    <y>35</y>
+    <width>80</width>
+    <font>
+      <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_75</name>
+    <text>Pulser</text>
+    <x>252</x>
+    <y>35</y>
+    <width>80</width>
+    <font>
+      <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_76</name>
+    <text>Wave</text>
+    <x>342</x>
+    <y>35</y>
+    <width>80</width>
+    <font>
+      <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_77</name>
+    <text>Bus</text>
+    <x>431</x>
+    <y>35</y>
+    <width>80</width>
+    <font>
+      <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_78</name>
+    <text>Constants</text>
+    <x>521</x>
+    <y>35</y>
+    <width>104</width>
+    <font>
+      <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_79</name>
+    <text>Output</text>
+    <x>656</x>
+    <y>35</y>
+    <width>80</width>
+    <font>
+      <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+</display>

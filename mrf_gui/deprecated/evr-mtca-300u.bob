@@ -1,0 +1,1664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>MRF EVR-MTCA-300U - $(P)$(R)</name>
+  <width>1671</width>
+  <height>1178</height>
+  <grid_visible>false</grid_visible>
+  <widget type="rectangle" version="2.0.0">
+    <name>Tiltlebar</name>
+    <width>1671</width>
+    <height>50</height>
+    <line_width>0</line_width>
+    <background_color>
+      <color name="PRIMARY-HEADER-BACKGROUND" red="151" green="188" blue="202">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Delay Generators (Pulsers)</name>
+    <x>20</x>
+    <y>280</y>
+    <width>806</width>
+    <height>664</height>
+    <style>3</style>
+    <font>
+      <font family="Source Sans Pro" style="BOLD_ITALIC" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="PRIMARY-DARK" red="31" green="83" blue="102">
+      </color>
+    </foreground_color>
+    <widget type="rectangle" version="2.0.0">
+      <name>Group</name>
+      <width>806</width>
+      <height>664</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="BLACK-BORDER" red="121" green="121" blue="121">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+        </color>
+      </background_color>
+      <corner_width>5</corner_width>
+      <corner_height>5</corner_height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Title</name>
+      <class>HEADER3</class>
+      <text>Delay Generators (Pulsers)</text>
+      <width>806</width>
+      <height>40</height>
+      <font use_class="true">
+        <font name="Header 3" family="Source Sans Pro" style="BOLD_ITALIC" size="18.0">
+        </font>
+      </font>
+      <foreground_color use_class="true">
+        <color name="Text" red="25" green="25" blue="25">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="navtabs" version="2.0.0">
+      <name>Navigation Tabs_1</name>
+      <tabs>
+        <tab>
+          <name>Pulser 0..7</name>
+          <file>_pulsers_0_7.bob</file>
+          <macros>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>Pulser 8..15</name>
+          <file>_pulsers_8_15.bob</file>
+          <macros>
+          </macros>
+          <group_name></group_name>
+        </tab>
+      </tabs>
+      <x>22</x>
+      <y>40</y>
+      <width>762</width>
+      <height>604</height>
+      <direction>0</direction>
+      <tab_height>25</tab_height>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="14.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Front-panel Outputs</name>
+    <x>841</x>
+    <y>825</y>
+    <width>810</width>
+    <height>333</height>
+    <style>3</style>
+    <font>
+      <font family="Source Sans Pro" style="BOLD_ITALIC" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="PRIMARY-DARK" red="31" green="83" blue="102">
+      </color>
+    </foreground_color>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>Group_1</name>
+      <width>810</width>
+      <height>333</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="GROUP-BORDER" red="150" green="155" blue="151">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+        </color>
+      </background_color>
+      <corner_width>5</corner_width>
+      <corner_height>5</corner_height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Prescalers_3</name>
+      <text>Front-panel Outputs</text>
+      <width>810</width>
+      <height>40</height>
+      <font>
+        <font family="Source Sans Pro" style="BOLD_ITALIC" size="17.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="navtabs" version="2.0.0">
+      <name>Navigation Tabs</name>
+      <tabs>
+        <tab>
+          <name>OUT0..OUT3</name>
+          <file>_fpoutputs.bob</file>
+          <macros>
+            <O0>FP0</O0>
+            <O1>FP1</O1>
+            <O2>FP2</O2>
+            <O3>FP3</O3>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>UNIV0..UNIV3</name>
+          <file>_fpoutputs.bob</file>
+          <macros>
+            <O0>FPUV0</O0>
+            <O1>FPUV1</O1>
+            <O2>FPUV2</O2>
+            <O3>FPUV3</O3>
+          </macros>
+          <group_name></group_name>
+        </tab>
+      </tabs>
+      <x>20</x>
+      <y>30</y>
+      <width>770</width>
+      <height>283</height>
+      <direction>0</direction>
+      <tab_width>120</tab_width>
+      <tab_height>24</tab_height>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="14.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Backplane Outputs</name>
+    <x>841</x>
+    <y>280</y>
+    <width>810</width>
+    <height>530</height>
+    <style>3</style>
+    <font>
+      <font family="Source Sans Pro" style="BOLD_ITALIC" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="PRIMARY-DARK" red="31" green="83" blue="102">
+      </color>
+    </foreground_color>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>Group_2</name>
+      <width>810</width>
+      <height>530</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="GROUP-BORDER" red="150" green="155" blue="151">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+        </color>
+      </background_color>
+      <corner_width>5</corner_width>
+      <corner_height>5</corner_height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Prescalers_4</name>
+      <text>Backplane Outputs</text>
+      <width>810</width>
+      <height>40</height>
+      <font>
+        <font family="Source Sans Pro" style="BOLD_ITALIC" size="17.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="navtabs" version="2.0.0">
+      <name>Navigation Tabs_2</name>
+      <tabs>
+        <tab>
+          <name>TX/RX Lines</name>
+          <file>_mtcabackplane.bob</file>
+          <macros>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>TCLK / Internal</name>
+          <file>_tclkout.bob</file>
+          <macros>
+          </macros>
+          <group_name></group_name>
+        </tab>
+      </tabs>
+      <x>20</x>
+      <y>40</y>
+      <width>770</width>
+      <height>470</height>
+      <direction>0</direction>
+      <tab_height>25</tab_height>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="14.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Front-panel Inputs</name>
+    <x>20</x>
+    <y>959</y>
+    <width>806</width>
+    <height>199</height>
+    <style>3</style>
+    <font>
+      <font family="Source Sans Pro" style="BOLD_ITALIC" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="PRIMARY-DARK" red="31" green="83" blue="102">
+      </color>
+    </foreground_color>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>Group</name>
+      <width>806</width>
+      <height>199</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="GROUP-BORDER" red="150" green="155" blue="151">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+        </color>
+      </background_color>
+      <corner_width>5</corner_width>
+      <corner_height>5</corner_height>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_In0_Background</name>
+      <x>71</x>
+      <y>78</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>0</line_width>
+      <background_color>
+        <color name="Background" red="220" green="225" blue="221">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_In1_Background</name>
+      <x>71</x>
+      <y>133</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>0</line_width>
+      <background_color>
+        <color name="Background" red="220" green="225" blue="221">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded Display_24</name>
+      <macros>
+        <Q>In0</Q>
+      </macros>
+      <file>_evrinput.bob</file>
+      <x>28</x>
+      <y>78</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded Display_25</name>
+      <macros>
+        <Q>In1</Q>
+      </macros>
+      <file>_evrinput.bob</file>
+      <x>28</x>
+      <y>133</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_16</name>
+      <text>Active Low/High</text>
+      <x>86</x>
+      <y>46</y>
+      <width>110</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_50</name>
+      <text>Edge (rising/falling)</text>
+      <x>228</x>
+      <y>46</y>
+      <width>110</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_51</name>
+      <text>Local Event</text>
+      <x>419</x>
+      <y>46</y>
+      <width>120</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_52</name>
+      <text>Uplink Event</text>
+      <x>594</x>
+      <y>46</y>
+      <width>120</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Title</name>
+      <text>Front-panel Inputs</text>
+      <width>806</width>
+      <height>40</height>
+      <font>
+        <font family="Source Sans Pro" style="BOLD_ITALIC" size="17.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_55</name>
+      <text>Nr.</text>
+      <x>39</x>
+      <y>46</y>
+      <width>20</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_24</name>
+    <class>TITLE</class>
+    <text>  MTCA-EVR-300U [$(EVR)]</text>
+    <x use_class="true">20</x>
+    <y use_class="true">0</y>
+    <width>1135</width>
+    <height use_class="true">50</height>
+    <font use_class="true">
+      <font name="Header 1" family="Source Sans Pro" style="BOLD_ITALIC" size="36.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="HEADER-TEXT" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="PRIMARY-HEADER-BACKGROUND" red="151" green="188" blue="202">
+      </color>
+    </background_color>
+    <transparent use_class="true">true</transparent>
+    <horizontal_alignment use_class="true">0</horizontal_alignment>
+    <vertical_alignment use_class="true">1</vertical_alignment>
+    <wrap_words use_class="true">false</wrap_words>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <file>evr-expert.bob</file>
+        <target>tab</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <text>Expert</text>
+    <x>1536</x>
+    <y>12</y>
+    <width>116</width>
+    <height>25</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Prescalers_1</name>
+    <x>936</x>
+    <y>70</y>
+    <width>286</width>
+    <height>194</height>
+    <style>3</style>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="GRAY-BORDER" red="121" green="121" blue="121">
+      </color>
+    </foreground_color>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_Group_5</name>
+      <width>286</width>
+      <height>194</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="GROUP-BORDER" red="150" green="155" blue="151">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+        </color>
+      </background_color>
+      <corner_width>5</corner_width>
+      <corner_height>5</corner_height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_21</name>
+      <pv_name>$(P)$(R)PS2-Rate-I</pv_name>
+      <x>164</x>
+      <y>154</y>
+      <width>90</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <format>1</format>
+      <precision>6</precision>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_22</name>
+      <pv_name>$(P)$(R)PS1-Rate-I</pv_name>
+      <x>164</x>
+      <y>120</y>
+      <width>90</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <format>1</format>
+      <precision>6</precision>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_23</name>
+      <pv_name>$(P)$(R)PS0-Rate-I</pv_name>
+      <x>164</x>
+      <y>86</y>
+      <width>90</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <format>1</format>
+      <precision>6</precision>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input_4</name>
+      <pv_name>$(P)$(R)PS0-Div-SP</pv_name>
+      <x>58</x>
+      <y>86</y>
+      <width>78</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input_5</name>
+      <pv_name>$(P)$(R)PS1-Div-SP</pv_name>
+      <x>58</x>
+      <y>120</y>
+      <width>78</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input_6</name>
+      <pv_name>$(P)$(R)PS2-Div-SP</pv_name>
+      <x>58</x>
+      <y>154</y>
+      <width>78</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_28</name>
+      <text>2</text>
+      <x>32</x>
+      <y>151</y>
+      <width>20</width>
+      <foreground_color>
+        <color red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_29</name>
+      <text>1</text>
+      <x>32</x>
+      <y>117</y>
+      <width>20</width>
+      <foreground_color>
+        <color red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_30</name>
+      <text>0</text>
+      <x>32</x>
+      <y>84</y>
+      <width>20</width>
+      <foreground_color>
+        <color red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_53</name>
+      <text>Set Value</text>
+      <x>58</x>
+      <y>50</y>
+      <width>78</width>
+      <height>23</height>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>Loaded/Unloaded</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_54</name>
+      <text>Value</text>
+      <x>164</x>
+      <y>50</y>
+      <width>90</width>
+      <height>23</height>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>Enabled/Disabled</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Prescalers</name>
+      <class>HEADER3</class>
+      <text>Prescalers</text>
+      <width>286</width>
+      <height>40</height>
+      <font use_class="true">
+        <font name="Header 3" family="Source Sans Pro" style="BOLD_ITALIC" size="18.0">
+        </font>
+      </font>
+      <foreground_color use_class="true">
+        <color name="Text" red="25" green="25" blue="25">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Event Monitors_1</name>
+    <x>1237</x>
+    <y>70</y>
+    <width>414</width>
+    <height>194</height>
+    <style>3</style>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="GRAY-BORDER" red="121" green="121" blue="121">
+      </color>
+    </foreground_color>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_Group_6</name>
+      <width>414</width>
+      <height>194</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="GROUP-BORDER" red="150" green="155" blue="151">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+        </color>
+      </background_color>
+      <corner_width>5</corner_width>
+      <corner_height>5</corner_height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Prescalers_2</name>
+      <text>Event Monitors</text>
+      <width>414</width>
+      <height>40</height>
+      <font>
+        <font family="Source Sans Pro" style="BOLD_ITALIC" size="17.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_28</name>
+      <pv_name>$(P)$(R)EvtACnt-I</pv_name>
+      <x>112</x>
+      <y>50</y>
+      <width>70</width>
+      <font>
+        <font name="Fine Print" family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_33</name>
+      <pv_name>$(P)$(R)EvtBCnt-I</pv_name>
+      <x>111</x>
+      <y>86</y>
+      <width>70</width>
+      <font>
+        <font name="Fine Print" family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_34</name>
+      <pv_name>$(P)$(R)EvtCCnt-I</pv_name>
+      <x>112</x>
+      <y>120</y>
+      <width>70</width>
+      <font>
+        <font name="Fine Print" family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_35</name>
+      <pv_name>$(P)$(R)EvtDCnt-I</pv_name>
+      <x>112</x>
+      <y>154</y>
+      <width>70</width>
+      <font>
+        <font name="Fine Print" family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_36</name>
+      <pv_name>$(P)$(R)EvtDCnt-I</pv_name>
+      <x>301</x>
+      <y>50</y>
+      <width>70</width>
+      <font>
+        <font name="Fine Print" family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_37</name>
+      <pv_name>$(P)$(R)EvtECnt-I</pv_name>
+      <x>300</x>
+      <y>86</y>
+      <width>70</width>
+      <font>
+        <font name="Fine Print" family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_38</name>
+      <pv_name>$(P)$(R)EvtFCnt-I</pv_name>
+      <x>301</x>
+      <y>120</y>
+      <width>70</width>
+      <font>
+        <font name="Fine Print" family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_39</name>
+      <pv_name>$(P)$(R)EvtGCnt-I</pv_name>
+      <x>301</x>
+      <y>154</y>
+      <width>70</width>
+      <font>
+        <font name="Fine Print" family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_43</name>
+      <text>Monitor E:</text>
+      <x>220</x>
+      <y>50</y>
+      <width>70</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_44</name>
+      <text>Monitor F:</text>
+      <x>220</x>
+      <y>86</y>
+      <width>70</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_45</name>
+      <text>Monitor G:</text>
+      <x>220</x>
+      <y>120</y>
+      <width>70</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_46</name>
+      <text>Monitor H:</text>
+      <x>220</x>
+      <y>154</y>
+      <width>70</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_39</name>
+      <text>Monitor A:</text>
+      <x>32</x>
+      <y>50</y>
+      <width>70</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_40</name>
+      <text>Monitor B:</text>
+      <x>34</x>
+      <y>86</y>
+      <width>68</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_42</name>
+      <text>Monitor D:</text>
+      <x>36</x>
+      <y>154</y>
+      <width>66</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_41</name>
+      <text>Monitor C:</text>
+      <x>35</x>
+      <y>120</y>
+      <width>67</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Sequencers_1</name>
+    <x>744</x>
+    <y>70</y>
+    <width>177</width>
+    <height>194</height>
+    <style>3</style>
+    <font>
+      <font name="Fine Print" family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="GRAY-BORDER" red="121" green="121" blue="121">
+      </color>
+    </foreground_color>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_Group_4</name>
+      <width>177</width>
+      <height>194</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="GROUP-BORDER" red="150" green="155" blue="151">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+        </color>
+      </background_color>
+      <corner_width>5</corner_width>
+      <corner_height>5</corner_height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_47</name>
+      <text>Loaded</text>
+      <x>27</x>
+      <y>50</y>
+      <width>55</width>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>Loaded/Unloaded</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_48</name>
+      <text>Enabled</text>
+      <x>95</x>
+      <y>50</y>
+      <width>59</width>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>Enabled/Disabled</tooltip>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_11</name>
+      <pv_name>$(P)$(R)SoftSeq2-Enable-RB</pv_name>
+      <x>107</x>
+      <y>152</y>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_12</name>
+      <pv_name>$(P)$(R)SoftSeq2-Load-RB</pv_name>
+      <x>50</x>
+      <y>152</y>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_9</name>
+      <pv_name>$(P)$(R)SoftSeq1-Enable-RB</pv_name>
+      <x>107</x>
+      <y>118</y>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_10</name>
+      <pv_name>$(P)$(R)SoftSeq1-Load-RB</pv_name>
+      <x>50</x>
+      <y>118</y>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_7</name>
+      <pv_name>$(P)$(R)SoftSeq0-Enable-RB</pv_name>
+      <x>107</x>
+      <y>84</y>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_8</name>
+      <pv_name>$(P)$(R)SoftSeq0-Load-RB</pv_name>
+      <x>50</x>
+      <y>84</y>
+      <square>true</square>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_49</name>
+      <class>HEADER3</class>
+      <text>Sequencers</text>
+      <width>177</width>
+      <height>40</height>
+      <font use_class="true">
+        <font name="Header 3" family="Source Sans Pro" style="BOLD_ITALIC" size="18.0">
+        </font>
+      </font>
+      <foreground_color use_class="true">
+        <color name="Text" red="25" green="25" blue="25">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Action Button_7</name>
+      <text>2</text>
+      <x>15</x>
+      <y>149</y>
+      <width>20</width>
+      <font>
+        <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color name="Button_Background" red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+        <action type="open_display">
+          <file>old/evg-seq.bob</file>
+          <macros>
+            <SS>SoftSeq2</SS>
+          </macros>
+          <target>replace</target>
+          <description>Open Display</description>
+        </action>
+      </actions>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Action Button_6</name>
+      <text>1</text>
+      <x>15</x>
+      <y>116</y>
+      <width>20</width>
+      <font>
+        <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color name="Button_Background" red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+        <action type="open_display">
+          <file>old/evg-seq.bob</file>
+          <macros>
+            <SS>SoftSeq1</SS>
+          </macros>
+          <target>replace</target>
+          <description>Open Display</description>
+        </action>
+      </actions>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Action Button_2</name>
+      <text>0</text>
+      <x>15</x>
+      <y>82</y>
+      <width>20</width>
+      <font>
+        <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color name="Button_Background" red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+        <action type="open_display">
+          <file>old/evg-seq.bob</file>
+          <macros>
+            <SS>SoftSeq0</SS>
+          </macros>
+          <target>replace</target>
+          <description>Open Display</description>
+        </action>
+      </actions>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Delay Generators (Pulsers)</name>
+    <x>20</x>
+    <y>70</y>
+    <width>328</width>
+    <height>194</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_Group_1</name>
+      <width>328</width>
+      <height>194</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="GROUP-BORDER" red="150" green="155" blue="151">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+        </color>
+      </background_color>
+      <corner_width>5</corner_width>
+      <corner_height>5</corner_height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input</name>
+      <pv_name>$(P)$(R)Label-I</pv_name>
+      <x>24</x>
+      <y>149</y>
+      <width>280</width>
+      <height>25</height>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_10</name>
+      <pv_name>$(P)$(R)Time-I</pv_name>
+      <x>24</x>
+      <y>49</y>
+      <width>280</width>
+      <height>25</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_25</name>
+      <text>EVR Time</text>
+      <x>24</x>
+      <y>29</y>
+      <width>130</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_26</name>
+      <text>EVR Identification</text>
+      <x>24</x>
+      <y>129</y>
+      <width>130</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_27</name>
+      <text>Clock Frequency</text>
+      <x>24</x>
+      <y>81</y>
+      <width>130</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_11</name>
+      <pv_name>$(P)$(R)Link-Clk-I</pv_name>
+      <x>24</x>
+      <y>101</y>
+      <width>280</width>
+      <height>25</height>
+      <format>1</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_3</name>
+      <text>Status</text>
+      <width>328</width>
+      <height>40</height>
+      <font>
+        <font family="Source Sans Pro" style="BOLD_ITALIC" size="17.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Diagnostics</name>
+    <x>363</x>
+    <y>70</y>
+    <width>365</width>
+    <height>194</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_Group_2</name>
+      <width>365</width>
+      <height>194</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="GROUP-BORDER" red="150" green="155" blue="151">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+        </color>
+      </background_color>
+      <corner_width>5</corner_width>
+      <corner_height>5</corner_height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <class>HEADER3</class>
+      <text>Diagnostics</text>
+      <width>365</width>
+      <height>40</height>
+      <font use_class="true">
+        <font name="Header 3" family="Source Sans Pro" style="BOLD_ITALIC" size="18.0">
+        </font>
+      </font>
+      <foreground_color use_class="true">
+        <color name="Text" red="25" green="25" blue="25">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>Enabled:</text>
+      <x>15</x>
+      <y>50</y>
+      <width>60</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P)$(R)Ena-Sel</pv_name>
+      <x>83</x>
+      <y>50</y>
+      <width>65</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_7</name>
+      <text>Link:</text>
+      <x>16</x>
+      <y>84</y>
+      <width>60</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_2</name>
+      <pv_name>$(P)$(R)Link-Sts</pv_name>
+      <x>83</x>
+      <y>84</y>
+      <width>65</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>PLL:</text>
+      <x>16</x>
+      <y>118</y>
+      <width>60</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_3</name>
+      <pv_name>$(P)$(R)Pll-Sts</pv_name>
+      <x>83</x>
+      <y>118</y>
+      <width>65</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_11</name>
+      <text>Time:</text>
+      <x>16</x>
+      <y>152</y>
+      <width>60</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_6</name>
+      <pv_name>$(P)$(R)Time-Valid-Sts</pv_name>
+      <x>83</x>
+      <y>152</y>
+      <width>65</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_20</name>
+      <text>Link Err Cnt:</text>
+      <x>177</x>
+      <y>152</y>
+      <width>90</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_17</name>
+      <pv_name>$(P)$(R)Cnt-RxErr-I</pv_name>
+      <x>275</x>
+      <y>152</y>
+      <width>65</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_18</name>
+      <pv_name>$(P)$(R)Cnt-LinkTimo-I</pv_name>
+      <x>275</x>
+      <y>50</y>
+      <width>65</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_21</name>
+      <text>FIFO OFlw:</text>
+      <x>177</x>
+      <y>84</y>
+      <width>90</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_19</name>
+      <pv_name>$(P)$(R)Cnt-HwOflw-I</pv_name>
+      <x>275</x>
+      <y>84</y>
+      <width>65</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_20</name>
+      <pv_name>$(P)$(R)Cnt-SwOflw-I</pv_name>
+      <x>275</x>
+      <y>118</y>
+      <width>65</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_22</name>
+      <text>HBt TIMO Cnt:</text>
+      <x>177</x>
+      <y>50</y>
+      <width>90</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_23</name>
+      <text>Sw OFlw:</text>
+      <x>177</x>
+      <y>118</y>
+      <width>90</width>
+      <font>
+        <font family="Source Sans Pro" style="REGULAR" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_1</name>
+    <x>351</x>
+    <y>1200</y>
+    <width>1</width>
+    <height>1</height>
+  </widget>
+</display>

@@ -74,5 +74,5 @@ $ history
    36  2021-08-25 08:57:14 nano cmds/evr_mtca_300_standalone.cmd    
    
    # Test ioc
-   40  2021-08-25 08:58:29 iocsh.bash cmds/evr_mtca_300_standalone.cmd PREFIX=TEST: | tee log.log
+   40  2021-08-25 08:58:29 iocsh.bash cmds/evr_mtca_300_standalone.cmd SECSUB=TEST: | tee log.log
 ```
