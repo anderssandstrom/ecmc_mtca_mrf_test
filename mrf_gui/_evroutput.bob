@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>EVR Output</name>
+  <width>745</width>
+  <height>40</height>
+  <background_color>
+    <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <widget type="rectangle" version="2.0.0">
+    <name>Background Script</name>
+    <x>80</x>
+    <width>665</width>
+    <height>40</height>
+    <line_width>0</line_width>
+    <line_color>
+      <color name="GRAY-BORDER" red="121" green="121" blue="121">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="220" green="225" blue="221" alpha="153">
+      </color>
+    </background_color>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.display.builder.model.properties import WidgetColor
+
+# Trigger selections
+pv0 = PVUtil.getString(pvs[0])
+
+#pv1 = PVUtil.getDouble(pvs[1])
+#pv2 = PVUtil.getDouble(pvs[2])
+#pv3 = PVUtil.getDouble(pvs[3])
+
+## Define Colors
+
+color_white  = WidgetColor(255, 255, 255, 255)
+color_green = WidgetColor(189, 208, 189, 255)
+color_yellow = WidgetColor(226, 216, 193, 255)
+color_orange = WidgetColor(226, 207, 189, 255)
+color_red = WidgetColor(225, 192, 188, 255)
+color_magenta = WidgetColor(218, 195, 209, 255)
+color_blue = WidgetColor(195, 226, 225, 255)
+color_black = WidgetColor(220, 225, 221, 255)
+color_dark_blue = WidgetColor(195, 196, 240, 255)
+color_gray = WidgetColor(169, 169, 169, 255)
+color_bg = WidgetColor(200,205,201,225)
+
+## Script Body
+if (pv0 == 'Pulser 0'):
+	widget.setPropertyValue('background_color', color_green)
+elif pv0 == 'Pulser 1':
+	widget.setPropertyValue('background_color', color_yellow)
+elif pv0 == 'Pulser 2':
+	widget.setPropertyValue('background_color', color_orange)
+elif pv0 == 'Pulser 3':
+	widget.setPropertyValue('background_color', color_red)
+elif pv0 == 'Pulser 4':
+	widget.setPropertyValue('background_color', color_magenta)
+elif pv0 == 'Pulser 5':
+	widget.setPropertyValue('background_color', color_blue)
+elif pv0 == 'Pulser 6':
+	widget.setPropertyValue('background_color', color_black)
+elif pv0 == 'Pulser 7':
+	widget.setPropertyValue('background_color', color_dark_blue)
+else:
+	widget.setPropertyValue('background_color', color_bg)]]></text>
+        <pv_name>$(P)$(R)Out-$(O)-Src-RB</pv_name>
+      </script>
+    </scripts>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_1</name>
+    <x>220</x>
+    <width>425</width>
+    <height>40</height>
+    <line_width>0</line_width>
+    <line_color>
+      <color name="BLACK-BORDER" red="121" green="121" blue="121">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="0" green="0" blue="0" alpha="16">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Border Script</name>
+    <x>80</x>
+    <width>665</width>
+    <height>40</height>
+    <line_width>0</line_width>
+    <line_color>
+      <color name="BACKGROUND" red="220" green="225" blue="221">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="BACKGROUND" red="220" green="225" blue="221">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.display.builder.model.properties import WidgetColor
+
+# Trigger selections
+pv0 = PVUtil.getString(pvs[0])
+
+#pv1 = PVUtil.getDouble(pvs[1])
+#pv2 = PVUtil.getDouble(pvs[2])
+#pv3 = PVUtil.getDouble(pvs[3])
+
+## Define Colors
+colorCurrent = WidgetColor(255, 255, 255, 255)
+
+color_white  = WidgetColor(255, 255, 255, 255)
+color_green = WidgetColor(40, 140, 40, 255)
+color_yellow = WidgetColor(194, 194, 10, 255)
+color_orange = WidgetColor(226, 168, 76, 255)
+color_red = WidgetColor(166, 0, 16, 255)
+color_magenta = WidgetColor(181, 18, 131, 255)
+color_blue = WidgetColor(0, 129, 185, 255)
+color_black = WidgetColor(0, 0, 0, 255)
+color_dark_blue = WidgetColor(0, 26, 194, 255)
+
+
+## Script Body
+if (pv0 == 'Pulser 0'):
+	widget.setPropertyValue('line_color', color_green)
+	widget.setPropertyValue('line_width', 2)
+elif pv0 == 'Pulser 1':
+	widget.setPropertyValue('line_color', color_yellow)
+	widget.setPropertyValue('line_width', 2)
+elif pv0 == 'Pulser 2':
+	widget.setPropertyValue('line_color', color_orange)
+	widget.setPropertyValue('line_width', 2)
+elif pv0 == 'Pulser 3':
+	widget.setPropertyValue('line_color', color_red)
+	widget.setPropertyValue('line_width', 2)
+elif pv0 == 'Pulser 4':
+	widget.setPropertyValue('line_color', color_magenta)
+	widget.setPropertyValue('line_width', 2)
+elif pv0 == 'Pulser 5':
+	widget.setPropertyValue('line_color', color_blue)
+	widget.setPropertyValue('line_width', 2)
+elif pv0 == 'Pulser 6':
+	widget.setPropertyValue('line_color', color_black)
+	widget.setPropertyValue('line_width', 2)
+elif pv0 == 'Pulser 7':
+	widget.setPropertyValue('line_color', color_dark_blue)
+	widget.setPropertyValue('line_width', 2)
+else:
+	widget.setPropertyValue('line_color', colorCurrent)
+	widget.setPropertyValue('line_width', 0)
+]]></text>
+        <pv_name>$(P)$(R)Out-$(O)-Src-RB</pv_name>
+      </script>
+    </scripts>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Menu Button</name>
+    <pv_name>$(P)$(R)Out-$(O)-Src-Pulse-SP</pv_name>
+    <x>230</x>
+    <y>10</y>
+    <width>90</width>
+    <height>20</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <actions execute_as_one="true">
+    </actions>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+from org.csstudio.display.builder.model.properties import WidgetColor
+
+## Process variable extraction
+## Use any of the following valid variable names in an expression:
+##     pv0
+##     pvInt0
+##     pvStr0
+##     pvSev0
+##     pvLegacySev0  [DEPRECATED]
+
+pv0 = PVUtil.getString(pvs[0])
+
+## Define Colors
+colorCurrent = WidgetColor(236, 236, 236, 255)
+colorVal0 = WidgetColor(226, 216, 193, 255)
+
+## Script Body
+if (pv0 == "Pulser 0") or (pv0 == "Pulser 1") or (pv0 == "Pulser 2") or (pv0 == "Pulser 3") or (pv0 == "Pulser 4") or (pv0 == "Pulser 5") or (pv0 == "Pulser 6") or (pv0 == "Pulser 7") or (pv0 == "Pulser 8") or (pv0 == "Pulser 9"):
+    widget.setPropertyValue('background_color', colorVal0)
+else:
+    widget.setPropertyValue('background_color', colorCurrent)
+]]></text>
+        <pv_name>$(P)$(R)Out-$(O)-Src-RB</pv_name>
+      </script>
+    </scripts>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>$(P)$(R)Out-$(O)-Src-SP.DESC</pv_name>
+    <x>10</x>
+    <y>10</y>
+    <width>65</width>
+    <font>
+      <font family="Source Sans Pro" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Menu Button_3</name>
+    <pv_name>$(P)$(R)Out-$(O)-Src-DBus-SP</pv_name>
+    <x>440</x>
+    <y>10</y>
+    <width>80</width>
+    <height>20</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <actions>
+    </actions>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+from org.csstudio.display.builder.model.properties import WidgetColor
+
+## Process variable extraction
+## Use any of the following valid variable names in an expression:
+##     pv0
+##     pvInt0
+##     pvStr0
+##     pvSev0
+##     pvLegacySev0  [DEPRECATED]
+
+pv0 = PVUtil.getString(pvs[0])
+
+## Define Colors
+colorCurrent = WidgetColor(236, 236, 236, 255)
+colorVal0 = WidgetColor(226, 216, 193, 255)
+
+## Script Body
+if (pv0 == 'DBus 0') or (pv0 == 'DBus 1') or (pv0 == 'DBus 2') or (pv0 == 'DBus 3') or (pv0 == 'DBus 4') or (pv0 == 'DBus 5') or (pv0 == 'DBus 6') or (pv0 == 'DBus 7'):
+	widget.setPropertyValue('background_color', colorVal0)
+else:
+	widget.setPropertyValue('background_color', colorCurrent)]]></text>
+        <pv_name>$(P)$(R)Out-$(O)-Src-RB</pv_name>
+      </script>
+    </scripts>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Menu Button_4</name>
+    <pv_name>$(P)$(R)Out-$(O)-Src-Scale-SP</pv_name>
+    <x>330</x>
+    <y>10</y>
+    <height>20</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <actions>
+    </actions>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+from org.csstudio.display.builder.model.properties import WidgetColor
+
+## Process variable extraction
+## Use any of the following valid variable names in an expression:
+##     pv0
+##     pvInt0
+##     pvStr0
+##     pvSev0
+##     pvLegacySev0  [DEPRECATED]
+
+pv0 = PVUtil.getString(pvs[0])
+
+## Define Colors
+colorCurrent = WidgetColor(236, 236, 236, 255)
+colorVal0 = WidgetColor(226, 216, 193, 255)
+
+## Script Body
+if (pv0 == 'Prescaler 0') or (pv0 == 'Prescaler 1') or (pv0 == 'Prescaler 2') or (pv0 == 'Flip-flop 1') or (pv0 == 'Flip-flop 2') or (pv0 == 'Flip-flop 3') or (pv0 == 'Flip-flop 4') or (pv0 == 'Flip-flop 5') or (pv0 == 'Flip-flop 6') or (pv0 == 'Flip-flop 7') or (pv0 == 'Tri-state') or (pv0 == 'Force high') or (pv0 == 'Force low'):
+	widget.setPropertyValue('background_color', colorVal0)
+else:
+	widget.setPropertyValue('background_color', colorCurrent)
+]]></text>
+        <pv_name>$(P)$(R)Out-$(O)-Src-RB</pv_name>
+      </script>
+    </scripts>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input_6</name>
+    <pv_name>$(P)$(R)Out-$(O)-Label-I</pv_name>
+    <x>90</x>
+    <y>10</y>
+    <width>120</width>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <format>6</format>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P)$(R)Out-$(O)-Src-RB</pv_name>
+    <x>655</x>
+    <y>10</y>
+    <width>80</width>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>Force High</value>
+        <description>Write PV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)Out-$(O)-Src-Scale-SP</pv_name>
+    <text>High</text>
+    <x>530</x>
+    <y>10</y>
+    <width>35</width>
+    <height>20</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>Force Low</value>
+        <description>Write PV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)Out-$(O)-Src-Scale-SP</pv_name>
+    <text>Low</text>
+    <x>565</x>
+    <y>10</y>
+    <width>35</width>
+    <height>20</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>Tri-state</value>
+        <description>Write PV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)Out-$(O)-Src-Scale-SP</pv_name>
+    <text>Tri.</text>
+    <x>600</x>
+    <y>10</y>
+    <width>35</width>
+    <height>20</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+</display>

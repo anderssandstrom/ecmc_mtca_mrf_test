@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>pulsers_0_7</name>
+  <width>750</width>
+  <height>567</height>
+  <widget type="group" version="2.0.0">
+    <name>Delay Generators (Pulsers 0..7)</name>
+    <width>750</width>
+    <height>567</height>
+    <style>3</style>
+    <font>
+      <font family="Source Sans Pro" style="BOLD_ITALIC" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="PRIMARY-DARK" red="31" green="83" blue="102">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+      </color>
+    </background_color>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle 0 green_4</name>
+      <x>43</x>
+      <y>40</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="BLACK" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="GREEN-BACKGROUND" red="189" green="208" blue="189">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 0_4</name>
+      <macros>
+        <N>0</N>
+        <Q>DlyGen-0</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>40</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+      <border_color>
+        <color name="GREEN-BORDER" red="40" green="140" blue="40">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Border 0 green_4</name>
+      <x>43</x>
+      <y>40</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>2</line_width>
+      <line_color>
+        <color name="GREEN-BORDER" red="40" green="140" blue="40">
+        </color>
+      </line_color>
+      <transparent>true</transparent>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle 1 yellow_4</name>
+      <x>43</x>
+      <y>105</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="BLACK" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="YELLOW-BACKGROUND" red="226" green="216" blue="193">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 1_4</name>
+      <macros>
+        <N>1</N>
+        <Q>DlyGen-1</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>105</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+      <border_color>
+        <color red="194" green="194" blue="10">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Border 1 yelllow_4</name>
+      <x>43</x>
+      <y>105</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>2</line_width>
+      <line_color>
+        <color red="194" green="194" blue="10">
+        </color>
+      </line_color>
+      <transparent>true</transparent>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle 2 orange_4</name>
+      <x>43</x>
+      <y>174</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="BLACK" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="ORANGE-BACKGROUND" red="226" green="207" blue="189">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 2_4</name>
+      <macros>
+        <N>2</N>
+        <Q>DlyGen-2</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>174</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+      <border_color>
+        <color red="226" green="168" blue="76">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Border 1 orange_4</name>
+      <x>43</x>
+      <y>174</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>2</line_width>
+      <line_color>
+        <color red="226" green="168" blue="76">
+        </color>
+      </line_color>
+      <transparent>true</transparent>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle 3 red_4</name>
+      <x>43</x>
+      <y>241</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="BLACK" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="RED-BACKGROUND" red="225" green="192" blue="188">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 3_4</name>
+      <macros>
+        <N>3</N>
+        <Q>DlyGen-3</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>241</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+      <border_color>
+        <color red="166" green="0" blue="16">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Border 3 red_4</name>
+      <x>43</x>
+      <y>241</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>2</line_width>
+      <line_color>
+        <color red="166" green="0" blue="16">
+        </color>
+      </line_color>
+      <transparent>true</transparent>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle 4 mangenta_4</name>
+      <x>43</x>
+      <y>308</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="BLACK" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="MAGENTA-BACKGROUND" red="218" green="195" blue="209">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 4_4</name>
+      <macros>
+        <N>4</N>
+        <Q>DlyGen-4</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>308</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+      <border_color>
+        <color red="181" green="18" blue="131">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Border 4 mangenta_4</name>
+      <x>43</x>
+      <y>308</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>2</line_width>
+      <line_color>
+        <color red="181" green="18" blue="131">
+        </color>
+      </line_color>
+      <transparent>true</transparent>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle 5 blue_4</name>
+      <x>43</x>
+      <y>375</y>
+      <width>689</width>
+      <height>40</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="BLACK" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="BLUE-BACKGROUND" red="195" green="226" blue="225">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 5_4</name>
+      <macros>
+        <N>5</N>
+        <Q>DlyGen-5</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>375</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+      <border_color>
+        <color red="0" green="129" blue="185">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Border 5 blue_4</name>
+      <x>43</x>
+      <y>375</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>2</line_width>
+      <line_color>
+        <color red="0" green="129" blue="185">
+        </color>
+      </line_color>
+      <transparent>true</transparent>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle 6 black_4</name>
+      <x>43</x>
+      <y>442</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="BLACK" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="Background" red="220" green="225" blue="221">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 6_4</name>
+      <macros>
+        <N>6</N>
+        <Q>DlyGen-6</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>442</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Border 6 black_4</name>
+      <x>43</x>
+      <y>442</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>2</line_width>
+      <line_color>
+        <color name="BLACK" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <transparent>true</transparent>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle 7 dark blue_4</name>
+      <x>43</x>
+      <y>508</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="BLACK" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="195" green="196" blue="240">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 7_4</name>
+      <macros>
+        <N>7</N>
+        <Q>DlyGen-7</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>508</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+      <border_color>
+        <color red="26" green="0" blue="194">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Border 7 dark blue_4</name>
+      <x>43</x>
+      <y>508</y>
+      <width>692</width>
+      <height>40</height>
+      <line_width>2</line_width>
+      <line_color>
+        <color red="0" green="26" blue="194">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="0" green="26" blue="255">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Polarity_15</name>
+      <text>Polarity</text>
+      <x>119</x>
+      <y>10</y>
+      <width>65</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_32</name>
+      <text>Label</text>
+      <x>206</x>
+      <y>10</y>
+      <width>105</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Prescaler_5</name>
+      <text>Presc.</text>
+      <x>350</x>
+      <y>10</y>
+      <width>50</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_33</name>
+      <text>Delay</text>
+      <x>415</x>
+      <y>10</y>
+      <width>82</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_34</name>
+      <text>Width</text>
+      <x>517</x>
+      <y>10</y>
+      <width>72</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_35</name>
+      <text>Trigger Events</text>
+      <x>616</x>
+      <y>10</y>
+      <width>92</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Polarity_16</name>
+      <text>ID</text>
+      <x>9</x>
+      <y>10</y>
+      <width>27</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Polarity_17</name>
+      <text>State</text>
+      <x>62</x>
+      <y>10</y>
+      <width>45</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+  </widget>
+</display>
