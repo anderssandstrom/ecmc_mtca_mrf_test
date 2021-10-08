@@ -1,4 +1,4 @@
-# ecmc_mtca_mrf_test
+'# ecmc_mtca_mrf_test
 
 ## Notes from call with Jerzy
 In the call with Jerzy we concluded that one maybe better way would be to syncronize the 1kHz cloc (to get timestamps directlly from evr in 1khz).
@@ -12,15 +12,10 @@ Test both!
 
 Jerzy could help to setup system in end of aug if I give him the host name.
 
-Link to repository with examples (test those):
-https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/tree/master/cmds
+New repo for mrf test ioc:
+https://gitlab.esss.lu.se/hwcore/ts/examples-ioc
+Then look at ./examples-ioc/evrlb-simple-ess
 
-Exacute these ones:
-https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/blob/master/cmds/IocExamples/IocEvrLb/st.cmd
-https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/blob/master/cmds/IocExamples/IocEvrLb/iocrc.iocsh
-
-Not sure:
-https://gitlab.esss.lu.se/hwcore/ts/e3-mrfioc2/-/blob/master/cmds/evr-mtca.cmd
 
 The PCI id needs to be checked withn lspci command.
 
@@ -64,15 +59,11 @@ $ history
    # Check Xilinx address
    29  2021-08-25 08:50:02 lspci | grep Xilinx
    30  2021-08-25 08:55:52 ls
-   31  2021-08-25 08:55:54 cd sources/   
+   31  2021-08-25 08:55:54 cd sources/ecmc_mtca_mrf_test/iocsh
    
    # Must use this old version otherwise script will not work
-   33  2021-08-25 08:56:07 . /epics/base-7.0.4/require/3.3.0/bin/setE3Env.bash 
-   34  2021-08-25 08:56:44 cd e3-mrfioc2/
-   
-   # Add xilinx address to startup cmd.
-   36  2021-08-25 08:57:14 nano cmds/evr_mtca_300_standalone.cmd    
-   
-   # Test ioc
-   40  2021-08-25 08:58:29 iocsh.bash cmds/evr_mtca_300_standalone.cmd SECSUB=TEST: | tee log.log
-```
+   33  2021-08-25 08:56:07 . /epics/base-7.0.5/require/3.4.1/bin/setE3Env.bash 
+ 
+   # Test ioc (PCI adress is hardcoded aswell as prefix)
+   39  maybe need root access?!      sudo su
+   40  2021-08-25 08:58:29 iocsh.bash st.cmd
