@@ -67,3 +67,10 @@ $ history
    # Test ioc (PCI adress is hardcoded aswell as prefix)
    39  maybe need root access?!      sudo su
    40  2021-08-25 08:58:29 iocsh.bash st.cmd
+
+NOTE: These 2 lines were added to st.cmd:
+mrmEvrLoopback EVR,1,1
+time2ntp("EVR", 2)
+
+but still not working.. Error!
+
