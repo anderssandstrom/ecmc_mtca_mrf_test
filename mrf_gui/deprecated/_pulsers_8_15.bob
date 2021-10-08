@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>pulsers_8_15</name>
+  <width>750</width>
+  <height>567</height>
+  <widget type="group" version="2.0.0">
+    <name>Delay Generators (Pulsers 8..15)</name>
+    <width>750</width>
+    <height>567</height>
+    <style>3</style>
+    <font>
+      <font family="Source Sans Pro" style="BOLD_ITALIC" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="PRIMARY-DARK" red="31" green="83" blue="102">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Polarity_15</name>
+      <text>Polarity</text>
+      <x>119</x>
+      <y>10</y>
+      <width>65</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_32</name>
+      <text>Label</text>
+      <x>206</x>
+      <y>10</y>
+      <width>105</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Prescaler_5</name>
+      <text>Presc.</text>
+      <x>350</x>
+      <y>10</y>
+      <width>50</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_33</name>
+      <text>Delay</text>
+      <x>415</x>
+      <y>10</y>
+      <width>82</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_34</name>
+      <text>Width</text>
+      <x>517</x>
+      <y>10</y>
+      <width>72</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_35</name>
+      <text>Trigger Events</text>
+      <x>616</x>
+      <y>10</y>
+      <width>92</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Polarity_16</name>
+      <text>ID</text>
+      <x>9</x>
+      <y>10</y>
+      <width>27</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Polarity_17</name>
+      <text>State</text>
+      <x>62</x>
+      <y>10</y>
+      <width>45</width>
+      <font>
+        <font family="Source Sans Pro Semibold" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 0_3</name>
+      <macros>
+        <N>8</N>
+        <Q>DlyGen8</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>40</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <border_color>
+        <color name="GREEN-BORDER" red="40" green="140" blue="40">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 1_3</name>
+      <macros>
+        <N>9</N>
+        <Q>DlyGen9</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>107</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <border_color>
+        <color red="194" green="194" blue="10">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 2_3</name>
+      <macros>
+        <N>10</N>
+        <Q>DlyGen10</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>174</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <border_color>
+        <color red="226" green="168" blue="76">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 3_3</name>
+      <macros>
+        <N>11</N>
+        <Q>DlyGen11</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>241</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <border_color>
+        <color red="166" green="0" blue="16">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 4_3</name>
+      <macros>
+        <N>12</N>
+        <Q>DlyGen12</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>308</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <border_color>
+        <color red="181" green="18" blue="131">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 5_3</name>
+      <macros>
+        <N>13</N>
+        <Q>DlyGen13</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>375</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <border_color>
+        <color red="0" green="129" blue="185">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 6_3</name>
+      <macros>
+        <N>14</N>
+        <Q>DlyGen14</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>442</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded 7_3</name>
+      <macros>
+        <N>15</N>
+        <Q>DlyGen15</Q>
+      </macros>
+      <file>_evrdlygen.bob</file>
+      <y>509</y>
+      <width>735</width>
+      <height>40</height>
+      <resize>2</resize>
+      <border_color>
+        <color red="26" green="0" blue="194">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+</display>
