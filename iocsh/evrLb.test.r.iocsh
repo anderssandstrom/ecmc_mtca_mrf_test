@@ -1,5 +1,4 @@
-﻿# @about: evrlb.r.iocsh - testing purpose
-
+# @about: evrlb.r.iocsh - testing purpose
 # Set up the prescaler that will trigger the sequencer at 14 Hz ###
 dbpf "$(P):PS-0-Div-SP" "$(Mxc14Hz=6289464)"
 
