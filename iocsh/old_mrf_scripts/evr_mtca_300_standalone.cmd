@@ -19,7 +19,7 @@ epicsEnvSet("MainEvtCODE" "14")
 # "P" is mandatory, "R" is optional (default empty), "S" is optional (defaul separator ":")
 # "DEV" is a unique identifier of the EVR card used by mrfioc2 device support layer
 #
-iocshLoad("$(mrfioc2_DIR)/evr-mtca-300.iocsh", "P=$(PREFIX), S=, DEV=$(DISDEVID), PCIID=$(PCIID)")
+iocshLoad("$(mrfioc2_DIR)/evr-mtca-300.iocsh", "P=$(PREFIX), S=, DEV=$(DISDEVID), PCIID=$(PCIID), RT=software")
 
 # Make the EVR the time sources for the machine
 time2ntp("$(DISDEVID)", 2)
