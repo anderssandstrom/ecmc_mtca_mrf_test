@@ -37,6 +37,11 @@ time2ntp("EVR", 2)
 ```
 iocsh.bash mrf.script 
 ```
+## Config Chrony
+add line to /etc/chrony.conf:
+```
+refclock SHM 2:perm=0777 poll 4 precision 1e-9 filter 64 prefer refid EVR2
+```
 
 ## Check chrony
 ```
