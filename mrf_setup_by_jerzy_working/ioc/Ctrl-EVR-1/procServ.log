@@ -1,0 +1,2451 @@
+@@@ Restarting child "Ctrl-EVR-1"
+@@@    (as /nfs/ts/epics/base-7.0.5/require/3.4.1/bin/iocsh.bash)
+@@@ The PID of new child "Ctrl-EVR-1" is: 29187
+@@@ @@@ @@@ @@@ @@@
+Warning: environment file /nfs/ts/nbs/Ctrl-EVR-1/env.sh does not exist.
+
+registerChannelProviderLocal firstTime true
+#
+# Start at "2021-W48-Dec02-1707-17-CET"
+#
+# Version information:
+# European Spallation Source ERIC : iocsh.bash (-PID-29187)
+#
+# --->--> snip -->--> 
+# Please Use Version and other environment variables
+# in order to report or debug this shell
+#
+# HOSTDISPLAY=""
+# WINDOWID=""
+# PWD="/nfs/ts/nbs/Ctrl-EVR-1"
+# USER="iocuser"
+# LOGNAME="iocuser"
+# EPICS_HOST_ARCH="linux-x86_64"
+# EPICS_BASE="/nfs/ts/epics/base-7.0.5"
+# E3_REQUIRE_NAME="require"
+# E3_REQUIRE_VERSION="3.4.1"
+# E3_REQUIRE_LOCATION="/nfs/ts/epics/base-7.0.5/require/3.4.1"
+# E3_REQUIRE_BIN="/nfs/ts/epics/base-7.0.5/require/3.4.1/bin"
+# E3_REQUIRE_DB="/nfs/ts/epics/base-7.0.5/require/3.4.1/db"
+# E3_REQUIRE_DBD="/nfs/ts/epics/base-7.0.5/require/3.4.1/dbd"
+# E3_REQUIRE_INC="/nfs/ts/epics/base-7.0.5/require/3.4.1/include"
+# E3_REQUIRE_LIB="/nfs/ts/epics/base-7.0.5/require/3.4.1/lib"
+# EPICS_DRIVER_PATH="/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods:/nfs/ts/epics/base-7.0.5/require/3.4.1/siteApps"
+# EPICS_CA_AUTO_ADDR_LIST=""
+# EPICS_CA_ADDR_LIST=""
+# PATH="/nfs/ts/epics/base-7.0.5/require/3.4.1/bin:/nfs/ts/epics/base-7.0.5/bin/linux-x86_64:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
+# --->--> snip -->--> 
+#
+# Set REQUIRE_IOC for its internal PVs
+epicsEnvSet REQUIRE_IOC "REQMOD:ccpu-33584-004-29187"
+#
+# Enable an exit subroutine for sotfioc
+dbLoadRecords "/nfs/ts/epics/base-7.0.5/db/softIocExit.db" "IOC=REQMOD:ccpu-33584-004-29187"
+#
+# Set E3_IOCSH_TOP for the absolute path where iocsh.bash is executed.
+epicsEnvSet E3_IOCSH_TOP "/nfs/ts/nbs/Ctrl-EVR-1"
+#
+# 
+# Load require module, which has the version 3.4.1
+# 
+dlload /nfs/ts/epics/base-7.0.5/require/3.4.1/lib/linux-x86_64/librequire.so
+dbLoadDatabase /nfs/ts/epics/base-7.0.5/require/3.4.1/dbd/require.dbd
+require_registerRecordDeviceDriver
+Loading module info records for require
+# 
+# Set E3_CMD_TOP for the absolute path where st.cmd exists
+epicsEnvSet E3_CMD_TOP "/nfs/ts/nbs/Ctrl-EVR-1"
+#
+iocshLoad '/nfs/ts/nbs/Ctrl-EVR-1/st.cmd',''
+#!/usr/bin/env iocsh.bash
+epicsEnvSet "PEVR" "LAB-MOT:Ctrl-EVR-1"
+# [common]
+epicsEnvSet "IOCNAME" "LAB-MOT:Ctrl-EVR-1"
+epicsEnvSet "IOCDIR" "./"
+epicsEnvSet "AS_TOP" "./"
+epicsEnvSet "LOG_SERVER_NAME" "172.16.107.59"
+require essioc
+Module essioc version 0.6.1+0 found in /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/essioc/0.6.1+0/
+Module essioc depends on autosave 5.10.2+0
+Module autosave version 5.10.2+0 found in /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/autosave/5.10.2+0/
+Loading library /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/autosave/5.10.2+0/lib/linux-x86_64/libautosave.so
+Loaded autosave version 5.10.2+0
+Loading dbd file /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/autosave/5.10.2+0/dbd/autosave.dbd
+Calling function autosave_registerRecordDeviceDriver
+Loading module info records for autosave
+Module essioc depends on caputlog 3.7.0+0
+Module caputlog version 3.7.0+0 found in /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/caputlog/3.7.0+0/
+Loading library /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/caputlog/3.7.0+0/lib/linux-x86_64/libcaputlog.so
+Loaded caputlog version 3.7.0+0
+Loading dbd file /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/caputlog/3.7.0+0/dbd/caputlog.dbd
+Calling function caputlog_registerRecordDeviceDriver
+Loading module info records for caputlog
+Module essioc depends on auth 0.2.2+0
+Module auth version 0.2.2+0 found in /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/auth/0.2.2+0/
+Module auth has no library
+Loading module info records for auth
+Module essioc depends on iocstats 3.1.16+0
+Module iocstats version 3.1.16+0 found in /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/iocstats/3.1.16+0/
+Module iocstats depends on calc 3.7.4+0
+Module calc version 3.7.4+0 found in /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/calc/3.7.4+0/
+Module calc depends on sequencer 2.2.8+0
+Module sequencer version 2.2.8+0 found in /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/sequencer/2.2.8+0/
+Loading library /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/sequencer/2.2.8+0/lib/linux-x86_64/libsequencer.so
+Loaded sequencer version 2.2.8+0
+sequencer has no dbd file
+Loading module info records for sequencer
+Module calc depends on sscan 2.11.4+0
+Module sscan version 2.11.4+0 found in /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/sscan/2.11.4+0/
+Module sscan depends on sequencer 2.2.8+0
+Module sequencer version 2.2.8+0 already loaded
+Loading library /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/sscan/2.11.4+0/lib/linux-x86_64/libsscan.so
+Loaded sscan version 2.11.4+0
+Loading dbd file /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/sscan/2.11.4+0/dbd/sscan.dbd
+Calling function sscan_registerRecordDeviceDriver
+Loading module info records for sscan
+Loading library /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/calc/3.7.4+0/lib/linux-x86_64/libcalc.so
+Loaded calc version 3.7.4+0
+Loading dbd file /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/calc/3.7.4+0/dbd/calc.dbd
+Calling function calc_registerRecordDeviceDriver
+Loading module info records for calc
+Loading library /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/iocstats/3.1.16+0/lib/linux-x86_64/libiocstats.so
+Loaded iocstats version 3.1.16+0
+Loading dbd file /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/iocstats/3.1.16+0/dbd/iocstats.dbd
+Calling function iocstats_registerRecordDeviceDriver
+Loading module info records for iocstats
+Module essioc depends on recsync 1.3.0-eb33785
+Module recsync version 1.3.0-eb33785 found in /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/recsync/1.3.0-eb33785/
+Loading library /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/recsync/1.3.0-eb33785/lib/linux-x86_64/librecsync.so
+Loaded recsync version 1.3.0-eb33785
+Loading dbd file /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/recsync/1.3.0-eb33785/dbd/recsync.dbd
+Calling function recsync_registerRecordDeviceDriver
+Loading module info records for recsync
+Module essioc has no library
+Loading module info records for essioc
+iocshLoad("/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/essioc/0.6.1+0//common_config.iocsh")
+# set EPICS environment variables
+# The following variables are expected to be defined in the IOC shell environment:
+## IOCNAME - unique name for this IOC
+# Define other environment variables from shell environment, with suitable defaults
+## Autosave environment variables
+epicsEnvSet("AS_TOP", "./")
+## Logging environment variables
+epicsEnvSet("LOG_SERVER_NAME", "172.16.107.59")
+epicsEnvSet("ERRORLOG_SERVER_PORT", "9001")
+epicsEnvSet("CAPUTLOG_SERVER_PORT", "9001")
+epicsEnvSet("FACNAME", "")
+## Access security environment variables
+epicsEnvSet("PATH_TO_ASG_FILES", "/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/auth/0.2.2+0/")
+epicsEnvSet("ASG_FILENAME", "unrestricted_access.acf")
+# set up recsync
+iocshLoad("/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/recsync/1.3.0-eb33785//recsync.iocsh")
+var(reccastTimeout, "5.0")
+var(reccastMaxHoldoff, "5.0")
+dbLoadRecords("reccaster.db", "P=LAB-MOT:Ctrl-EVR-1:RecSync-")
+# set up iocStats
+iocshLoad("/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/iocstats/3.1.16+0//iocStats.iocsh")
+# ### IOCSTATS iocsh  ###
+dbLoadRecords("iocAdminSoft-ess.db", "IOC=LAB-MOT:Ctrl-EVR-1")
+# set up autosave
+iocshLoad("/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/autosave/5.10.2+0//autosave.iocsh", "AS_TOP=./, IOCNAME=LAB-MOT:Ctrl-EVR-1, IOCDIR=./")
+##############################################################################
+####                         AUTOSAVE iocsh                                ###
+##############################################################################
+set_savefile_path    (".//./", "/save")
+set_requestfile_path (".//./", "/req")
+#
+system("install -d .//.//save")
+system("install -d .//.//req")
+save_restoreSet_status_prefix("LAB-MOT:Ctrl-EVR-1:as-")
+save_restoreSet_Debug(0)
+save_restoreSet_IncompleteSetsOk(1)
+save_restoreSet_DatedBackupFiles(1)
+save_restoreSet_NumSeqFiles(3)
+save_restoreSet_SeqPeriodInSeconds(300)
+save_restoreSet_CAReconnect(1)
+save_restoreSet_CallbackTimeout(-1)
+set_pass0_restoreFile("settings.sav")
+set_pass0_restoreFile("values_pass0.sav")
+set_pass1_restoreFile("settings.sav")
+set_pass1_restoreFile("values_pass1.sav")
+dbLoadRecords("save_restoreStatus.db", "P=LAB-MOT:Ctrl-EVR-1:as-, DEAD_SECONDS=5")
+afterInit("makeAutosaveFileFromDbInfo('.//.//req/settings.req','autosaveFields')")
+afterInit("makeAutosaveFileFromDbInfo('.//.//req/values_pass0.req','autosaveFields_pass0')")
+afterInit("makeAutosaveFileFromDbInfo('.//.//req/values_pass1.req','autosaveFields_pass1')")
+afterInit("create_monitor_set('settings.req','5')")
+afterInit("create_monitor_set('values_pass0.req','5')")
+afterInit("create_monitor_set('values_pass1.req','10')")
+# set up logging
+## IOC shell logging
+iocshLoad("/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/essioc/0.6.1+0//iocLog.iocsh", "LOG_INET=172.16.107.59,LOG_INET_PORT=9001,FACNAME=,IOCNAME=LAB-MOT:Ctrl-EVR-1")
+epicsEnvSet(EPICS_IOC_LOG_INET, "172.16.107.59")
+epicsEnvSet(EPICS_IOC_LOG_PORT, "9001")
+epicsEnvSet(iocLogDisable, "0")
+iocLogPrefix("fac= proc=LAB-MOT:Ctrl-EVR-1");
+# require has afterInit function
+afterInit("iocLogInit()")
+## caput logging
+iocshLoad("/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/caputlog/3.7.0+0//caPutLog.iocsh", "LOG_INET=172.16.107.59,LOG_INET_PORT=9001")
+afterInit("caPutLogInit 172.16.107.59:9001 0")
+# set up access security
+# disable for now due to failing test
+iocshLoad("/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/auth/0.2.2+0//accessSecurityGroup.iocsh", "ASG_PATH=/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/auth/0.2.2+0/,ASG_FILE=unrestricted_access.acf")
+epicsEnvSet(ASG_FULL_PATH_TO_ACCESS_SECURITY, "/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/auth/0.2.2+0/")
+epicsEnvSet(ASG_FILENAME, "unrestricted_access.acf")
+epicsEnvSet(ASG_SET_SUBSTITUTIONS_STRINGS, "")
+asSetFilename("/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/auth/0.2.2+0//unrestricted_access.acf")
+asSetSubstitutions("")
+# [module]
+require "mrfioc2" "2.3.1+1"
+Module mrfioc2 version 2.3.1+1 found in /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/mrfioc2/2.3.1+1/
+Module mrfioc2 depends on devlib2 2.11.0+0
+Module devlib2 version 2.11.0+0 found in /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/devlib2/2.11.0+0/
+Loading library /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/devlib2/2.11.0+0/lib/linux-x86_64/libdevlib2.so
+Loaded devlib2 version 2.11.0+0
+Loading dbd file /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/devlib2/2.11.0+0/dbd/devlib2.dbd
+Calling function devlib2_registerRecordDeviceDriver
+Loading module info records for devlib2
+Loading library /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/mrfioc2/2.3.1+1/lib/linux-x86_64/libmrfioc2.so
+Loaded mrfioc2 version 2.3.1+1
+Loading dbd file /nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/mrfioc2/2.3.1+1/dbd/mrfioc2.dbd
+Calling function mrfioc2_registerRecordDeviceDriver
+Loading module info records for mrfioc2
+iocshLoad "/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/mrfioc2/2.3.1+1//evrEss.iocsh"   "P=LAB-MOT:Ctrl-EVR-1,PCIID=08:00.0"
+# @about: evrEss.iocsh
+# ====================
+# [ENV]
+iocshLoad "/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/mrfioc2/2.3.1+1//envEss.iocsh"
+# @about: envEss.iocsh
+# ====================
+# Special events
+epicsEnvSet EvtHBeat 122
+epicsEnvSet EvtSeqEnd 127
+# Master Events mostly for the ScTable
+# Sync to https://gitlab.esss.lu.se/icshwi/reftabs/-/blob/master/init/sceconfig-ess.yml
+epicsEnvSet EvtLebtCpOff 6
+epicsEnvSet EvtLebtCpOn 7
+epicsEnvSet EvtMebtCpHead 8
+epicsEnvSet EvtMebtCpTail 9
+epicsEnvSet EvtIonMagSt 10
+epicsEnvSet EvtIonMagEnd 11
+epicsEnvSet EvtBPulseSt 12
+epicsEnvSet EvtBPulseEnd 13
+epicsEnvSet EvtRFSt 15
+epicsEnvSet EvtCEnd 17 # exists by default
+epicsEnvSet EvtBIAcqSt 18
+epicsEnvSet EvtBIAcqEnd 19
+# Test events mostly for the EvtTable
+epicsEnvSet EvtF0Hz5 60
+epicsEnvSet EvtF1Hz 122 # exists by default
+epicsEnvSet EvtF2Hz 61
+epicsEnvSet EvtF3Hz5 62
+epicsEnvSet EvtF7Hz 63
+epicsEnvSet EvtF14Hz 14 # exists by default
+epicsEnvSet EvtPMortem 40
+epicsEnvSet EvtPMortemSys 41
+epicsEnvSet EvtDoD 42
+epicsEnvSet EvtDoDSys 43
+# Configure other defaults
+epicsEnvSet TrWidthDft 100        #[ns]
+epicsEnvSet BWidthDft 2860000     #[ns]
+epicsEnvSet DlyComp 10000         #[ns]
+# Configure the counters
+epicsEnvSet Mxc14Hz 6289464
+epicsEnvSet Mxc1Hz 88052496
+# [CORE]
+iocshLoad "/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/mrfioc2/2.3.1+1//evr.iocsh"       "P=LAB-MOT:Ctrl-EVR-1,PCIID=08:00.0,EVRDB=evr-mtca-300-univ.db,FEVT=88.0525"
+# @about: evr.iocsh
+# The timestamp error margin
+var evrMrmTimeNSOverflowThreshold 10000000
+mrmEvrSetupPCI "EVR" "08:00.0"
+Notice: devPCIFindSpec() expect B:D.F in hex
+Device EVR  8:0.0 slot=1-1
+Using IRQ 142
+Failed to open resource file for PCI device 0000:08:00.0: Permission denied
+FWVersion 0x18070207
+Found version 519
+Found SFP Strangeness 00000000
+Sequencer capability detected
+mTCA: Out FP:4 FPUNIV:18 RB:0 IFP:32 GPIO:2
+EVR FIFO task start
+Enabling interrupts
+dbLoadRecords "evr-mtca-300-univ.db" "P=LAB-MOT:Ctrl-EVR-1,EVR=EVR,FEVT=88.0525"
+iocshLoad "/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/mrfioc2/2.3.1+1//evrEvtEss.iocsh" "P=LAB-MOT:Ctrl-EVR-1"
+# @about: evrEvtEss.iocsh
+# =======================
+# SYNC
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:F14Hz,       OBJ=EVR, CODE=14,       EVNT=14"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:LebtCpOff,   OBJ=EVR, CODE=6,   EVNT=6"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:LebtCpOn,    OBJ=EVR, CODE=7,    EVNT=7"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:MebtCpHead,  OBJ=EVR, CODE=8,  EVNT=8"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:MebtCpTail,  OBJ=EVR, CODE=9,  EVNT=9"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:IonMagSt,    OBJ=EVR, CODE=10,    EVNT=10"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:IonMagEnd,   OBJ=EVR, CODE=11,   EVNT=11"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:BPulseSt,    OBJ=EVR, CODE=12,    EVNT=12"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:BPulseEnd,   OBJ=EVR, CODE=13,   EVNT=13"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:RFSt,        OBJ=EVR, CODE=15,        EVNT=15"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:BIAcqSt,     OBJ=EVR, CODE=18,     EVNT=18"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:BIAcqEnd,    OBJ=EVR, CODE=19,    EVNT=19"
+# ASYN
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:PMortem,     OBJ=EVR, CODE=40,     EVNT=40"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:PMortemSys,  OBJ=EVR, CODE=41,  EVNT=41"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:DoD,         OBJ=EVR, CODE=42,         EVNT=42"
+dbLoadRecords "evrevent.db" "EN=LAB-MOT:Ctrl-EVR-1:DoDSys,      OBJ=EVR, CODE=43,      EVNT=43"
+dbLoadRecords "evr-databuffer-ess.db"      "P=LAB-MOT:Ctrl-EVR-1"
+dbLoadRecords "evr-soft-ts.db"             "P=LAB-MOT:Ctrl-EVR-1,PV=TSstringin,EVT=F14HzCnt-I"
+filename="../dbStatic/dbLexRoutines.c" line number=271
+No such file or directory dbRead opening file evr-soft-ts.db
+dbLoadRecords: failed to load 'evr-soft-ts.db'
+# [INIT]
+iocshLoad "/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/mrfioc2/2.3.1+1//evrBase.iocsh" "P=LAB-MOT:Ctrl-EVR-1,INTPPS=#,EXTPPS="
+# @about: evrr.iocsh
+# ===================
+#Disable not used FIFO traffic: 0 cannot be applied
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:EvtA-SP.OUT" "@OBJ=EVR,Code=255"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:EvtB-SP.OUT" "@OBJ=EVR,Code=255"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:EvtC-SP.OUT" "@OBJ=EVR,Code=255"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:EvtD-SP.OUT" "@OBJ=EVR,Code=255"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:EvtE-SP.OUT" "@OBJ=EVR,Code=255"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:EvtF-SP.OUT" "@OBJ=EVR,Code=255"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:EvtG-SP.OUT" "@OBJ=EVR,Code=255"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:EvtH-SP.OUT" "@OBJ=EVR,Code=255"
+# Enable EVR
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Ena-Sel" "Enabled"
+# Set delay compensation to X ns, needed to avoid timestamp issue
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:DC-Tgt-SP" "10000"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:DC-Ena-Sel" "Enable"
+# Set the LED event 0 to event 14
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Evt-Blink0-SP" "14"
+# TIMESTAMP CONFIGURATION
+# 0-disabled: EVT_PPS comes from evg; 1-external; 2-Sys.Clock: locally generated EVT_PPS
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:TimeSrc-Sel" "0"
+#afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:TimeSrc-Sel" "2"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Time-I.EVNT"   "125"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Time-I.INP"    "@OBJ=EVR, Code=125"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Time-Clock-SP" "88.0525"
+iocshLoad "/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/mrfioc2/2.3.1+1//evrEvtClka.iocsh" "P=LAB-MOT:Ctrl-EVR-1"
+# @about: evrEvtClka.iocsh
+# ========================
+# Configure CLKA backplane clock
+### Set TCLKA to low, enable it and power it up
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src-SP" "63"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Ena-Sel" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pwr-Sel" "1"
+## Generate CLKA event clock, so 88MHz
+#### TCLKA is 40-bit pattern, set the starting 20 bits to 1 (and the rest to 0 - default)
+## it does not work dbpf $(P)$(R=)$(S=":")OutTCLKA-Pat-Low00_15-SP 0xffff
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.BF" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.BE" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.BD" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.BC" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.BB" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.BA" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B9" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B8" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B7" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B6" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B5" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B4" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B3" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B2" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B1" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B0" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.BF" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.BE" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.BD" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.BC" "1"
+## Duty Cycle correction to 50%
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.BB" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.BA" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B9" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B8" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B7" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B6" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B5" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B4" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B3" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B2" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B1" "1"
+afterInit "dbpf" "LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B0" "1"
+# Set the IOC Prompt String One 
+epicsEnvSet IOCSH_PS1 "ccpu-33584-004-29187 > "
+#
+# 
+iocInit
+Starting iocInit
+############################################################################
+## EPICS R7.0.5-E3-7.0.5-patch
+## Rev. 2021-03-19T04:42+0100
+############################################################################
+reboot_restore: entry for file 'settings.sav'
+reboot_restore: Found filename 'settings.sav' in restoreFileList.
+*** restoring from './/./save/settings.sav' at initHookState 6 (before record/device init) ***
+save_restore: Can't open file './/./save/settings.sav'.
+save_restore: Trying backup file './/./save/settings.savB'
+save_restore: Can't open file './/./save/settings.savB'.
+save_restore: Can't figure out which seq file is most recent,
+save_restore: so I'm just going to start with './/./save/settings.sav0'.
+save_restore: Trying backup file './/./save/settings.sav0'
+save_restore: Can't open file './/./save/settings.sav0'.
+save_restore: Trying backup file './/./save/settings.sav1'
+save_restore: Can't open file './/./save/settings.sav1'.
+save_restore: Trying backup file './/./save/settings.sav2'
+save_restore: Can't open file './/./save/settings.sav2'.
+save_restore: Can't find a file to restore from...save_restore: ...last tried './/./save/settings.sav2'. I give up.
+save_restore: **********************************
+
+save_restore: Can't open save file.reboot_restore: entry for file 'values_pass0.sav'
+reboot_restore: Found filename 'values_pass0.sav' in restoreFileList.
+*** restoring from './/./save/values_pass0.sav' at initHookState 6 (before record/device init) ***
+save_restore: Can't open file './/./save/values_pass0.sav'.
+save_restore: Trying backup file './/./save/values_pass0.savB'
+save_restore: Can't open file './/./save/values_pass0.savB'.
+save_restore: Can't figure out which seq file is most recent,
+save_restore: so I'm just going to start with './/./save/values_pass0.sav0'.
+save_restore: Trying backup file './/./save/values_pass0.sav0'
+save_restore: Can't open file './/./save/values_pass0.sav0'.
+save_restore: Trying backup file './/./save/values_pass0.sav1'
+save_restore: Can't open file './/./save/values_pass0.sav1'.
+save_restore: Trying backup file './/./save/values_pass0.sav2'
+save_restore: Can't open file './/./save/values_pass0.sav2'.
+save_restore: Can't find a file to restore from...save_restore: ...last tried './/./save/values_pass0.sav2'. I give up.
+save_restore: **********************************
+
+save_restore: Can't open save file.reboot_restore: entry for file 'settings.sav'
+reboot_restore: Found filename 'settings.sav' in restoreFileList.
+*** restoring from './/./save/settings.sav' at initHookState 7 (after record/device init) ***
+save_restore: Can't open file './/./save/settings.sav'.
+save_restore: Trying backup file './/./save/settings.savB'
+save_restore: Can't open file './/./save/settings.savB'.
+save_restore: Can't figure out which seq file is most recent,
+save_restore: so I'm just going to start with './/./save/settings.sav0'.
+save_restore: Trying backup file './/./save/settings.sav0'
+save_restore: Can't open file './/./save/settings.sav0'.
+save_restore: Trying backup file './/./save/settings.sav1'
+save_restore: Can't open file './/./save/settings.sav1'.
+save_restore: Trying backup file './/./save/settings.sav2'
+save_restore: Can't open file './/./save/settings.sav2'.
+save_restore: Can't find a file to restore from...save_restore: ...last tried './/./save/settings.sav2'. I give up.
+save_restore: **********************************
+
+save_restore: Can't open save file.reboot_restore: entry for file 'values_pass1.sav'
+reboot_restore: Found filename 'values_pass1.sav' in restoreFileList.
+*** restoring from './/./save/values_pass1.sav' at initHookState 7 (after record/device init) ***
+save_restore: Can't open file './/./save/values_pass1.sav'.
+save_restore: Trying backup file './/./save/values_pass1.savB'
+save_restore: Can't open file './/./save/values_pass1.savB'.
+save_restore: Can't figure out which seq file is most recent,
+save_restore: so I'm just going to start with './/./save/values_pass1.sav0'.
+save_restore: Trying backup file './/./save/values_pass1.sav0'
+save_restore: Can't open file './/./save/values_pass1.sav0'.
+save_restore: Trying backup file './/./save/values_pass1.sav1'
+save_restore: Can't open file './/./save/values_pass1.sav1'.
+save_restore: Trying backup file './/./save/values_pass1.sav2'
+save_restore: Can't open file './/./save/values_pass1.sav2'.
+save_restore: Can't find a file to restore from...save_restore: ...last tried './/./save/values_pass1.sav2'. I give up.
+save_restore: **********************************
+
+save_restore: Can't open save file.Set EVR clock 88052500.000000
+iocRun: All initialization complete
+makeAutosaveFileFromDbInfo('.//.//req/settings.req','autosaveFields')
+makeAutosaveFileFromDbInfo('.//.//req/values_pass0.req','autosaveFields_pass0')
+makeAutosaveFileFromDbInfo('.//.//req/values_pass1.req','autosaveFields_pass1')
+create_monitor_set('settings.req','5')
+create_monitor_set('values_pass0.req','5')
+create_monitor_set('values_pass1.req','10')
+iocLogInit()
+caPutLogInit 172.16.107.59:9001 0
+sevr=info caPutLog: successfully initialized
+log client: connected to log server at '172.16.107.59:9001'
+log client: connected to log server at '172.16.107.59:9001'
+dbpf LAB-MOT:Ctrl-EVR-1:EvtA-SP.OUT '@OBJ=EVR,Code=255'
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf LAB-MOT:Ctrl-EVR-1:EvtB-SP.OUT '@OBJ=EVR,Code=255'
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf LAB-MOT:Ctrl-EVR-1:EvtC-SP.OUT '@OBJ=EVR,Code=255'
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf LAB-MOT:Ctrl-EVR-1:EvtD-SP.OUT '@OBJ=EVR,Code=255'
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf LAB-MOT:Ctrl-EVR-1:EvtE-SP.OUT '@OBJ=EVR,Code=255'
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf LAB-MOT:Ctrl-EVR-1:EvtF-SP.OUT '@OBJ=EVR,Code=255'
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf LAB-MOT:Ctrl-EVR-1:EvtG-SP.OUT '@OBJ=EVR,Code=255'
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf LAB-MOT:Ctrl-EVR-1:EvtH-SP.OUT '@OBJ=EVR,Code=255'
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf LAB-MOT:Ctrl-EVR-1:Ena-Sel Enabled
+DBF_STRING:         "Enabled" 
+dbpf LAB-MOT:Ctrl-EVR-1:DC-Tgt-SP 10000
+DBF_DOUBLE:         10000     
+dbpf LAB-MOT:Ctrl-EVR-1:DC-Ena-Sel Enable
+DBF_STRING:         "Enable"  
+dbpf LAB-MOT:Ctrl-EVR-1:Evt-Blink0-SP 14
+DBF_LONG:           14 = 0xe  
+dbpf LAB-MOT:Ctrl-EVR-1:TimeSrc-Sel 0
+DBF_STRING:         "Disable (noop)"    
+dbpf LAB-MOT:Ctrl-EVR-1:Time-I.EVNT 125
+DBF_STRING:         "125"     
+dbpf LAB-MOT:Ctrl-EVR-1:Time-I.INP '@OBJ=EVR, Code=125'
+DBF_STRING:         "@OBJ=EVR, Code=125"          
+dbpf LAB-MOT:Ctrl-EVR-1:Time-Clock-SP 88.0525
+DBF_DOUBLE:         88.0525   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src-SP 63
+DBF_LONG:           63 = 0x3f 
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Ena-Sel 1
+DBF_STRING:         "Enabled" 
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pwr-Sel 1
+DBF_STRING:         "On"      
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.BF 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.BE 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.BD 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.BC 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.BB 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.BA 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B9 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B8 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B7 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B6 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B5 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B4 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B3 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B2 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B1 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP.B0 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.BF 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.BE 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.BD 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.BC 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.BB 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.BA 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B9 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B8 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B7 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B6 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B5 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B4 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B3 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B2 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B1 1
+DBF_UCHAR:          1 = 0x1   
+dbpf LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP.B0 1
+DBF_UCHAR:          1 = 0x1   
+ccpu-33584-004-29187 > values_pass1.sav: 93 of 93 PV's connected
+values_pass0.sav: 1337 of 1337 PV's connected
+settings.sav: 1 of 1 PV's connected
+save_restore:write_save_file: Backup file (.//./save/values_pass0.savB) bad or not found.  Writing a new one. [211202-170725]
+save_restore:write_save_file: Backup file (.//./save/settings.savB) bad or not found.  Writing a new one. [211202-170725]
+save_restore:write_save_file: Backup file (.//./save/values_pass1.savB) bad or not found.  Writing a new one. [211202-170730]
+dbl
+LAB-MOT:Ctrl-EVR-1:HEARTBEAT
+LAB-MOT:Ctrl-EVR-1:START_CNT
+LAB-MOT:Ctrl-EVR-1:Link-Init-FO_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Load-Calc_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Commit-Calc_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Enable-Calc_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Load-Calc_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Commit-Calc_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Enable-Calc_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Load-Calc_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Commit-Calc_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Enable-Calc_
+LAB-MOT:Ctrl-EVR-1:PS-0-PhasOffs-CO_
+LAB-MOT:Ctrl-EVR-1:PS-1-PhasOffs-CO_
+LAB-MOT:Ctrl-EVR-1:PS-2-PhasOffs-CO_
+LAB-MOT:Ctrl-EVR-1:PS-3-PhasOffs-CO_
+LAB-MOT:Ctrl-EVR-1:PS-4-PhasOffs-CO_
+LAB-MOT:Ctrl-EVR-1:PS-5-PhasOffs-CO_
+LAB-MOT:Ctrl-EVR-1:PS-6-PhasOffs-CO_
+LAB-MOT:Ctrl-EVR-1:PS-7-PhasOffs-CO_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Res-I
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Res-I
+LAB-MOT:Ctrl-EVR-1:ProtNum
+LAB-MOT:Ctrl-EVR-1:ProtVer
+LAB-MOT:Ctrl-EVR-1:BState
+LAB-MOT:Ctrl-EVR-1:BDest
+LAB-MOT:Ctrl-EVR-1:BMod
+LAB-MOT:Ctrl-EVR-1:BPresent
+LAB-MOT:Ctrl-EVR-1:TgRast
+LAB-MOT:Ctrl-EVR-1:TgSeg
+LAB-MOT:Ctrl-EVR-1:as-SR_recentlyStr
+LAB-MOT:Ctrl-EVR-1:as-SR_rebootStatusStr
+LAB-MOT:Ctrl-EVR-1:as-SR_rebootTime
+LAB-MOT:Ctrl-EVR-1:as-SR_statusStr
+LAB-MOT:Ctrl-EVR-1:as-SR_0_Name
+LAB-MOT:Ctrl-EVR-1:as-SR_0_StatusStr
+LAB-MOT:Ctrl-EVR-1:as-SR_0_Time
+LAB-MOT:Ctrl-EVR-1:as-SR_1_Name
+LAB-MOT:Ctrl-EVR-1:as-SR_1_StatusStr
+LAB-MOT:Ctrl-EVR-1:as-SR_1_Time
+LAB-MOT:Ctrl-EVR-1:as-SR_2_Name
+LAB-MOT:Ctrl-EVR-1:as-SR_2_StatusStr
+LAB-MOT:Ctrl-EVR-1:as-SR_2_Time
+LAB-MOT:Ctrl-EVR-1:as-SR_3_Name
+LAB-MOT:Ctrl-EVR-1:as-SR_3_StatusStr
+LAB-MOT:Ctrl-EVR-1:as-SR_3_Time
+LAB-MOT:Ctrl-EVR-1:as-SR_4_Name
+LAB-MOT:Ctrl-EVR-1:as-SR_4_StatusStr
+LAB-MOT:Ctrl-EVR-1:as-SR_4_Time
+LAB-MOT:Ctrl-EVR-1:as-SR_5_Name
+LAB-MOT:Ctrl-EVR-1:as-SR_5_StatusStr
+LAB-MOT:Ctrl-EVR-1:as-SR_5_Time
+LAB-MOT:Ctrl-EVR-1:as-SR_6_Name
+LAB-MOT:Ctrl-EVR-1:as-SR_6_StatusStr
+LAB-MOT:Ctrl-EVR-1:as-SR_6_Time
+LAB-MOT:Ctrl-EVR-1:as-SR_7_Name
+LAB-MOT:Ctrl-EVR-1:as-SR_7_StatusStr
+LAB-MOT:Ctrl-EVR-1:as-SR_7_Time
+LAB-MOT:Ctrl-EVR-1:GTIM_RESET
+LAB-MOT:Ctrl-EVR-1:Trigger1__
+LAB-MOT:Ctrl-EVR-1:as-SR_heartbeat
+LAB-MOT:Ctrl-EVR-1:as-SR_i_am_alive
+LAB-MOT:Ctrl-EVR-1:as-SR_deadIfZero
+LAB-MOT:Ctrl-EVR-1:as-SR_disable
+LAB-MOT:Ctrl-EVR-1:Ena-Sel
+LAB-MOT:Ctrl-EVR-1:ExtInhib-Sel
+LAB-MOT:Ctrl-EVR-1:Link-RxMode-Sel
+LAB-MOT:Ctrl-EVR-1:SyncTimestamp-Cmd
+LAB-MOT:Ctrl-EVR-1:Link-TxMode-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Commit-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Load-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Unload-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Enable-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Disable-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-SoftTrig-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Commit-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Load-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Unload-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Enable-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Disable-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-SoftTrig-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Commit-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Load-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Unload-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Enable-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Disable-Cmd
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-SoftTrig-Cmd
+LAB-MOT:Ctrl-EVR-1:SFP-Update-Cmd
+LAB-MOT:Ctrl-EVR-1:DC-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:Out-Int-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-DlyUniv0_1-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-DlyUniv2_3-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pwr-Sel
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Rst-Sel
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Freq-Lvl-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-WfCycle-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-WfCalc-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-BunchTrain-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pwr-Sel
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Rst-Sel
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Freq-Lvl-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-WfCycle-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-WfCalc-Ena-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-BunchTrain-Ena-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Ena-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Polarity-Sel
+LAB-MOT:Ctrl-EVR-1:In-0-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:In-0-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:In-1-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:In-1-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:In-2-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:In-2-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:In-3-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:In-3-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-0-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-0-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-1-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-1-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-2-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-2-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-3-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-3-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-4-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-4-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-5-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-5-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-6-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-6-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-7-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-7-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-8-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-8-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-9-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-9-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-10-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-10-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-11-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-11-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-12-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-12-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-13-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-13-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-14-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-14-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-15-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-15-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-16-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-16-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-17-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-17-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-18-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-18-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-19-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-19-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-0-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-0-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-1-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-1-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-2-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-2-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-3-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-3-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-4-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-4-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-5-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-5-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-6-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-6-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-7-Lvl-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-7-Edge-Sel
+LAB-MOT:Ctrl-EVR-1:RecSync-State-Sts
+LAB-MOT:Ctrl-EVR-1:Src-Clk-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TsResolution-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-RunMode-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-TsResolution-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-RunMode-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-TsResolution-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-RunMode-RB
+LAB-MOT:Ctrl-EVR-1:DC-LckTrk-Sts
+LAB-MOT:Ctrl-EVR-1:DC-LckDat-Sts
+LAB-MOT:Ctrl-EVR-1:BState-I
+LAB-MOT:Ctrl-EVR-1:BPresent-I
+LAB-MOT:Ctrl-EVR-1:BDest-I
+LAB-MOT:Ctrl-EVR-1:BMod-I
+LAB-MOT:Ctrl-EVR-1:ACCESS
+LAB-MOT:Ctrl-EVR-1:as-SR_rebootStatus
+LAB-MOT:Ctrl-EVR-1:as-SR_status
+LAB-MOT:Ctrl-EVR-1:as-SR_0_Status
+LAB-MOT:Ctrl-EVR-1:as-SR_1_Status
+LAB-MOT:Ctrl-EVR-1:as-SR_2_Status
+LAB-MOT:Ctrl-EVR-1:as-SR_3_Status
+LAB-MOT:Ctrl-EVR-1:as-SR_4_Status
+LAB-MOT:Ctrl-EVR-1:as-SR_5_Status
+LAB-MOT:Ctrl-EVR-1:as-SR_6_Status
+LAB-MOT:Ctrl-EVR-1:as-SR_7_Status
+LAB-MOT:Ctrl-EVR-1:Time-Src-Sel
+LAB-MOT:Ctrl-EVR-1:Src-Clk-SP
+LAB-MOT:Ctrl-EVR-1:TimeSrc-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TsResolution-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-RunMode-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-TsResolution-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-RunMode-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-TsResolution-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-RunMode-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-Pulse-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-0-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-1-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-Scale-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-2-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-TrigSrc-Pulse-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-TrigSrc-0-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-TrigSrc-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-TrigSrc-1-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-TrigSrc-Scale-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-TrigSrc-2-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-TrigSrc-Pulse-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-TrigSrc-0-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-TrigSrc-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-TrigSrc-1-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-TrigSrc-Scale-Sel
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-TrigSrc-2-Sel
+LAB-MOT:Ctrl-EVR-1:Out-Int-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Int-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Int-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Int-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Int-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Int-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Src-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Src2-Pulse-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Src-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Src2-DBus-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Src-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Src2-Scale-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Mode-Sel
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Mode-Sel
+LAB-MOT:Ctrl-EVR-1:In-0-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:In-0-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:In-0-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:In-1-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:In-1-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:In-1-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:In-2-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:In-2-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:In-2-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:In-3-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:In-3-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:In-3-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-0-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-0-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-0-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-1-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-1-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-1-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-2-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-2-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-2-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-3-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-3-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-3-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-4-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-4-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-4-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-5-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-5-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-5-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-6-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-6-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-6-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-7-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-7-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-7-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-8-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-8-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-8-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-9-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-9-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-9-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-10-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-10-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-10-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-11-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-11-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-11-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-12-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-12-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-12-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-13-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-13-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-13-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-14-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-14-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-14-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-15-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-15-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-15-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-16-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-16-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-16-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-17-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-17-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-17-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-18-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-18-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-18-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-19-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-19-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:UnivIn-19-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-0-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-0-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-0-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-1-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-1-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-1-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-2-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-2-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-2-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-3-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-3-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-3-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-4-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-4-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-4-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-5-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-5-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-5-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-6-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-6-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-6-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-7-Trig-Ext-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-7-Trig-Back-Sel
+LAB-MOT:Ctrl-EVR-1:BPIn-7-DBus-Sel
+LAB-MOT:Ctrl-EVR-1:CA_UPD_TIME
+LAB-MOT:Ctrl-EVR-1:FD_UPD_TIME
+LAB-MOT:Ctrl-EVR-1:LOAD_UPD_TIME
+LAB-MOT:Ctrl-EVR-1:MEM_UPD_TIME
+LAB-MOT:Ctrl-EVR-1:Link-Clk-SP
+LAB-MOT:Ctrl-EVR-1:Time-Clock-SP
+LAB-MOT:Ctrl-EVR-1:DC-Tgt-SP
+LAB-MOT:Ctrl-EVR-1:PS-0-PhasOffs-SP
+LAB-MOT:Ctrl-EVR-1:PS-1-PhasOffs-SP
+LAB-MOT:Ctrl-EVR-1:PS-2-PhasOffs-SP
+LAB-MOT:Ctrl-EVR-1:PS-3-PhasOffs-SP
+LAB-MOT:Ctrl-EVR-1:PS-4-PhasOffs-SP
+LAB-MOT:Ctrl-EVR-1:PS-5-PhasOffs-SP
+LAB-MOT:Ctrl-EVR-1:PS-6-PhasOffs-SP
+LAB-MOT:Ctrl-EVR-1:PS-7-PhasOffs-SP
+LAB-MOT:Ctrl-EVR-1:Out-DlyUniv0_1-Delay0-SP
+LAB-MOT:Ctrl-EVR-1:Out-DlyUniv0_1-Delay1-SP
+LAB-MOT:Ctrl-EVR-1:Out-DlyUniv2_3-Delay0-SP
+LAB-MOT:Ctrl-EVR-1:Out-DlyUniv2_3-Delay1-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Freq-Init-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Freq-High-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Freq-Low-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-WfCalc-Delay-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-WfCalc-Width-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Freq-Init-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Freq-High-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Freq-Low-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-WfCalc-Delay-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-WfCalc-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Delay-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Width-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-EnableGate-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Mask-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-EnableGate-RB
+REQMOD:ccpu-33584-004-29187:MODULES
+REQMOD:ccpu-33584-004-29187:VERSIONS
+REQMOD:ccpu-33584-004-29187:MOD_VER
+LAB-MOT:Ctrl-EVR-1:ST_SCRIPT
+LAB-MOT:Ctrl-EVR-1:EPICS_VERSION
+LAB-MOT:Ctrl-EVR-1:APP_DIR
+LAB-MOT:Ctrl-EVR-1:Label-I
+LAB-MOT:Ctrl-EVR-1:dbus-send-s8
+LAB-MOT:Ctrl-EVR-1:dbus-send-u32
+LAB-MOT:Ctrl-EVR-1:dbus-recv-s8
+LAB-MOT:Ctrl-EVR-1:dbus-recv-u32
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-EvtCode-SP
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-EvtCode-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-SP
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Label-I
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-EvtCode-SP
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-EvtCode-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Timestamp-SP
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Timestamp-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Label-I
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-EvtCode-SP
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-EvtCode-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Timestamp-SP
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Timestamp-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Label-I
+LAB-MOT:Ctrl-EVR-1:PS-0-Label-I
+LAB-MOT:Ctrl-EVR-1:PS-1-Label-I
+LAB-MOT:Ctrl-EVR-1:PS-2-Label-I
+LAB-MOT:Ctrl-EVR-1:PS-3-Label-I
+LAB-MOT:Ctrl-EVR-1:PS-4-Label-I
+LAB-MOT:Ctrl-EVR-1:PS-5-Label-I
+LAB-MOT:Ctrl-EVR-1:PS-6-Label-I
+LAB-MOT:Ctrl-EVR-1:PS-7-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-Int-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-Int-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-FP0-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-FP1-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-FP2-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-FP3-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-Back0-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-Back1-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-Back2-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-Back3-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-Back4-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-Back5-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-Back6-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-Back7-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Label-I
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-User-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Rise-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-High-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Fall-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Wf-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Wf-RB
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-WfX-I
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Rise-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-High-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Fall-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Low-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Wf-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Wf-RB
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-WfX-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Label-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Label-I
+LAB-MOT:Ctrl-EVR-1:In-0-Label-I
+LAB-MOT:Ctrl-EVR-1:In-0-User-SP
+LAB-MOT:Ctrl-EVR-1:In-1-Label-I
+LAB-MOT:Ctrl-EVR-1:In-1-User-SP
+LAB-MOT:Ctrl-EVR-1:In-2-Label-I
+LAB-MOT:Ctrl-EVR-1:In-2-User-SP
+LAB-MOT:Ctrl-EVR-1:In-3-Label-I
+LAB-MOT:Ctrl-EVR-1:In-3-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-0-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-0-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-1-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-1-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-2-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-2-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-3-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-3-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-4-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-4-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-5-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-5-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-6-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-6-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-7-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-7-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-8-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-8-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-9-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-9-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-10-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-10-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-11-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-11-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-12-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-12-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-13-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-13-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-14-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-14-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-15-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-15-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-16-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-16-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-17-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-17-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-18-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-18-User-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-19-Label-I
+LAB-MOT:Ctrl-EVR-1:UnivIn-19-User-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-0-Label-I
+LAB-MOT:Ctrl-EVR-1:BPIn-0-User-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-1-Label-I
+LAB-MOT:Ctrl-EVR-1:BPIn-1-User-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-2-Label-I
+LAB-MOT:Ctrl-EVR-1:BPIn-2-User-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-3-Label-I
+LAB-MOT:Ctrl-EVR-1:BPIn-3-User-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-4-Label-I
+LAB-MOT:Ctrl-EVR-1:BPIn-4-User-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-5-Label-I
+LAB-MOT:Ctrl-EVR-1:BPIn-5-User-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-6-Label-I
+LAB-MOT:Ctrl-EVR-1:BPIn-6-User-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-7-Label-I
+LAB-MOT:Ctrl-EVR-1:BPIn-7-User-SP
+LAB-MOT:Ctrl-EVR-1:Time-Init-FO_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-InitSeq-FOut_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-InitSeq-Cont-FOut_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-InitSeq-FOut_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-InitSeq-Cont-FOut_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-InitSeq-FOut_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-InitSeq-Cont-FOut_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-Init-FOut_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-TrigSrc-Init-FOut_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-TrigSrc-Init-FOut_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Res-FO_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Res-FO_
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Res-FO_
+LAB-MOT:Ctrl-EVR-1:GTIM_ERR_CNT
+LAB-MOT:Ctrl-EVR-1:Cnt-LinkTimo-I
+LAB-MOT:Ctrl-EVR-1:Cnt-RxErr-I
+LAB-MOT:Ctrl-EVR-1:Cnt-HwOflw-I
+LAB-MOT:Ctrl-EVR-1:Cnt-SwOflw-I
+LAB-MOT:Ctrl-EVR-1:Cnt-IRQ-I
+LAB-MOT:Ctrl-EVR-1:Cnt-FIFOEvt-I
+LAB-MOT:Ctrl-EVR-1:Cnt-FIFOLoop-I
+LAB-MOT:Ctrl-EVR-1:Time-Div-I
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-NumOfStarts-I
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-NumOfRuns-I
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-NumOfStarts-I
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-NumOfRuns-I
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-NumOfStarts-I
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-NumOfRuns-I
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-RB_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-TrigSrc-RB_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-TrigSrc-RB_
+LAB-MOT:Ctrl-EVR-1:DC-ID-I
+LAB-MOT:Ctrl-EVR-1:PS-0-Div-RB
+LAB-MOT:Ctrl-EVR-1:PS-0-PhasOffs-Raw-RB
+LAB-MOT:Ctrl-EVR-1:PS-1-Div-RB
+LAB-MOT:Ctrl-EVR-1:PS-1-PhasOffs-Raw-RB
+LAB-MOT:Ctrl-EVR-1:PS-2-Div-RB
+LAB-MOT:Ctrl-EVR-1:PS-2-PhasOffs-Raw-RB
+LAB-MOT:Ctrl-EVR-1:PS-3-Div-RB
+LAB-MOT:Ctrl-EVR-1:PS-3-PhasOffs-Raw-RB
+LAB-MOT:Ctrl-EVR-1:PS-4-Div-RB
+LAB-MOT:Ctrl-EVR-1:PS-4-PhasOffs-Raw-RB
+LAB-MOT:Ctrl-EVR-1:PS-5-Div-RB
+LAB-MOT:Ctrl-EVR-1:PS-5-PhasOffs-Raw-RB
+LAB-MOT:Ctrl-EVR-1:PS-6-Div-RB
+LAB-MOT:Ctrl-EVR-1:PS-6-PhasOffs-Raw-RB
+LAB-MOT:Ctrl-EVR-1:PS-7-Div-RB
+LAB-MOT:Ctrl-EVR-1:PS-7-PhasOffs-Raw-RB
+LAB-MOT:Ctrl-EVR-1:Out-Int-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Int-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Src-RB_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Src2-RB_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Mult-I
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Freq-Init-RB
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Freq-High-RB
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Freq-Low-RB
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Mult-I
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Freq-Init-RB
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Freq-High-RB
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Freq-Low-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Delay-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Width-Raw-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Prescaler-RB
+LAB-MOT:Ctrl-EVR-1:CycleId
+LAB-MOT:Ctrl-EVR-1:BLen
+LAB-MOT:Ctrl-EVR-1:BEn
+LAB-MOT:Ctrl-EVR-1:BCurr
+LAB-MOT:Ctrl-EVR-1:Link-Sts
+LAB-MOT:Ctrl-EVR-1:Pll-Sts
+LAB-MOT:Ctrl-EVR-1:Time-Valid-Sts
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Load-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Commit-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Enable-Sts
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Enable-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Load-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Commit-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Enable-Sts
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Enable-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Load-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Commit-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Enable-Sts
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Enable-RB
+LAB-MOT:Ctrl-EVR-1:DC-Ena-RB
+LAB-MOT:Ctrl-EVR-1:DC-Lck-Sts
+LAB-MOT:Ctrl-EVR-1:Out-DlyUniv0_1-Ena-RB
+LAB-MOT:Ctrl-EVR-1:Out-DlyUniv2_3-Ena-RB
+LAB-MOT:Ctrl-EVR-1:Out-Int-State-Sts
+LAB-MOT:Ctrl-EVR-1:dbus-u32indx0-subA_
+LAB-MOT:Ctrl-EVR-1:dbus-u32indx1-subA_
+LAB-MOT:Ctrl-EVR-1:dbus-u32indx2-subA_
+LAB-MOT:Ctrl-EVR-1:dbus-u32indx3-subA_
+LAB-MOT:Ctrl-EVR-1:dbus-u32indx4-subA_
+LAB-MOT:Ctrl-EVR-1:dbus-u32indx5-subA_
+LAB-MOT:Ctrl-EVR-1:dbus-u32indx6-subA_
+LAB-MOT:Ctrl-EVR-1:dbus-u32indx7-subA_
+LAB-MOT:Ctrl-EVR-1:FD_FREE
+LAB-MOT:Ctrl-EVR-1:SCANONCE_Q_HIGHPER
+LAB-MOT:Ctrl-EVR-1:SCANONCE_Q_USEDPER
+LAB-MOT:Ctrl-EVR-1:CBLOW_Q_HIGHPER
+LAB-MOT:Ctrl-EVR-1:CBLOW_Q_USEDPER
+LAB-MOT:Ctrl-EVR-1:CBMEDIUM_Q_HIGHPER
+LAB-MOT:Ctrl-EVR-1:CBMEDIUM_Q_USEDPER
+LAB-MOT:Ctrl-EVR-1:CBHIGH_Q_HIGHPER
+LAB-MOT:Ctrl-EVR-1:CBHIGH_Q_USEDPER
+LAB-MOT:Ctrl-EVR-1:Link-ClkErr-I
+LAB-MOT:Ctrl-EVR-1:Link-ClkPeriod-I
+LAB-MOT:Ctrl-EVR-1:Rate-IRQ-I
+LAB-MOT:Ctrl-EVR-1:Rate-FIFOEvt-I
+LAB-MOT:Ctrl-EVR-1:Rate-FIFOLoop-I
+LAB-MOT:Ctrl-EVR-1:FIFOCap-I
+LAB-MOT:Ctrl-EVR-1:1hzCnt-I
+LAB-MOT:Ctrl-EVR-1:EvtACnt-I
+LAB-MOT:Ctrl-EVR-1:EvtBCnt-I
+LAB-MOT:Ctrl-EVR-1:EvtCCnt-I
+LAB-MOT:Ctrl-EVR-1:EvtDCnt-I
+LAB-MOT:Ctrl-EVR-1:EvtECnt-I
+LAB-MOT:Ctrl-EVR-1:EvtFCnt-I
+LAB-MOT:Ctrl-EVR-1:EvtGCnt-I
+LAB-MOT:Ctrl-EVR-1:EvtHCnt-I
+LAB-MOT:Ctrl-EVR-1:PS-0-Rate-I
+LAB-MOT:Ctrl-EVR-1:PS-0-PhasOffs-RB
+LAB-MOT:Ctrl-EVR-1:PS-1-Rate-I
+LAB-MOT:Ctrl-EVR-1:PS-1-PhasOffs-RB
+LAB-MOT:Ctrl-EVR-1:PS-2-Rate-I
+LAB-MOT:Ctrl-EVR-1:PS-2-PhasOffs-RB
+LAB-MOT:Ctrl-EVR-1:PS-3-Rate-I
+LAB-MOT:Ctrl-EVR-1:PS-3-PhasOffs-RB
+LAB-MOT:Ctrl-EVR-1:PS-4-Rate-I
+LAB-MOT:Ctrl-EVR-1:PS-4-PhasOffs-RB
+LAB-MOT:Ctrl-EVR-1:PS-5-Rate-I
+LAB-MOT:Ctrl-EVR-1:PS-5-PhasOffs-RB
+LAB-MOT:Ctrl-EVR-1:PS-6-Rate-I
+LAB-MOT:Ctrl-EVR-1:PS-6-PhasOffs-RB
+LAB-MOT:Ctrl-EVR-1:PS-7-Rate-I
+LAB-MOT:Ctrl-EVR-1:PS-7-PhasOffs-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Res-I
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Res-I
+LAB-MOT:Ctrl-EVR-1:F14HzCnt-I
+LAB-MOT:Ctrl-EVR-1:LebtCpOffCnt-I
+LAB-MOT:Ctrl-EVR-1:LebtCpOnCnt-I
+LAB-MOT:Ctrl-EVR-1:MebtCpHeadCnt-I
+LAB-MOT:Ctrl-EVR-1:MebtCpTailCnt-I
+LAB-MOT:Ctrl-EVR-1:IonMagStCnt-I
+LAB-MOT:Ctrl-EVR-1:IonMagEndCnt-I
+LAB-MOT:Ctrl-EVR-1:BPulseStCnt-I
+LAB-MOT:Ctrl-EVR-1:BPulseEndCnt-I
+LAB-MOT:Ctrl-EVR-1:RFStCnt-I
+LAB-MOT:Ctrl-EVR-1:BIAcqStCnt-I
+LAB-MOT:Ctrl-EVR-1:BIAcqEndCnt-I
+LAB-MOT:Ctrl-EVR-1:PMortemCnt-I
+LAB-MOT:Ctrl-EVR-1:PMortemSysCnt-I
+LAB-MOT:Ctrl-EVR-1:DoDCnt-I
+LAB-MOT:Ctrl-EVR-1:DoDSysCnt-I
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Rise00_15-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Rise16_31-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Rise32_39-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-High00_15-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-High16_31-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-High32_39-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Fall00_15-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Fall16_31-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Fall32_39-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low00_15-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low16_31-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low32_39-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Rise00_15-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Rise16_31-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Rise32_39-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-High00_15-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-High16_31-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-High32_39-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Fall00_15-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Fall16_31-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Fall32_39-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Low00_15-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Low16_31-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Low32_39-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Mask-Sel
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-EnableGate-Sel
+LAB-MOT:Ctrl-EVR-1:as-SR_0_State
+LAB-MOT:Ctrl-EVR-1:as-SR_1_State
+LAB-MOT:Ctrl-EVR-1:as-SR_2_State
+LAB-MOT:Ctrl-EVR-1:as-SR_3_State
+LAB-MOT:Ctrl-EVR-1:as-SR_4_State
+LAB-MOT:Ctrl-EVR-1:as-SR_5_State
+LAB-MOT:Ctrl-EVR-1:as-SR_6_State
+LAB-MOT:Ctrl-EVR-1:as-SR_7_State
+LAB-MOT:Ctrl-EVR-1:as-SR_disableMaxSecs
+LAB-MOT:Ctrl-EVR-1:Time-Src-Sel_
+LAB-MOT:Ctrl-EVR-1:EvtCode-SP
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-Sel_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-TrigSrc-Sel_
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-TrigSrc-Sel_
+LAB-MOT:Ctrl-EVR-1:Evt-Blink0-SP
+LAB-MOT:Ctrl-EVR-1:Evt-Blink1-SP
+LAB-MOT:Ctrl-EVR-1:Evt-ResetPS-SP
+LAB-MOT:Ctrl-EVR-1:1hz-SP
+LAB-MOT:Ctrl-EVR-1:EvtA-SP
+LAB-MOT:Ctrl-EVR-1:EvtB-SP
+LAB-MOT:Ctrl-EVR-1:EvtC-SP
+LAB-MOT:Ctrl-EVR-1:EvtD-SP
+LAB-MOT:Ctrl-EVR-1:EvtE-SP
+LAB-MOT:Ctrl-EVR-1:EvtF-SP
+LAB-MOT:Ctrl-EVR-1:EvtG-SP
+LAB-MOT:Ctrl-EVR-1:EvtH-SP
+LAB-MOT:Ctrl-EVR-1:PS-0-Div-SP
+LAB-MOT:Ctrl-EVR-1:PS-0-PhasOffs-Raw-SP
+LAB-MOT:Ctrl-EVR-1:PS-1-Div-SP
+LAB-MOT:Ctrl-EVR-1:PS-1-PhasOffs-Raw-SP
+LAB-MOT:Ctrl-EVR-1:PS-2-Div-SP
+LAB-MOT:Ctrl-EVR-1:PS-2-PhasOffs-Raw-SP
+LAB-MOT:Ctrl-EVR-1:PS-3-Div-SP
+LAB-MOT:Ctrl-EVR-1:PS-3-PhasOffs-Raw-SP
+LAB-MOT:Ctrl-EVR-1:PS-4-Div-SP
+LAB-MOT:Ctrl-EVR-1:PS-4-PhasOffs-Raw-SP
+LAB-MOT:Ctrl-EVR-1:PS-5-Div-SP
+LAB-MOT:Ctrl-EVR-1:PS-5-PhasOffs-Raw-SP
+LAB-MOT:Ctrl-EVR-1:PS-6-Div-SP
+LAB-MOT:Ctrl-EVR-1:PS-6-PhasOffs-Raw-SP
+LAB-MOT:Ctrl-EVR-1:PS-7-Div-SP
+LAB-MOT:Ctrl-EVR-1:PS-7-PhasOffs-Raw-SP
+LAB-MOT:Ctrl-EVR-1:Out-Int-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-Int-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Src-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Src2-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-BunchTrain-Size-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-BunchTrain-Size-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Prescaler-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Evt-Trig0-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Evt-Trig1-SP
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Evt-Trig2-SP
+LAB-MOT:Ctrl-EVR-1:In-0-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:In-0-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:In-1-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:In-1-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:In-2-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:In-2-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:In-3-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:In-3-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-0-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-0-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-1-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-1-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-2-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-2-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-3-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-3-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-4-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-4-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-5-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-5-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-6-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-6-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-7-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-7-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-8-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-8-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-9-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-9-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-10-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-10-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-11-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-11-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-12-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-12-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-13-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-13-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-14-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-14-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-15-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-15-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-16-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-16-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-17-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-17-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-18-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-18-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-19-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:UnivIn-19-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-0-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-0-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-1-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-1-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-2-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-2-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-3-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-3-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-4-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-4-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-5-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-5-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-6-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-6-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-7-Code-Ext-SP
+LAB-MOT:Ctrl-EVR-1:BPIn-7-Code-Back-SP
+LAB-MOT:Ctrl-EVR-1:F14Hz-SP
+LAB-MOT:Ctrl-EVR-1:LebtCpOff-SP
+LAB-MOT:Ctrl-EVR-1:LebtCpOn-SP
+LAB-MOT:Ctrl-EVR-1:MebtCpHead-SP
+LAB-MOT:Ctrl-EVR-1:MebtCpTail-SP
+LAB-MOT:Ctrl-EVR-1:IonMagSt-SP
+LAB-MOT:Ctrl-EVR-1:IonMagEnd-SP
+LAB-MOT:Ctrl-EVR-1:BPulseSt-SP
+LAB-MOT:Ctrl-EVR-1:BPulseEnd-SP
+LAB-MOT:Ctrl-EVR-1:RFSt-SP
+LAB-MOT:Ctrl-EVR-1:BIAcqSt-SP
+LAB-MOT:Ctrl-EVR-1:BIAcqEnd-SP
+LAB-MOT:Ctrl-EVR-1:PMortem-SP
+LAB-MOT:Ctrl-EVR-1:PMortemSys-SP
+LAB-MOT:Ctrl-EVR-1:DoD-SP
+LAB-MOT:Ctrl-EVR-1:DoDSys-SP
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Rise-ASub_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-High-ASub_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Fall-ASub_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-Low-ASub_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Pat-WfX-ASub_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-WfCalc-ASub_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-BunchTrain-ASub_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Rise-ASub_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-High-ASub_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Fall-ASub_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-Low-ASub_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Pat-WfX-ASub_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-WfCalc-ASub_
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-BunchTrain-ASub_
+REQMOD:ccpu-33584-004-29187:exit
+LAB-MOT:Ctrl-EVR-1:READACF
+LAB-MOT:Ctrl-EVR-1:SYSRESET
+LAB-MOT:Ctrl-EVR-1:SysReset
+REQMOD:ccpu-33584-004-29187:BaseVersion
+REQMOD:ccpu-33584-004-29187:require_VER
+REQMOD:ccpu-33584-004-29187:autosave_VER
+REQMOD:ccpu-33584-004-29187:caputlog_VER
+REQMOD:ccpu-33584-004-29187:auth_VER
+REQMOD:ccpu-33584-004-29187:sequencer_VER
+REQMOD:ccpu-33584-004-29187:sscan_VER
+REQMOD:ccpu-33584-004-29187:calc_VER
+REQMOD:ccpu-33584-004-29187:iocstats_VER
+REQMOD:ccpu-33584-004-29187:recsync_VER
+REQMOD:ccpu-33584-004-29187:essioc_VER
+LAB-MOT:Ctrl-EVR-1:RecSync-Msg-I
+LAB-MOT:Ctrl-EVR-1:GTIM_CUR_SRC
+LAB-MOT:Ctrl-EVR-1:GTIM_EVT_SRC
+LAB-MOT:Ctrl-EVR-1:GTIM_HI_SRC
+LAB-MOT:Ctrl-EVR-1:STARTTOD
+LAB-MOT:Ctrl-EVR-1:TOD
+LAB-MOT:Ctrl-EVR-1:ST_SCRIPT1
+LAB-MOT:Ctrl-EVR-1:ST_SCRIPT2
+LAB-MOT:Ctrl-EVR-1:KERNEL_VERS
+LAB-MOT:Ctrl-EVR-1:EPICS_VERS
+LAB-MOT:Ctrl-EVR-1:HOSTNAME
+LAB-MOT:Ctrl-EVR-1:APP_DIR1
+LAB-MOT:Ctrl-EVR-1:APP_DIR2
+LAB-MOT:Ctrl-EVR-1:UPTIME
+LAB-MOT:Ctrl-EVR-1:ENGINEER
+LAB-MOT:Ctrl-EVR-1:LOCATION
+LAB-MOT:Ctrl-EVR-1:CA_ADDR_LIST
+LAB-MOT:Ctrl-EVR-1:CA_CONN_TIME
+LAB-MOT:Ctrl-EVR-1:CA_AUTO_ADDR
+LAB-MOT:Ctrl-EVR-1:CA_RPTR_PORT
+LAB-MOT:Ctrl-EVR-1:CA_SRVR_PORT
+LAB-MOT:Ctrl-EVR-1:CA_MAX_ARRAY
+LAB-MOT:Ctrl-EVR-1:CA_AUTO_ARRAY_BYTES
+LAB-MOT:Ctrl-EVR-1:CA_SRCH_TIME
+LAB-MOT:Ctrl-EVR-1:CA_BEAC_TIME
+LAB-MOT:Ctrl-EVR-1:TZ
+LAB-MOT:Ctrl-EVR-1:TS_NTP_INET
+LAB-MOT:Ctrl-EVR-1:IOC_LOG_PORT
+LAB-MOT:Ctrl-EVR-1:IOC_LOG_INET
+LAB-MOT:Ctrl-EVR-1:IOC_LOG_FILE_LIMIT
+LAB-MOT:Ctrl-EVR-1:IOC_LOG_FILE_NAME
+LAB-MOT:Ctrl-EVR-1:IOC_LOG_FILE_COMMAND
+LAB-MOT:Ctrl-EVR-1:E3_IOCSH_PS1
+LAB-MOT:Ctrl-EVR-1:E3_IOCSH_PREF
+REQMOD:ccpu-33584-004-29187:devlib2_VER
+REQMOD:ccpu-33584-004-29187:mrfioc2_VER
+LAB-MOT:Ctrl-EVR-1:HwType-I
+LAB-MOT:Ctrl-EVR-1:FwVer-I
+LAB-MOT:Ctrl-EVR-1:SwVer-I
+LAB-MOT:Ctrl-EVR-1:Pos-I
+LAB-MOT:Ctrl-EVR-1:Time-I
+LAB-MOT:Ctrl-EVR-1:Timestamp-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Error-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-Error-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-Error-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-1-TrigSrc-RB
+LAB-MOT:Ctrl-EVR-1:SoftSeq-2-TrigSrc-RB
+LAB-MOT:Ctrl-EVR-1:SFP-Vendor-I
+LAB-MOT:Ctrl-EVR-1:SFP-Part-I
+LAB-MOT:Ctrl-EVR-1:SFP-Rev-I
+LAB-MOT:Ctrl-EVR-1:SFP-Serial-I
+LAB-MOT:Ctrl-EVR-1:SFP-Date-Manu-I
+LAB-MOT:Ctrl-EVR-1:Out-Int-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-Int-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-FP0-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-FP1-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-FP2-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-FP3-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-FPUV0-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-FPUV1-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-FPUV2-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-FPUV3-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back0-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back1-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back2-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back3-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back4-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back5-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back6-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-Back7-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-TCLKA-Src2-RB
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Src-RB
+LAB-MOT:Ctrl-EVR-1:Out-TCLKB-Src2-RB
+LAB-MOT:Ctrl-EVR-1:GTIM_TIME
+LAB-MOT:Ctrl-EVR-1:CA_CLNT_CNT
+LAB-MOT:Ctrl-EVR-1:CA_CONN_CNT
+LAB-MOT:Ctrl-EVR-1:RECORD_CNT
+LAB-MOT:Ctrl-EVR-1:FD_MAX
+LAB-MOT:Ctrl-EVR-1:FD_CNT
+LAB-MOT:Ctrl-EVR-1:SYS_CPU_LOAD
+LAB-MOT:Ctrl-EVR-1:IOC_CPU_LOAD
+LAB-MOT:Ctrl-EVR-1:LOAD
+LAB-MOT:Ctrl-EVR-1:CPU_CNT
+LAB-MOT:Ctrl-EVR-1:SUSP_TASK_CNT
+LAB-MOT:Ctrl-EVR-1:MEM_USED
+LAB-MOT:Ctrl-EVR-1:MEM_FREE
+LAB-MOT:Ctrl-EVR-1:MEM_MAX
+LAB-MOT:Ctrl-EVR-1:PROCESS_ID
+LAB-MOT:Ctrl-EVR-1:PARENT_ID
+LAB-MOT:Ctrl-EVR-1:SCANONCE_Q_SIZE
+LAB-MOT:Ctrl-EVR-1:CB_Q_SIZE
+LAB-MOT:Ctrl-EVR-1:SCANONCE_Q_HIGH
+LAB-MOT:Ctrl-EVR-1:SCANONCE_Q_USED
+LAB-MOT:Ctrl-EVR-1:SCANONCE_Q_OVERRUNS
+LAB-MOT:Ctrl-EVR-1:CBLOW_Q_HIGH
+LAB-MOT:Ctrl-EVR-1:CBLOW_Q_USED
+LAB-MOT:Ctrl-EVR-1:CBLOW_Q_OVERRUNS
+LAB-MOT:Ctrl-EVR-1:CBMEDIUM_Q_HIGH
+LAB-MOT:Ctrl-EVR-1:CBMEDIUM_Q_USED
+LAB-MOT:Ctrl-EVR-1:CBMEDIUM_Q_OVERRUNS
+LAB-MOT:Ctrl-EVR-1:CBHIGH_Q_HIGH
+LAB-MOT:Ctrl-EVR-1:CBHIGH_Q_USED
+LAB-MOT:Ctrl-EVR-1:CBHIGH_Q_OVERRUNS
+LAB-MOT:Ctrl-EVR-1:Link-Clk-I
+LAB-MOT:Ctrl-EVR-1:Time-Clock-I
+LAB-MOT:Ctrl-EVR-1:TimeErr-I
+LAB-MOT:Ctrl-EVR-1:SFP-T-I
+LAB-MOT:Ctrl-EVR-1:SFP-Pwr-TX-I
+LAB-MOT:Ctrl-EVR-1:SFP-Pwr-RX-I
+LAB-MOT:Ctrl-EVR-1:SFP-Speed-Link-I
+LAB-MOT:Ctrl-EVR-1:DC-Tgt-RB
+LAB-MOT:Ctrl-EVR-1:DC-Msrd-I
+LAB-MOT:Ctrl-EVR-1:DC-Corr-I
+LAB-MOT:Ctrl-EVR-1:Out-DlyUniv0_1-Delay0-RB
+LAB-MOT:Ctrl-EVR-1:Out-DlyUniv0_1-Delay1-RB
+LAB-MOT:Ctrl-EVR-1:Out-DlyUniv2_3-Delay0-RB
+LAB-MOT:Ctrl-EVR-1:Out-DlyUniv2_3-Delay1-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-0-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-1-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-2-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-3-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-4-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-5-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-6-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-7-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-8-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-9-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-10-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-11-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-12-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-13-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-14-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-15-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-28-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-29-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-30-Width-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Delay-RB
+LAB-MOT:Ctrl-EVR-1:DlyGen-31-Width-RB
+LAB-MOT:Ctrl-EVR-1:PREF_scalc__
+ccpu-33584-004-29187 > iocshLoad seq0Ess.r.iocsh P=$(PEVR)
+Can't open seq0Ess.r.iocsh: No such file or directory
+ccpu-33584-004-29187 > Set EVR clock 50000000.000000
+Set EVR clock 88052000.000000
+iocshLoad seq0Ess.r.iocsh P=$(PEVR)ccpu-33584-004-29187 >                                    ccpu-33584-004-29187 > 
+ccpu-33584-004-29187 > 
+ccpu-33584-004-29187 > 
+ccpu-33584-004-29187 > iocshLoad seq0Ess.r.iocsh P=$(PEVR)ccpu-33584-004-29187 >                                    ccpu-33584-004-29187 > 
+ccpu-33584-004-29187 > 
+ccpu-33584-004-29187 > 
+ccpu-33584-004-29187 > iocshLoad $(mrfioc2_DIR)/seq0Ess.r.iocsh P=$(PEVR)
+# @about: seq0Ess.r.iocsh
+epicsEnvSet "EvtSeqEss" "15 14 10 11 6 7 8 9 12 13 15 18 19 17 122 127"
+epicsEnvSet "TimestampSeqEss" "15 0 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 71428"
+dbpf "LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Disable-Cmd" "1"
+DBF_STRING:         "1"       
+# Set up the evr prescalers that will trigger the sequencer at 14Hz and 1Hz ###
+dbpf "LAB-MOT:Ctrl-EVR-1:PS-0-Div-SP" "6289464"
+DBF_LONG:           6289464 = 0x5ff838  
+dbpf "LAB-MOT:Ctrl-EVR-1:PS-1-Div-SP" "88052496"
+DBF_LONG:           88052496 = 0x53f9310          
+# Set up the sequencer
+## EVR: Set the trigger of the sequencer as Prescaler 0 for 14Hz and Prescaler 1 for 1Hz
+## EVG: Set Mxc0 for 14Hz or Mxc7 for 1Hz
+dbpf "LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-2-Sel" "Prescaler 0"
+DBF_STRING:         "Prescaler 0"       
+#dbpf "LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-2-Sel" "Prescaler 1"
+dbpf "LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-Sel" "Mxc0"
+PV 'LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-Sel' not found
+#dbpf "LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-Sel" "Mxc7"
+# Set the engineering units (microseconds)
+dbpf "LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TsResolution-Sel" "uSec"
+DBF_STRING:         "uSec"    
+# Set the runmode to normal, so that the sequencer re-arms after it finishes running
+dbpf "LAB-MOT:Ctrl-EVR-1:SoftSeq-0-RunMode-Sel" "Normal"
+DBF_STRING:         "Normal"  
+# Event code 14 (14 Hz), 127 is the end of sequence
+system "caput -a LAB-MOT:Ctrl-EVR-1:SoftSeq-0-EvtCode-SP 15 14 10 11 6 7 8 9 12 13 15 18 19 17 122 127"
+Old : LAB-MOT:Ctrl-EVR-1:SoftSeq-0-EvtCode-SP 2047 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+New : LAB-MOT:Ctrl-EVR-1:SoftSeq-0-EvtCode-SP 2047 14 10 11 6 7 8 9 12 13 15 18 19 17 122 127 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+# Defining time at which the event codes are sent in us (timestamps)
+system "caput -a LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-SP 15 0 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 71428"
+Old : LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-SP 2047 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+New : LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-SP 2047 0 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 71428 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+# Attach the soft sequence to a specific hardware sequence
+dbpf "LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Load-Cmd" "1"
+DBF_STRING:         "1"       
+# Commit the sequence to HW
+dbpf "LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Commit-Cmd" "1"
+DBF_STRING:         "Commit"  
+# Enable the sequencer
+dbpf "LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Enable-Cmd" "1"
+DBF_STRING:         "1"       
+ccpu-33584-004-29187 > iocshLoad $(mrfioc2_DIR)/evrGenericEss.load.r.iocsh P=<hLoad $(mrfioc2_DIR)/evrGenericEss.load.r.iocsh P=$                         (PEVR)
+# @about: evrGenericEss.load.r.iocsh
+iocshLoad "/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/mrfioc2/2.3.1+1//evrDlyGenEss.r.iocsh" "P=LAB-MOT:Ctrl-EVR-1"
+# @about: evrDlyGenEss.r.iocsh
+### Labels
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-0-Label-I"  "EvtF14Hz"
+DBF_CHAR[9]:        "EvtF14Hz"          
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-1-Label-I"  "EvtRFSt"
+DBF_CHAR[8]:        "EvtRFSt" 
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-2-Label-I"  "EvtBPulseSt"
+DBF_CHAR[12]:       "EvtBPulseSt"       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-3-Label-I"  "EvtBPulseEnd"
+DBF_CHAR[13]:       "EvtBPulseEnd"      
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-4-Label-I"  "EvtIonMagSt"
+DBF_CHAR[12]:       "EvtIonMagSt"       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-5-Label-I"  "EvtIonMagEnd"
+DBF_CHAR[13]:       "EvtIonMagEnd"      
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-6-Label-I"  "EvtPMortem"
+DBF_CHAR[11]:       "EvtPMortem"        
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-7-Label-I"  "EvtDoD"
+DBF_CHAR[7]:        "EvtDoD"  
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-8-Label-I"  "-"
+DBF_CHAR[2]:        "-"       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-9-Label-I"  "-"
+DBF_CHAR[2]:        "-"       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-10-Label-I" "-"
+DBF_CHAR[2]:        "-"       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-11-Label-I" "-"
+DBF_CHAR[2]:        "-"       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-12-Label-I" "-"
+DBF_CHAR[2]:        "-"       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-13-Label-I" "-"
+DBF_CHAR[2]:        "-"       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-14-Label-I" "-"
+DBF_CHAR[2]:        "-"       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-15-Label-I" "-"
+DBF_CHAR[2]:        "-"       
+# Define pulsers - width
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-0-Width-SP"  "100"
+DBF_DOUBLE:         100       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-1-Width-SP"  "100"
+DBF_DOUBLE:         100       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-2-Width-SP"  "100"
+DBF_DOUBLE:         100       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-3-Width-SP"  "100"
+DBF_DOUBLE:         100       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-4-Width-SP"  "100"
+DBF_DOUBLE:         100       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-5-Width-SP"  "100"
+DBF_DOUBLE:         100       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-6-Width-SP"  "100"
+DBF_DOUBLE:         100       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-7-Width-SP"  "100"
+DBF_DOUBLE:         100       
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-8-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-9-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-10-Width-SP" "0"
+DBF_DOUBLE:         0         
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-11-Width-SP" "0"
+DBF_DOUBLE:         0         
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-12-Width-SP" "0"
+DBF_DOUBLE:         0         
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-13-Width-SP" "0"
+DBF_DOUBLE:         0         
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-14-Width-SP" "0"
+DBF_DOUBLE:         0         
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-15-Width-SP" "0"
+DBF_DOUBLE:         0         
+### Define pulsers - trigger events
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-0-Evt-Trig0-SP"  "14"
+DBF_LONG:           14 = 0xe  
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-1-Evt-Trig0-SP"  "15"
+DBF_LONG:           15 = 0xf  
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-2-Evt-Trig0-SP"  "12"
+DBF_LONG:           12 = 0xc  
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-3-Evt-Trig0-SP"  "13"
+DBF_LONG:           13 = 0xd  
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-4-Evt-Trig0-SP"  "10"
+DBF_LONG:           10 = 0xa  
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-5-Evt-Trig0-SP"  "11"
+DBF_LONG:           11 = 0xb  
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-6-Evt-Trig0-SP"  "40"
+DBF_LONG:           40 = 0x28 
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-7-Evt-Trig0-SP"  "42"
+DBF_LONG:           42 = 0x2a 
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-8-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-9-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-10-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-11-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-12-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-13-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-14-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-15-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-0-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-1-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-2-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-3-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-4-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-5-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-6-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-7-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-8-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-9-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-10-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-11-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-12-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-13-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-14-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-15-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-0-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-1-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-2-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-3-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-4-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-5-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-6-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-7-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-8-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-9-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-10-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-11-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-12-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-13-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-14-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "LAB-MOT:Ctrl-EVR-1:DlyGen-15-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+iocshLoad "/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/mrfioc2/2.3.1+1//evrOutEss.r.iocsh" "P=LAB-MOT:Ctrl-EVR-1"
+# @about: evrOutEss.r.iocsh
+# BP Labels
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back0-Label-I" "EvtF14Hz"
+DBF_CHAR[9]:        "EvtF14Hz"          
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back1-Label-I" "EvtRFSt"
+DBF_CHAR[8]:        "EvtRFSt" 
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back2-Label-I" "EvtBPulse"
+DBF_CHAR[10]:       "EvtBPulse"         
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back3-Label-I" "EvtIonMag"
+DBF_CHAR[10]:       "EvtIonMag"         
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back4-Label-I" "EvtPMortem"
+DBF_CHAR[11]:       "EvtPMortem"        
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back5-Label-I" "EvtDoD"
+DBF_CHAR[7]:        "EvtDoD"  
+#dbpf "$(P)$(R=)$(S=:)Out-Back6-Label-I" ""
+#dbpf "$(P)$(R=)$(S=:)Out-Back7-Label-I" ""
+# BP SRC configuration
+### MTCA EVR Backplane0, RX17 (0)
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back0-Src-SP" "0"
+DBF_LONG:           0 = 0x0   
+### MTCA EVR Backplane1, TX17 (0)
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back1-Src-SP" "1"
+DBF_LONG:           1 = 0x1   
+### MTCA EVR Backplane2, RX18 (0)
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back2-Src-SP" "49"
+DBF_LONG:           49 = 0x31 
+### MTCA EVR Backplane3, TX18 (0)
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back3-Src-SP" "50"
+DBF_LONG:           50 = 0x32 
+### MTCA EVR Backplane4, RX19 (0)
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back4-Src-SP" "6"
+DBF_LONG:           6 = 0x6   
+### MTCA EVR Backplane5, TX19 (0)
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back5-Src-SP" "7"
+DBF_LONG:           7 = 0x7   
+### MTCA EVR Backplane6, RX20 (0)
+# dbpf "$(P)$(R=)$(S=:)Out-Back6-Src-SP" "8"
+### MTCA EVR Backplane7, TX20 (0)
+# dbpf "$(P)$(R=)$(S=:)Out-Back7-Src-SP" "9"
+# FP outputs
+# dbpf "$(P)$(R=)$(S=:)Out-FP0-Src-SP" "15"
+# dbpf "$(P)$(R=)$(S=:)Out-FP1-Src-SP" "15"
+# dbpf "$(P)$(R=)$(S=:)Out-FP2-Src-SP" "15"
+# dbpf "$(P)$(R=)$(S=:)Out-FP3-Src-SP" "15"
+# dbpf "$(P)$(R=)$(S=:)Out-FPUV0-Src-SP" "15"
+# dbpf "$(P)$(R=)$(S=:)Out-FPUV1-Src-SP" "15"
+# dbpf "$(P)$(R=)$(S=:)Out-FPUV2-Src-SP" "15"
+# dbpf "$(P)$(R=)$(S=:)Out-FPUV3-Src-SP" "15"
+iocshLoad "/nfs/ts/epics/base-7.0.5/require/3.4.1/siteMods/mrfioc2/2.3.1+1//evrInEss.r.iocsh" "P=LAB-MOT:Ctrl-EVR-1"
+# @about: evrInEss.r.iocsh
+# BP Labels
+#dbpf "$(P)$(R=)$(S=:)Out-Back0-Label-I" "EvtF14Hz"
+#dbpf "$(P)$(R=)$(S=:)Out-Back1-Label-I" "EvtRFSt"
+#dbpf "$(P)$(R=)$(S=:)Out-Back2-Label-I" "EvtBPulse"
+#dbpf "$(P)$(R=)$(S=:)Out-Back3-Label-I" "EvtIonMag"
+#dbpf "$(P)$(R=)$(S=:)Out-Back4-Label-I" "EvtPMortem"
+#dbpf "$(P)$(R=)$(S=:)Out-Back5-Label-I" "EvtDoD"
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back6-Label-I" "EvtPMortemSys"
+DBF_CHAR[14]:       "EvtPMortemSys"     
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back7-Label-I" "EvtDoDSys"
+DBF_CHAR[10]:       "EvtDoDSys"         
+# BP inputs
+#dbpf "$(P)$(R=)$(S=:)Out-Back0-Src-Scale-SP" "Tri-state"
+#dbpf "$(P)$(R=)$(S=:)Out-Back1-Src-Scale-SP" "Tri-state"
+#dbpf "$(P)$(R=)$(S=:)Out-Back2-Src-Scale-SP" "Tri-state"
+#dbpf "$(P)$(R=)$(S=:)Out-Back3-Src-Scale-SP" "Tri-state"
+#dbpf "$(P)$(R=)$(S=:)Out-Back4-Src-Scale-SP" "Tri-state"
+#dbpf "$(P)$(R=)$(S=:)Out-Back5-Src-Scale-SP" "Tri-state"
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back6-Src-Scale-SP" "Tri-state"
+DBF_STRING:         "Tri-state"         
+dbpf "LAB-MOT:Ctrl-EVR-1:Out-Back7-Src-Scale-SP" "Tri-state"
+DBF_STRING:         "Tri-state"         
+#dbpf "$(P)$(R=)$(S=:)BPIn-0-Trig-Ext-Sel" "Edge"
+#dbpf "$(P)$(R=)$(S=:)BPIn-1-Trig-Ext-Sel" "Edge"
+#dbpf "$(P)$(R=)$(S=:)BPIn-2-Trig-Ext-Sel" "Edge"
+#dbpf "$(P)$(R=)$(S=:)BPIn-3-Trig-Ext-Sel" "Edge"
+#dbpf "$(P)$(R=)$(S=:)BPIn-4-Trig-Ext-Sel" "Edge"
+#dbpf "$(P)$(R=)$(S=:)BPIn-5-Trig-Ext-Sel" "Edge"
+dbpf "LAB-MOT:Ctrl-EVR-1:BPIn-6-Trig-Ext-Sel" "Edge"
+DBF_STRING:         "Edge"    
+dbpf "LAB-MOT:Ctrl-EVR-1:BPIn-7-Trig-Ext-Sel" "Edge"
+DBF_STRING:         "Edge"    
+# Local EVR events
+#dbpf "$(P)$(R=)$(S=:)BPIn-0-Code-Ext-SP" "0"
+#dbpf "$(P)$(R=)$(S=:)BPIn-1-Code-Ext-SP" "0"
+#dbpf "$(P)$(R=)$(S=:)BPIn-2-Code-Ext-SP" "0"
+#dbpf "$(P)$(R=)$(S=:)BPIn-3-Code-Ext-SP" "0"
+#dbpf "$(P)$(R=)$(S=:)BPIn-4-Code-Ext-SP" "0"
+#dbpf "$(P)$(R=)$(S=:)BPIn-5-Code-Ext-SP" "0"
+dbpf "LAB-MOT:Ctrl-EVR-1:BPIn-6-Code-Ext-SP" "41"
+DBF_LONG:           41 = 0x29 
+dbpf "LAB-MOT:Ctrl-EVR-1:BPIn-7-Code-Ext-SP" "43"
+DBF_LONG:           43 = 0x2b 
+# Front panel inputs
+#dbpf "$(P)$(R=)$(S=:)In-0-Trig-Ext-Sel" "Edge"
+#dbpf "$(P)$(R=)$(S=:)In-1-Trig-Ext-Sel" "Edge"
+#dbpf "$(P)$(R=)$(S=:)In-2-Trig-Ext-Sel" "Edge"
+#dbpf "$(P)$(R=)$(S=:)In-3-Trig-Ext-Sel" "Edge"
+# Univ inputs
+#dbpf "$(P)$(R=)$(S=:)UnivIn-0-Trig-Ext-Sel" "Edge"
+#dbpf "$(P)$(R=)$(S=:)UnivIn-1-Trig-Ext-Sel" "Edge"
+#dbpf "$(P)$(R=)$(S=:)UnivIn-2-Trig-Ext-Sel" "Edge"
+#dbpf "$(P)$(R=)$(S=:)UnivIn-3-Trig-Ext-Sel" "Edge"
+# Local EVR events for FP
+#dbpf "$(P)$(R=)$(S=:)In-0-Code-Ext-SP" "$(FPE0=0)"
+#dbpf "$(P)$(R=)$(S=:)In-1-Code-Ext-SP" "$(FPE1=0)"
+#dbpf "$(P)$(R=)$(S=:)In-2-Code-Ext-SP" "$(FPE2=0)"
+#dbpf "$(P)$(R=)$(S=:)In-3-Code-Ext-SP" "$(FPE3=0)"
+# Local EVR events for UNIV
+#dbpf "$(P)$(R=)$(S=:)UnivIn-0-Code-Ext-SP" "$(UVE0=0)"
+#dbpf "$(P)$(R=)$(S=:)UnivIn-1-Code-Ext-SP" "$(UVE1=0)"
+#dbpf "$(P)$(R=)$(S=:)UnivIn-2-Code-Ext-SP" "$(UVE2=0)"
+#dbpf "$(P)$(R=)$(S=:)UnivIn-3-Code-Ext-SP" "$(UVE3=0)"
+ccpu-33584-004-29187 > 
