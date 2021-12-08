@@ -16,3 +16,6 @@ require "mrfioc2" "2.3.1+1"
 iocshLoad "$(mrfioc2_DIR)/evrEss.iocsh"     "P=$(PEVR),PCIID=08:00.0,INTPPS=,EXTPPS=#"
 iocshLoad "$(mrfioc2_DIR)/seq0Ess.r.iocsh"  "P=$(PEVR)"
 iocshLoad "$(mrfioc2_DIR)/evrGenericEss.load.r.iocsh" "P=$(PEVR)"
+
+# added by anders sandström
+time2ntp("EVR", 2)
