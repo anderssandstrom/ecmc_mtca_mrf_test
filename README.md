@@ -1,4 +1,67 @@
-'# ecmc_mtca_mrf_test
+# ecmc_mtca_mrf_test
+
+## Run mrf IOC
+Seems to work when running new st.cmd from Jerzy with added "time2ntp".
+
+```
+#!/usr/bin/env iocsh.bash
+
+epicsEnvSet "PEVR" "LAB-MOT:Ctrl-EVR-1"
+
+# [common]
+epicsEnvSet "IOCNAME" "$(PEVR)"
+epicsEnvSet "IOCDIR" "./"
+epicsEnvSet "AS_TOP" "./"
+epicsEnvSet "LOG_SERVER_NAME" "172.16.107.59"
+
+require essioc
+iocshLoad("$(essioc_DIR)/common_config.iocsh")
+
+# [module]
+require "mrfioc2" "2.3.1+1"
+iocshLoad "$(mrfioc2_DIR)/evrEss.iocsh"     "P=$(PEVR),PCIID=08:00.0,INTPPS=,EXTPPS=#"
+iocshLoad "$(mrfioc2_DIR)/seq0Ess.r.iocsh"  "P=$(PEVR)"
+iocshLoad "$(mrfioc2_DIR)/evrGenericEss.load.r.iocsh" "P=$(PEVR)"
+
+# added by anders sandström
+time2ntp("EVR", 2)
+```
+
+## Run IOC:
+```
+iocsh.bash mrf.script 
+```
+
+## Check chrony
+```
+[anderssandstrom@ccpu-33584-004 ~]$ chronyc sources
+210 Number of sources = 1
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+#* EVR2                          0   4   377    15  -2377ns[  +65us] +/-  860ns
+```
+
+```
+[anderssandstrom@ccpu-33584-004 ~]$    chronyc tracking
+Reference ID    : 45565232 (EVR2)
+Stratum         : 1
+Ref time (UTC)  : Wed Dec 08 13:10:26 2021
+System time     : 0.000000002 seconds slow of NTP time
+Last offset     : +0.000080329 seconds
+RMS offset      : 0.000078696 seconds
+Frequency       : 0.013 ppm slow
+Residual freq   : +2.944 ppm
+Skew            : 0.043 ppm
+Root delay      : 0.000000001 seconds
+Root dispersion : 0.000055503 seconds
+Update interval : 16.0 seconds
+Leap status     : Normal
+
+```
+
+
+
+# OLD test with old config Below!
 
 ## Notes from call with Jerzy
 In the call with Jerzy we concluded that one maybe better way would be to syncronize the 1kHz cloc (to get timestamps directlly from evr in 1khz).
