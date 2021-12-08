@@ -1,5 +1,11 @@
 # ecmc_mtca_mrf_test
 
+## IOC
+The controller is configured to autostart default mrf-ioc. To kill:
+```
+sudo systemctl stop ts@*
+```
+
 ## Run mrf IOC
 Seems to work when running new st.cmd from Jerzy with added "time2ntp".
 
