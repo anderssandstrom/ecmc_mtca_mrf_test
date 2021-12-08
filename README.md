@@ -42,6 +42,19 @@ add line to /etc/chrony.conf:
 ```
 refclock SHM 2:perm=0777 poll 4 precision 1e-9 filter 64 prefer refid EVR2
 ```
+Some intressting settings:
+```
+poll:
+Timestamps produced by refclock drivers are not used immediately, but they are stored and processed by a median filter in the polling interval specified by this option. This is defined as a power of 2 and can be negative to specify a sub-second interval. The default is 4 (16 seconds). A shorter interval allows chronyd to react faster to changes in the frequency of the system clock, but it might have a negative effect on its accuracy if the samples have a lot of jitter.
+
+dpoll
+Some drivers do not listen for external events and try to produce samples in their own polling interval. This is defined as a power of 2 and can be negative to specify a sub-second interval. The default is 0 (1 second).
+
+refid refid
+This option is used to specify the reference ID of the refclock, as up to four ASCII characters. The default reference ID is composed from the first three characters of the driver name and the number of the refclock. Each refclock must have a unique reference ID.
+```
+
+if poll is set to 1 the update will be quicker.
 
 ## Check chrony
 ```
