@@ -82,7 +82,15 @@ Update interval : 16.0 seconds
 Leap status     : Normal
 
 ```
+```
+watch -n 0.1 "chronyc tracking | grep System"
+Will give:
 
+Every 0.1s: chronyc tracking | grep System                                                     Wed Dec  8 15:01:45 2021
+
+System time     : 0.000000001 seconds slow of NTP time
+
+```
 
 
 # OLD test with old config Below!
