@@ -3,6 +3,9 @@
 ## Host
 https://csentry.esss.lu.se/network/hosts/view/lab-mot-ctrl-cpu-1
 
+if in mcag lab: 172.30.41.13
+
+
 ## MCH
 
 https://csentry.esss.lu.se/network/hosts/view/lab-mot-ctrl-mch-1
