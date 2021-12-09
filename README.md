@@ -1,8 +1,11 @@
 # ecmc_mtca_mrf_test
 
 ## Host
+https://csentry.esss.lu.se/network/hosts/view/lab-mot-ctrl-cpu-1
 
-lab-mot-ctrl-cpu-1.cslab.esss.lu.se
+## MCH
+
+https://csentry.esss.lu.se/network/hosts/view/lab-mot-ctrl-mch-1
 
 
 ## IOC
