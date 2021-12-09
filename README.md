@@ -1,5 +1,10 @@
 # ecmc_mtca_mrf_test
 
+## Host
+
+lab-mot-ctrl-cpu-1.cslab.esss.lu.se
+
+
 ## IOC
 The controller is configured to autostart default mrf-ioc. To kill:
 ```
