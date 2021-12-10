@@ -113,6 +113,38 @@ Every 0.1s: chronyc tracking | grep System                                      
 System time     : 0.000000001 seconds slow of NTP time
 
 ```
+## time2ntp()
+```
+/*************************************************************************\
+* Copyright (c) 2013 Brookhaven Science Associates, as Operator of
+*     Brookhaven National Laboratory.
+* mrfioc2 is distributed subject to a Software License Agreement found
+* in file LICENSE that is included with this distribution.
+\*************************************************************************/
+/*
+ * Serve up EVR time to the shared memory driver (#28) of the NTP daemon.
+ *
+ * cf. http://www.eecis.udel.edu/~mills/ntp/html/drivers/driver28.html
+ *
+ * Author: Michael Davidsaver <mdavidsaver@gmail.com>
+ *
+ * To use, add to init script.  Where 0<=N<=4.  To use 0 or 1 the IOC
+ * must run as root.
+ *
+ *   time2ntp("evrname", N)
+ *
+ * Add to NTP daemon config.  Replace 'prefer' with 'noselect' when testing
+ *
+ *   server 127.127.28.N minpoll 1 maxpoll 2 prefer
+ *   fudge 127.127.28.N refid EVR
+ *
+ * Order of execution in this file.
+ * 1) User calls time2ntp() before iocInit()
+ * 2) ntpshmhooks() is called during iocInit()
+ * 3) ntpsetup() is called periodically until it succeeds
+ * 4) ntpshmupdate() is called once per second.
+ */
+```
 
 ## Not sure what this is
 ```
