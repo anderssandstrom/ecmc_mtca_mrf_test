@@ -108,6 +108,10 @@ System time     : 0.000000001 seconds slow of NTP time
 
 ```
 
+## Not sure what this is
+```
+caput -a LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-SP 15 0 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 71428
+```
 ## Change pulse length
 ```
 caput LAB-MOT:Ctrl-EVR-1:DlyGen-0-Width-SP 3000
