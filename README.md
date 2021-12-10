@@ -12,6 +12,12 @@ ethercat is currentlly configurated on lower ethernet port of cpu
 
 https://csentry.esss.lu.se/network/hosts/view/lab-mot-ctrl-mch-1
 
+
+Ethernet connection is routed through the MCH. The network cable should be connected to the center RJ45 on the MCH (the upper of teh grouped two lower ports).
+The conenction only works in socket 2 in CSLab-Motion-05 since thsi port is configured to allow 2 ips to be connected (other ports on switch defaults to 1 connection).
+
+So to conclude: Ethenet cable between center RJ45 socket on MCU to socket 2 on switch.
+
 ## MRF
 
 14Hz Output is configured to "OUT0"
