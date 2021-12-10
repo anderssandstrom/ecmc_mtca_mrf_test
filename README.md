@@ -5,11 +5,16 @@ https://csentry.esss.lu.se/network/hosts/view/lab-mot-ctrl-cpu-1
 
 if in mcag lab: 172.30.41.13
 
+ethercat is currentlly configurated on lower ethernet port of cpu
+
 
 ## MCH
 
 https://csentry.esss.lu.se/network/hosts/view/lab-mot-ctrl-mch-1
 
+## MRF
+
+14Hz Output is configured to "OUT0"
 
 ## IOC
 The controller is configured to autostart default mrf-ioc. To kill:
