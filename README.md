@@ -104,6 +104,12 @@ This option is used to specify the reference ID of the refclock, as up to four A
 
 if poll is set to 1 the update will be quicker.
 
+## Restart chrony
+Just restart the service:
+```
+sudo systemctl restart chronyd
+
+```
 ## Check chrony
 ```
 [anderssandstrom@ccpu-33584-004 ~]$ chronyc sources
