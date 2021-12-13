@@ -12,6 +12,12 @@ ethercat is currentlly configurated on lower ethernet port of cpu
 
 https://csentry.esss.lu.se/network/hosts/view/lab-mot-ctrl-mch-1
 
+
+Ethernet connection is routed through the MCH. The network cable should be connected to the center RJ45 on the MCH (the upper of teh grouped two lower ports).
+The conenction only works in socket 2 in CSLab-Motion-05 since thsi port is configured to allow 2 ips to be connected (other ports on switch defaults to 1 connection).
+
+So to conclude: Ethernet cable between center RJ45 socket on MCU to socket 2 on switch.
+
 ## MRF
 
 14Hz Output is configured to "OUT0"
@@ -53,6 +59,32 @@ time2ntp("EVR", 2)
 ```
 iocsh.bash mrf.script 
 ```
+
+## Workaround FIX to get the ioc running
+Seems large part of the IOC is using dbpf before iocinit() which results in error.
+Managed to get the IOC running by executing all the scripts again in the running IOC:
+```
+iocshLoad "$(mrfioc2_DIR)/evrEss.iocsh"     "P=$(PEVR),PCIID=08:00.0,INTPPS=,EXTPPS=#"
+epicsThreadSleep 1
+
+iocshLoad "$(mrfioc2_DIR)/seq0Ess.r.iocsh"  "P=$(PEVR)"
+epicsThreadSleep 1
+
+iocshLoad "$(mrfioc2_DIR)/evrGenericEss.load.r.iocsh" "P=$(PEVR)"
+epicsThreadSleep 1
+
+# added by anders sandström
+time2ntp("EVR", 2)
+# caput -a LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-SP 15 0 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 71428
+
+```
+
+I also executed the last row in a separte terminal:
+```
+caput -a LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-SP 15 0 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 71428
+```
+
+
 ## Config Chrony
 add line to /etc/chrony.conf:
 ```
@@ -107,7 +139,43 @@ Every 0.1s: chronyc tracking | grep System                                      
 System time     : 0.000000001 seconds slow of NTP time
 
 ```
+## time2ntp()
+```
+/*************************************************************************\
+* Copyright (c) 2013 Brookhaven Science Associates, as Operator of
+*     Brookhaven National Laboratory.
+* mrfioc2 is distributed subject to a Software License Agreement found
+* in file LICENSE that is included with this distribution.
+\*************************************************************************/
+/*
+ * Serve up EVR time to the shared memory driver (#28) of the NTP daemon.
+ *
+ * cf. http://www.eecis.udel.edu/~mills/ntp/html/drivers/driver28.html
+ *
+ * Author: Michael Davidsaver <mdavidsaver@gmail.com>
+ *
+ * To use, add to init script.  Where 0<=N<=4.  To use 0 or 1 the IOC
+ * must run as root.
+ *
+ *   time2ntp("evrname", N)
+ *
+ * Add to NTP daemon config.  Replace 'prefer' with 'noselect' when testing
+ *
+ *   server 127.127.28.N minpoll 1 maxpoll 2 prefer
+ *   fudge 127.127.28.N refid EVR
+ *
+ * Order of execution in this file.
+ * 1) User calls time2ntp() before iocInit()
+ * 2) ntpshmhooks() is called during iocInit()
+ * 3) ntpsetup() is called periodically until it succeeds
+ * 4) ntpshmupdate() is called once per second.
+ */
+```
 
+## Not sure what this is
+```
+caput -a LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-SP 15 0 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 71428
+```
 ## Change pulse length
 ```
 caput LAB-MOT:Ctrl-EVR-1:DlyGen-0-Width-SP 3000
