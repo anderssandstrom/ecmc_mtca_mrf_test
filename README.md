@@ -301,10 +301,11 @@ Created an env called mrfconda (conda create...)
   - evr_seq_calc=0.9.3
   - evr_timestamp_buffer=2.6.3
 
-
+```
 conda activate mrfconda
 
 conda install e3-common
 conda install mrfioc2=2.2.0rc7
 conda install evr_seq_calc=0.9.3
 conda install evr_timestamp_buffer=2.6.3
+```
