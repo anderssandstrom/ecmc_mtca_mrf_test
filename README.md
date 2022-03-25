@@ -289,12 +289,12 @@ time2ntp("EVR", 2)
 
 but still not working.. Error!
 
+```
 
 
-
-# Testing conda (info from Nicklas)
+# Testing conda (info from Nicklas) 20220325
 https://confluence.esss.lu.se/display/IS/0.+Installing+and+configuring+Conda+-+Setup+development+machine
-Created an env called mrfconda
+Created an env called mrfconda (conda create...)
 
   - e3-common
   - mrfioc2=2.2.0rc7
@@ -307,4 +307,4 @@ conda activate mrfconda
 conda install e3-common
 conda install mrfioc2=2.2.0rc7
 conda install evr_seq_calc=0.9.3
-
+conda install evr_timestamp_buffer=2.6.3
