@@ -52,69 +52,6 @@ Start ioc:
 iocsh.bash st.loopback.cmd
 ```
 
-
-
-# !!!!!!!!!!!!!!!!!OLD NOT WORKING BELOW!!!!
-
-
-
-## Run mrf IOC
-Seems to work when running new st.cmd from Jerzy with added "time2ntp".
-
-```
-#!/usr/bin/env iocsh.bash
-
-epicsEnvSet "PEVR" "LAB-MOT:Ctrl-EVR-1"
-
-# [common]
-epicsEnvSet "IOCNAME" "$(PEVR)"
-epicsEnvSet "IOCDIR" "./"
-epicsEnvSet "AS_TOP" "./"
-epicsEnvSet "LOG_SERVER_NAME" "172.16.107.59"
-
-require essioc
-iocshLoad("$(essioc_DIR)/common_config.iocsh")
-
-# [module]
-require "mrfioc2" "2.3.1+1"
-iocshLoad "$(mrfioc2_DIR)/evrEss.iocsh"     "P=$(PEVR),PCIID=08:00.0,INTPPS=,EXTPPS=#"
-iocshLoad "$(mrfioc2_DIR)/seq0Ess.r.iocsh"  "P=$(PEVR)"
-iocshLoad "$(mrfioc2_DIR)/evrGenericEss.load.r.iocsh" "P=$(PEVR)"
-
-# added by anders sandström
-time2ntp("EVR", 2)
-```
-
-## Run IOC:
-```
-iocsh.bash mrf.script 
-```
-
-## Workaround FIX to get the ioc running
-Seems large part of the IOC is using dbpf before iocinit() which results in error.
-Managed to get the IOC running by executing all the scripts again in the running IOC:
-```
-iocshLoad "$(mrfioc2_DIR)/evrEss.iocsh"     "P=$(PEVR),PCIID=08:00.0,INTPPS=,EXTPPS=#"
-epicsThreadSleep 1
-
-iocshLoad "$(mrfioc2_DIR)/seq0Ess.r.iocsh"  "P=$(PEVR)"
-epicsThreadSleep 1
-
-iocshLoad "$(mrfioc2_DIR)/evrGenericEss.load.r.iocsh" "P=$(PEVR)"
-epicsThreadSleep 1
-
-# added by anders sandström
-time2ntp("EVR", 2)
-# caput -a LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-SP 15 0 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 71428
-
-```
-
-I also executed the last row in a separte terminal:
-```
-caput -a LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-SP 15 0 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 71428
-```
-
-
 ## Config Chrony
 add line to /etc/chrony.conf:
 ```
@@ -242,6 +179,65 @@ LAB-MOT:Ctrl-EVR-1:F14HzCnt-I  2021-12-09 16:16:40.570689 36574
 LAB-MOT:Ctrl-EVR-1:F14HzCnt-I  2021-12-09 16:16:40.642118 36575 
 ```
 
+# !!!!!!!!!!!!!!!!!OLD NOT WORKING BELOW!!!!
+
+
+
+## Run mrf IOC
+Seems to work when running new st.cmd from Jerzy with added "time2ntp".
+
+```
+#!/usr/bin/env iocsh.bash
+
+epicsEnvSet "PEVR" "LAB-MOT:Ctrl-EVR-1"
+
+# [common]
+epicsEnvSet "IOCNAME" "$(PEVR)"
+epicsEnvSet "IOCDIR" "./"
+epicsEnvSet "AS_TOP" "./"
+epicsEnvSet "LOG_SERVER_NAME" "172.16.107.59"
+
+require essioc
+iocshLoad("$(essioc_DIR)/common_config.iocsh")
+
+# [module]
+require "mrfioc2" "2.3.1+1"
+iocshLoad "$(mrfioc2_DIR)/evrEss.iocsh"     "P=$(PEVR),PCIID=08:00.0,INTPPS=,EXTPPS=#"
+iocshLoad "$(mrfioc2_DIR)/seq0Ess.r.iocsh"  "P=$(PEVR)"
+iocshLoad "$(mrfioc2_DIR)/evrGenericEss.load.r.iocsh" "P=$(PEVR)"
+
+# added by anders sandström
+time2ntp("EVR", 2)
+```
+
+## Run IOC:
+```
+iocsh.bash mrf.script 
+```
+
+## Workaround FIX to get the ioc running
+Seems large part of the IOC is using dbpf before iocinit() which results in error.
+Managed to get the IOC running by executing all the scripts again in the running IOC:
+```
+iocshLoad "$(mrfioc2_DIR)/evrEss.iocsh"     "P=$(PEVR),PCIID=08:00.0,INTPPS=,EXTPPS=#"
+epicsThreadSleep 1
+
+iocshLoad "$(mrfioc2_DIR)/seq0Ess.r.iocsh"  "P=$(PEVR)"
+epicsThreadSleep 1
+
+iocshLoad "$(mrfioc2_DIR)/evrGenericEss.load.r.iocsh" "P=$(PEVR)"
+epicsThreadSleep 1
+
+# added by anders sandström
+time2ntp("EVR", 2)
+# caput -a LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-SP 15 0 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 71428
+
+```
+
+I also executed the last row in a separte terminal:
+```
+caput -a LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-SP 15 0 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 71428
+```
 
 # OLD test with old config Below!
 
