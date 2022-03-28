@@ -28,12 +28,6 @@ The controller is configured to autostart default mrf-ioc. To kill:
 sudo systemctl stop ts@*
 ```
 
-
-
-
-
-
-
 ## Start wokring IOC
 
 First stop any running ts IOC:
@@ -50,6 +44,11 @@ Source environment:
 Start ioc:
 ```
 iocsh.bash st.loopback.cmd
+```
+
+Monitor timestamps from output (and Time):
+```
+camonitor IOC_MRF_ECMC:Time-I IOC_MRF_ECMC:F14HzCnt-I
 ```
 
 ## Config Chrony
