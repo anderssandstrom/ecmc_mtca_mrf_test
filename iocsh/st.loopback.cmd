@@ -35,6 +35,9 @@ $(SITMPSPLC="#")dbLoadRecords "evr-mps-plc-ess.db" "P=$(PEVR)"
 # [user] settings - use this file to apply local customization
 iocshLoad "$(TOP)/user.iocsh" "P=$(PEVR)"
 
+# Sync host clock over ntp
+time2ntp("EVR", 2)
+
 iocInit
 
 iocshLoad "$(mrfioc2_DIR)/evr.r.iocsh" "P=$(PEVR)"
