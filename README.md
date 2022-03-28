@@ -177,6 +177,10 @@ LAB-MOT:Ctrl-EVR-1:F14HzCnt-I  2021-12-09 16:16:40.499260 36573
 LAB-MOT:Ctrl-EVR-1:F14HzCnt-I  2021-12-09 16:16:40.570689 36574  
 LAB-MOT:Ctrl-EVR-1:F14HzCnt-I  2021-12-09 16:16:40.642118 36575 
 ```
+```
+pvmonitor -v -M json IOC_MRF_ECMC:F14HzCnt-I
+IOC_MRF_ECMC:F14HzCnt-I {"value": 3830,"alarm": {"severity": 0,"status": 0,"message": "NO_ALARM"},"timeStamp": {"secondsPastEpoch": 1648471518,"nanoseconds": 721392498,"userTag": 0},"display": {"limitLow": 0,"limitHigh": 0,"description": "","units": "","precision": 0,"form": {"index": 0,"choices": ["Default","String","Binary","Decimal","Hex","Exponential","Engineering"]}},"control": {"limitLow": 0,"limitHigh": 0,"minStep": 0},"valueAlarm": {"active": false,"lowAlarmLimit": nan,"lowWarningLimit": nan,"highWarningLimit": nan,"highAlarmLimit": nan,"lowAlarmSeverity": 0,"lowWarningSeverity": 0,"highWarningSeverity": 0,"highAlarmSeverity": 0,"hysteresis": 0}}
+```
 
 # !!!!!!!!!!!!!!!!!OLD NOT WORKING BELOW!!!!
 
