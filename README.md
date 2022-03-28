@@ -28,6 +28,36 @@ The controller is configured to autostart default mrf-ioc. To kill:
 sudo systemctl stop ts@*
 ```
 
+
+
+
+
+
+
+## Start wokring IOC
+
+First stop any running ts IOC:
+```
+sudo systemctl stop ts@*
+```
+
+Source environment:
+```
+. /epics/base-7.0.5/require/3.4.1/bin/setE3Env.bash 
+
+```
+
+Start ioc:
+```
+iocsh.bash st.loopback.cmd
+```
+
+
+
+# !!!!!!!!!!!!!!!!!OLD NOT WORKING BELOW!!!!
+
+
+
 ## Run mrf IOC
 Seems to work when running new st.cmd from Jerzy with added "time2ntp".
 
