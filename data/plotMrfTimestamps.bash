@@ -1,0 +1,5 @@
+#
+# Plot data from pv monitor format:
+# pvmonitor -v -M json IOC_MRF_ECMC:F14HzCnt-I {"value": 3830,"alarm": {"severity": 0,"status": 0,"message": "NO_ALARM"},"timeStamp": {"secondsPastEpoch": 1648471518,"nanoseconds": 721392498,"userTag": 0},"display": {"limitLow": 0,"limitHigh": 0,"description": "","units": "","precision": 0,"form": {"index": 0,"choices": ["Default","String","Binary","Decimal","Hex","Exponential","Engineering"]}},"control": {"limitLow": 0,"limitHigh": 0,"minStep": 0},"valueAlarm": {"active": false,"lowAlarmLimit": nan,"lowWarningLimit": nan,"highWarningLimit": nan,"highAlarmLimit": nan,"lowAlarmSeverity": 0,"lowWarningSeverity": 0,"highWarningSeverity": 0,"highAlarmSeverity": 0,"hysteresis": 0}} | tee data.log
+#
+cat data.log | grep IOC_MRF_ECMC | awk '{print $10}' | rev | cut -c 3- | rev | awk -N 'BEGIN{old=($1+0)/1000.0;} {value=($1+0)/1000.0-old; if(value<0){ value=1E6-old+($1+0)/1000.0;}; old=($1+0)/1000.0; print value;}' | python ~/sources/ecmccomgui/pyDataManip/plotData.py
