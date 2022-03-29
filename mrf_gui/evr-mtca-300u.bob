@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <display version="2.0.0">
   <name>MRF EVR-MTCA-300U - $(P)$(R)</name>
+  <macros>
+    <P>IOC_MRF_ECMC:</P>
+    <R></R>
+  </macros>
   <width>1671</width>
   <height>1178</height>
   <grid_visible>false</grid_visible>
