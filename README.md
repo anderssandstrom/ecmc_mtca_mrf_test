@@ -49,6 +49,10 @@ iocsh.bash st.loopback.cmd
 Monitor timestamps from output (and Time):
 ```
 camonitor IOC_MRF_ECMC:Time-I IOC_MRF_ECMC:F14HzCnt-I
+
+pvmonitor -v -M json IOC_MRF_ECMC:F14HzCnt-I
+IOC_MRF_ECMC:F14HzCnt-I {"value": 3830,"alarm": {"severity": 0,"status": 0,"message": "NO_ALARM"},"timeStamp": {"secondsPastEpoch": 1648471518,"nanoseconds": 721392498,"userTag": 0},"display": {"limitLow": 0,"limitHigh": 0,"description": "","units": "","precision": 0,"form": {"index": 0,"choices": ["Default","String","Binary","Decimal","Hex","Exponential","Engineering"]}},"control": {"limitLow": 0,"limitHigh": 0,"minStep": 0},"valueAlarm": {"active": false,"lowAlarmLimit": nan,"lowWarningLimit": nan,"highWarningLimit": nan,"highAlarmLimit": nan,"lowAlarmSeverity": 0,"lowWarningSeverity": 0,"highWarningSeverity": 0,"highAlarmSeverity": 0,"hysteresis": 0}}
+
 ```
 
 ## Config Chrony
