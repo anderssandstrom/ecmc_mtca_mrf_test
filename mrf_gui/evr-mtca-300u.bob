@@ -2,7 +2,7 @@
 <display version="2.0.0">
   <name>MRF EVR-MTCA-300U - $(P)$(R)</name>
   <macros>
-    <P>IOC_MRF_ECMC:</P>
+    <P>MCAG:TS-EVR-01:</P>
     <R></R>
   </macros>
   <width>1671</width>
