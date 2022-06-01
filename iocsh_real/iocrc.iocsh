@@ -1,4 +1,4 @@
-require "mrfioc2"
+require "mrfioc2" "2.3.1-beta.5"
 epicsEnvSet "LOCATION" "MCAG_LAB"
 epicsEnvSet "FBS" "??"
 epicsEnvSet "PEVR" "IOC_MRF_ECMC"
