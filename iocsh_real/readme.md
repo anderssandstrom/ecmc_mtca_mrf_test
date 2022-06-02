@@ -85,3 +85,5 @@ ecmc ioc
 chrony (/etc/chrony.conf):
 - filtersize=64
 
+# reniced chrony at approx 14:50
+
