@@ -22,28 +22,66 @@ cat time_0* | grep m0 | awk '{print($4-999999999); }' | python ~/sources/ecmccom
 ```
 
 # Log files
+Issues with not all triggers latched by ethercat I/O (EL1252-0050) probably due to disturbances. Mrf and ecmc box connected to different power supplies in the wall (far from eachother so maybe that's the issue)
 
 ## time_0*.log  
 
-First test without option "--realtime" when running mrf ioc
+mrf ioc:
+- iocsh.bash  (without --realtime)
+
+ecmc ioc:
+- CLOCK_REALTIME
+
+chrony (/etc/chrony.conf):
+- filtersize=64
 
 ## time_realtime_0*
 
-First test with option "--realtime" when running mrf ioc
+mrf ioc:
+- iocsh.bash --realtime
 
+ecmc ioc:
+- CLOCK_REALTIME
+
+chrony (/etc/chrony.conf):
+- filtersize=64
 
 ## time_realtime_1*
 
-Second test with option "--realtime" when running mrf ioc.
-Ethercat ioc restarted just for a small test.
+same settings as time_realtime_0* but ecmc ioc restarted for small test
 
+mrf ioc:
+- iocsh.bash --realtime
+
+ecmc ioc:
+- CLOCK_REALTIME
+- restarted for small test
+
+chrony (/etc/chrony.conf):
+- filtersize=64
 
 ## time_realtime_2*
 
-Third test with option "--realtime" when running mrf ioc.
-Test with filter size 10 in  /etc/chrony.conf
+mrf ioc:
+- iocsh.bash --realtime
 
+ecmc ioc:
+- CLOCK_REALTIME
 
+chrony (/etc/chrony.conf):
+- filtersize=10
 
+## time_realtime__mono_0*.log
 
+Test just to see if data is lost also with CLOCK_MONOTONIC.
+Conclusion is that data also is lost with CLOCK_MONOTONIC so not related to clock source
+
+mrf ioc:
+- iocsh.bash --realtime
+
+ecmc ioc
+- CLOCK_MONOTONIC
+
+chrony (/etc/chrony.conf):
+- filtersize=64
 
