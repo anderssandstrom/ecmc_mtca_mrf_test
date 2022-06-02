@@ -60,17 +60,6 @@ ecmc ioc:
 chrony (/etc/chrony.conf):
 - filtersize=64
 
-## time_realtime_2*
-
-mrf ioc:
-- iocsh.bash --realtime
-
-ecmc ioc:
-- CLOCK_REALTIME
-
-chrony (/etc/chrony.conf):
-- filtersize=10
-
 ## time_realtime__mono_0*.log
 
 Test just to see if data is lost also with CLOCK_MONOTONIC.
@@ -85,5 +74,29 @@ ecmc ioc
 chrony (/etc/chrony.conf):
 - filtersize=64
 
-# reniced chrony at approx 14:50
+## time_realtime_2*
 
+mrf ioc:
+- iocsh.bash --realtime
+
+ecmc ioc:
+- CLOCK_REALTIME
+
+chrony (/etc/chrony.conf):
+- filtersize=10
+
+### reniced chrony at approx 14:50 (in middle of time_realtime_2* test)
+
+time 14:50
+```
+ps -elf | grep chrony
+0 S anderss+  3305 24502  0  80   0 - 28202 pipe_w 14:45 pts/1    00:00:00 grep --color=auto chrony
+5 S chrony   14733     1  0  80   0 -  5635 poll_s 11:58 ?        00:00:02 /usr/sbin/chronyd
+sudo renice -15 --pid 14733
+```
+time 15:00
+```
+[anderssandstrom@lab-mot-ctrl-cpu-1 iocsh_real]$ sudo renice -20 --pid 14733
+[sudo] password for anderssandstrom: 
+14733 (process ID) old priority -15, new priority -20
+```
