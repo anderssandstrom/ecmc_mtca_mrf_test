@@ -1,5 +1,10 @@
 # mrf
 ```
+./epics/....setenv
+iocsh st.cmd
+
+# old way, not working...
+
 conda activate mrfconda
 iocsh.bash st.cmd
 ```
@@ -84,6 +89,23 @@ ecmc ioc:
 
 chrony (/etc/chrony.conf):
 - filtersize=10
+
+
+## time_realtime_3*
+
+Test with affinity
+
+mrf ioc:
+- iocsh.bash --realtime
+- EVRFIFO on core 2 (mcoreutils)
+
+ecmc ioc:
+- CLOCK_REALTIME
+- ecmc_rt on core 1 (mcoreutils)
+
+chrony (/etc/chrony.conf):
+- filtersize=10
+
 
 ### reniced chrony at approx 14:50 (in middle of time_realtime_2* test)
 
