@@ -1,5 +1,10 @@
 # mrf
 ```
+./epics/....setenv
+iocsh st.cmd
+
+# old way, not working...
+
 conda activate mrfconda
 iocsh.bash st.cmd
 ```
@@ -18,6 +23,10 @@ $ camonitor IOC_MTCA:m0s002-BI01-TimeRiseTS MCAG:TS-EVR-01:1hzCnt-I MCAG:TS-EVR-
 # Analyse 
 ```
 conda activate ecmccomgui_py36
+
+
+cat time_realtime_3*.log | grep m0 | awk '{print($1 " " $2 " " $3 " " $4-999999999); }' | python ~/sources/ecmccomgui/pyDataManip/plotCaMonitor.py
+
 cat time_0* | grep m0 | awk '{print($4-999999999); }' | python ~/sources/ecmccomgui/pyDataManip/plotData.py 
 ```
 
@@ -84,6 +93,26 @@ ecmc ioc:
 
 chrony (/etc/chrony.conf):
 - filtersize=10
+
+
+## time_realtime_3*
+
+Test with affinity..
+Needed to use NFS instead of conda:
+- req 4.0.0
+- base 7.0.6
+
+mrf ioc:
+- iocsh.bash --realtime
+- EVRFIFO on core 2 (mcoreutils)
+
+ecmc ioc:
+- CLOCK_REALTIME
+- ecmc_rt on core 1 (mcoreutils)
+
+chrony (/etc/chrony.conf):
+- filtersize=10
+
 
 ### reniced chrony at approx 14:50 (in middle of time_realtime_2* test)
 
