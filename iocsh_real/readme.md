@@ -94,6 +94,21 @@ ecmc ioc:
 chrony (/etc/chrony.conf):
 - filtersize=10
 
+### reniced chrony at approx 14:50 (in middle of time_realtime_2* test)
+time 14:50
+```
+ps -elf | grep chrony
+0 S anderss+  3305 24502  0  80   0 - 28202 pipe_w 14:45 pts/1    00:00:00 grep --color=auto chrony
+5 S chrony   14733     1  0  80   0 -  5635 poll_s 11:58 ?        00:00:02 /usr/sbin/chronyd
+sudo renice -15 --pid 14733
+```
+time 15:00
+```
+[anderssandstrom@lab-mot-ctrl-cpu-1 iocsh_real]$ sudo renice -20 --pid 14733
+[sudo] password for anderssandstrom: 
+14733 (process ID) old priority -15, new priority -20
+```
+
 
 ## time_realtime_3*
 
@@ -113,19 +128,54 @@ ecmc ioc:
 chrony (/etc/chrony.conf):
 - filtersize=10
 
+## time_realtime_4*
 
-### reniced chrony at approx 14:50 (in middle of time_realtime_2* test)
+30 motion axes!!
 
-time 14:50
+Test with affinity..
+Needed to use NFS instead of conda:
+- req 4.0.0
+- base 7.0.6
+
+mrf ioc:
+- iocsh.bash --realtime
+- EVRFIFO on core 2 (mcoreutils)
+
+ecmc ioc:
+- CLOCK_REALTIME
+- ecmc_rt on core 1 (mcoreutils)
+
+chrony (/etc/chrony.conf):
+- filtersize=10
+
+
+## time_realtime_5*
+
+Restarted chrony with log files (/etc/chrony.conf):
 ```
-ps -elf | grep chrony
-0 S anderss+  3305 24502  0  80   0 - 28202 pipe_w 14:45 pts/1    00:00:00 grep --color=auto chrony
-5 S chrony   14733     1  0  80   0 -  5635 poll_s 11:58 ?        00:00:02 /usr/sbin/chronyd
-sudo renice -15 --pid 14733
+log measurements statistics tracking
 ```
-time 15:00
+
+Can also analyze test 4* data since just restarted chrony:
 ```
-[anderssandstrom@lab-mot-ctrl-cpu-1 iocsh_real]$ sudo renice -20 --pid 14733
-[sudo] password for anderssandstrom: 
-14733 (process ID) old priority -15, new priority -20
+ cat time_realtime_4*.log  time_realtime_5*.log | grep m0 | awk '{print($1 " " $2 " " $3 " " $4-999999999); }' | python ~/sources/ecmccomgui/pyDataManip/plotCaMonitor.py
 ```
+30 motion axes!!
+
+Test with affinity..
+Needed to use NFS instead of conda:
+- req 4.0.0
+- base 7.0.6
+
+mrf ioc:
+- iocsh.bash --realtime
+- EVRFIFO on core 2 (mcoreutils)
+
+ecmc ioc:
+- CLOCK_REALTIME
+- ecmc_rt on core 1 (mcoreutils)
+
+chrony (/etc/chrony.conf):
+- filtersize=10
+
+
