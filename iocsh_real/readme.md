@@ -93,7 +93,10 @@ chrony (/etc/chrony.conf):
 
 ## time_realtime_3*
 
-Test with affinity
+Test with affinity..
+Needed to use NFS instead of conda:
+- req 4.0.0
+- base 7.0.6
 
 mrf ioc:
 - iocsh.bash --realtime
