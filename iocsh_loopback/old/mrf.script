@@ -1,0 +1,34 @@
+#!/usr/bin/env iocsh.bash
+
+epicsEnvSet "PEVR" "LAB-MOT:Ctrl-EVR-1"
+
+# [common]
+epicsEnvSet "IOCNAME" "$(PEVR)"
+epicsEnvSet "IOCDIR" "./"
+epicsEnvSet "AS_TOP" "./"
+epicsEnvSet "LOG_SERVER_NAME" "172.16.107.59"
+
+require essioc
+iocshLoad("$(essioc_DIR)/common_config.iocsh")
+
+# [module]
+require "mrfioc2" "2.3.1+1"
+iocshLoad "$(mrfioc2_DIR)/evrEss.iocsh"     "P=$(PEVR),PCIID=08:00.0,INTPPS=,EXTPPS=#"
+time2ntp("EVR", 2)
+
+# Needed before *.r.* scripts (anders)
+iocInit()
+
+iocshLoad "$(mrfioc2_DIR)/seq0Ess.r.iocsh"  "P=$(PEVR)"
+iocshLoad "$(mrfioc2_DIR)/evrGenericEss.load.r.iocsh" "P=$(PEVR)"
+
+dbl
+
+# Use correct PV name (anders)
+dbpf "LAB-MOT:Ctrl-EVR-1:SoftSeq-0-TrigSrc-0-Sel" "Mxc0"
+
+# needed? (anders)
+system "caput -a LAB-MOT:Ctrl-EVR-1:SoftSeq-0-Timestamp-SP 15 0 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 71428"
+
+# Longer pulse time (anders)
+dbpf LAB-MOT:Ctrl-EVR-1:DlyGen-0-Width-SP 3000
