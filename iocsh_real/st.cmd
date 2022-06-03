@@ -1,8 +1,9 @@
 #!/usr/bin/env iocsh.bash
-require(essioc)
+#require(essioc)
 require(mrfioc2)
 require(evr_seq_calc)
-require(cntpstats)
+#require(cntpstats)
+require(mcoreutils)
 
 #require "mrfioc2" "2.3.1-beta.5"
 #epicsEnvSet "LOCATION" "MCAG_LAB"
@@ -14,6 +15,9 @@ require(cntpstats)
 #epicsEnvSet "EVROUTARGS" "BP0=0,BP1=1,BP2=49,BP3=4,BP4=5,BP6=7,FPUV0=52,FP0=53"
 #epicsEnvSet "EVRINARGS" "BP5EN=,BPE5=41,BP7EN=,BPE7=43"
 epicsEnvSet "PCIID" "8:00.0"
+
+
+mcoreThreadRuleAdd ecmc * * 2 EVRFIFO
 
 epicsEnvSet("TOP", "$(E3_CMD_TOP)/..")
 
