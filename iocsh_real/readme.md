@@ -179,3 +179,37 @@ chrony (/etc/chrony.conf):
 - filtersize=10
 
 
+## time_realtime_6*
+
+Changed filter to 64 in /etc/chrony.conf
+
+moved ecmc_domain_ call to before time calls in ecmc (brach ecmc_mrf)
+
+Restarted chrony with log files (/etc/chrony.conf):
+```
+log measurements statistics tracking
+```
+
+Can also analyze test 4* data since just restarted chrony:
+```
+ cat time_realtime_4*.log  time_realtime_5*.log | grep m0 | awk '{print($1 " " $2 " " $3 " " $4-999999999); }' | python ~/sources/ecmccomgui/pyDataManip/plotCaMonitor.py
+```
+30 motion axes!!
+
+Test with affinity..
+Needed to use NFS instead of conda:
+- req 4.0.0
+- base 7.0.6
+
+mrf ioc:
+- iocsh.bash --realtime
+- EVRFIFO on core 2 (mcoreutils)
+
+ecmc ioc:
+- CLOCK_REALTIME
+- ecmc_rt on core 1 (mcoreutils)
+- moved ecmc_domain_ call to before time calls in ecmc (brach ecmc_mrf)
+
+chrony (/etc/chrony.conf):
+- filtersize=64
+
