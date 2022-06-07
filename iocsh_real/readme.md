@@ -181,7 +181,7 @@ chrony (/etc/chrony.conf):
 
 ## time_realtime_6*
 
-Changed filter to 64 in /etc/chrony.conf
+Changed filter to 128 in /etc/chrony.conf
 
 moved ecmc_domain_ call to before time calls in ecmc (brach ecmc_mrf)
 
@@ -211,5 +211,5 @@ ecmc ioc:
 - moved ecmc_domain_ call to before time calls in ecmc (brach ecmc_mrf)
 
 chrony (/etc/chrony.conf):
-- filtersize=64
+- filtersize=128
 
