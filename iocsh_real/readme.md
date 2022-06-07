@@ -213,3 +213,7 @@ ecmc ioc:
 chrony (/etc/chrony.conf):
 - filtersize=128
 
+## time_mono_8*
+Test  logging mrf event 125 (1Hz) on ch 1 and raw output from oscillator on ch2.
+
+
