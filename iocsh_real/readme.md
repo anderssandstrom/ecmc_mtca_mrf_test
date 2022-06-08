@@ -220,3 +220,11 @@ Test  logging mrf event 125 (1Hz) on ch 1 and raw output from oscillator on ch2.
 Disabled chronyd..
 Test logging mrf event 125 (1Hz) on ch 1 and raw output from oscillator on ch2.
 
+## time_mono_10*
+Disabled chronyd..
+Test logging mrf event 125 (1Hz) on ch 1 and raw output from oscillator on ch2.
+
+## time_mono_11*
+Enabled chronyd..
+no filter in chrony
+Test logging mrf event 125 (1Hz) on ch 1 and raw output from oscillator on ch2.
