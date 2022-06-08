@@ -228,3 +228,6 @@ Test logging mrf event 125 (1Hz) on ch 1 and raw output from oscillator on ch2.
 Enabled chronyd..
 no filter in chrony
 Test logging mrf event 125 (1Hz) on ch 1 and raw output from oscillator on ch2.
+```
+cat time_mono_11*.log | grep m0 | awk '{print($1 " " $2 " " $3 " " $4-999999999); }' | grep BI01 | python ~/sources/ecmccomgui/pyDataManip/plotCaMonitor.py
+```
