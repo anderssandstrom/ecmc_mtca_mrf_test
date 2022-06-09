@@ -251,4 +251,4 @@ https://github.com/anderssandstrom/mrfioc2/tree/asm_add_nanos
 Enable chrony again...
 
 ## time_mono_15*
-new measurement with log of shm in mrf.log
+new measurement with log of shm in mrf.log (mrf ioc iocsh log)
