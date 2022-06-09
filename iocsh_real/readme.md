@@ -241,3 +241,14 @@ add support for nanoseconds in time2ntp:
 https://github.com/anderssandstrom/mrfioc2/tree/asm_add_nanos
 
 Enable chrony again...
+
+## time_mono_14*
+restarted mrf ioc 12:49...
+
+add support for nanoseconds in time2ntp:
+https://github.com/anderssandstrom/mrfioc2/tree/asm_add_nanos
+
+Enable chrony again...
+
+## time_mono_15*
+new measurement with log of shm in mrf.log
