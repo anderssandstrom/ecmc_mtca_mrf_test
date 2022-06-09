@@ -234,3 +234,10 @@ cat time_mono_11*.log | grep m0 | awk '{print($1 " " $2 " " $3 " " $4-999999999)
 
 ## time_mono_12*
 Disaable chrony again...
+
+
+## time_mono_13*
+add support for nanoseconds in time2ntp:
+https://github.com/anderssandstrom/mrfioc2/tree/asm_add_nanos
+
+Enable chrony again...
