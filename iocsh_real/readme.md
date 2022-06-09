@@ -224,6 +224,12 @@ Test logging mrf event 125 (1Hz) on ch 1 and raw output from oscillator on ch2.
 Disabled chronyd..
 Test logging mrf event 125 (1Hz) on ch 1 and raw output from oscillator on ch2.
 
+plot diff:
+```
+cat time_mono_10*.log | grep BI01 | awk 'BEGIN{ f=1;} {if(f) {f=0;old=$4;}; diff=$4+0-old; old=$4;print $1 " " $2 " " $3 " " diff; }' | python ~/sources/ecmccomgui/pyDataManip/plotCaMonitor.py 
+```
+
+
 ## time_mono_11*
 Enabled chronyd..
 no filter in chrony
@@ -234,6 +240,11 @@ cat time_mono_11*.log | grep m0 | awk '{print($1 " " $2 " " $3 " " $4-999999999)
 
 ## time_mono_12*
 Disaable chrony again...
+
+plot diff:
+```
+cat time_mono_12*.log | grep BI01 | awk 'BEGIN{ f=1;} {if(f) {f=0;old=$4;}; diff=$4+0-old; old=$4;print $1 " " $2 " " $3 " " diff; }' | python ~/sources/ecmccomgui/pyDataManip/plotCaMonitor.py 
+```
 
 
 ## time_mono_13*
