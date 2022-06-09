@@ -1,0 +1,107 @@
+
+##############################################################################
+## Initiation:
+epicsEnvSet("IOC" ,"$(IOC="IOC_MTCA")")
+epicsEnvSet("ECMCCFG_INIT" ,"")  #Only run startup once (auto at PSI, need call at ESS), variable set to "#" in startup.cmd
+epicsEnvSet("SCRIPTEXEC" ,"$(SCRIPTEXEC="iocshLoad")")
+
+# Configure ecmc
+require ecmccfg ruckig
+require mcoreutils
+
+
+mcoreThreadRuleAdd ecmc * * 1 ecmc_rt
+
+# run module startup.cmd (only needed at ESS  PSI auto call at require)
+$(ECMCCFG_INIT)$(SCRIPTEXEC) ${ecmccfg_DIR}startup.cmd, "IOC=$(IOC),ECMC_VER=ecmc_mrf,EC_RATE=1000"
+
+# Note NELM equals oversampling factor in this case. Use +-320mv Config file for all 4 channels
+epicsEnvSet("NELM",              "20")
+epicsEnvSet("ECMC_EC_SLAVE_NUM",              "2")
+${SCRIPTEXEC} ${ecmccfg_DIR}addSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=EL1252"
+epicsEnvSet("ECMC_SAMPLE_RATE_MS", 10)
+#Apply hardware configuration
+ecmcConfigOrDie "Cfg.EcApplyConfig(1)"
+
+# Use CLOCK_REALTIME
+ecmcConfigOrDie "Cfg.EcUseClockRealtime(1)"
+ecmcConfigOrDie "Cfg.EcSelectReferenceDC(0,${ECMC_EC_SLAVE_NUM})"
+
+
+epicsEnvSet("DEV",      "$(IOC)")
+epicsEnvSet("ID",       "1")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "2")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "3")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "4")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "5")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "6")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "7")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "8")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "9")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "10")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "11")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "12")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "13")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "14")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "15")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "16")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "17")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "18")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "19")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "20")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "21")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "22")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "23")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "24")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "25")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "26")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "27")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "28")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "29")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID})
+epicsEnvSet("ID",       "30")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/linear.vax, ID=${ID}
+
+##############################################################################
+## Configure diagnostics:
+ecmcConfigOrDie "Cfg.EcSetDiagnostics(1)"
+ecmcConfigOrDie "Cfg.EcEnablePrintouts(0)"
+ecmcConfigOrDie "Cfg.EcSetDomainFailedCyclesLimit(100)"
+
+##############################################################################
+## go active
+$(SCRIPTEXEC) ($(ecmccfg_DIR)setAppMode.cmd)
+iocInit()
+
+##############################################################################
+## Store Records to file
+dbl > pvs.log
+
