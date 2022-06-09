@@ -252,3 +252,6 @@ Enable chrony again...
 
 ## time_mono_15*
 new measurement with log of shm in mrf.log (mrf ioc iocsh log)
+
+## time_mono_16*
+removed printouts from time2ntp
