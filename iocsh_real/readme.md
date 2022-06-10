@@ -267,4 +267,11 @@ new measurement with log of shm in mrf.log (mrf ioc iocsh log)
 ## time_mono_16*
 removed printouts from time2ntp
 renice chrony to -20
+chrony filter 20
 resteed chrony, so some spike in begining
+
+2022-06-10 07:49: restared chrony with filter 0 approx. 
+
+2022-06-10 08:12: restared chrony with filter 8 and prec 5e-8 
+
+2022-06-10 08:42:16: Stable since last change but stop chrony to see raw signals over weekend instead. still same logfile
