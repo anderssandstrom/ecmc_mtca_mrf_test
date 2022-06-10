@@ -97,7 +97,7 @@ int printShm(){
 
 /* main.c */
 int main(int argc, char *argv[]){
-    int polltime = 0;
+    float polltime = 0;
     int shmid = 0;
     if(argc >= 2){
       shmid=atoi(argv[1]);
@@ -112,7 +112,7 @@ int main(int argc, char *argv[]){
         printf("       polltime_s : poll time in seconds (optional)\n");
     }
 
-    printf("shmid %d,polltime %d\n",shmid,polltime);
+    printf("shmid %d,polltime %f\n",shmid,polltime);
      
     if(setup(shmid)) {
         return EXIT_FAILURE;
