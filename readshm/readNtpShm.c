@@ -59,11 +59,26 @@ static int setup(int segid)
     return EXIT_SUCCESS;
 }
 
+int waitForValid(){
+  int counter = 0;
+  while(!seg->valid || counter<1000) {
+    usleep(1000);
+    counter++;
+  }
+  if(counter>=1000) {perror("no valid data timeout (1 sec)"); return 1;}
+  return 0;
+}
+
 int printShm(){
   if(seg==NULL) {
     perror("printShm: seg==NULL");
     return EXIT_FAILURE;
   }
+
+  if(waitForValid){
+    return EXIT_FAILURE;
+  }
+  
   struct timespec myTime;
   clock_gettime(CLOCK_REALTIME, &myTime);
 
@@ -104,7 +119,9 @@ int main(int argc, char *argv[]){
     }
     if(polltime>0) {
       while(1) {
-        printShm();
+        if(printShm()){
+          return EXIT_FAILURE;
+        }
         usleep(polltime*1000000);
       }
     } else {
