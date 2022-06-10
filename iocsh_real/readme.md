@@ -224,6 +224,12 @@ Test logging mrf event 125 (1Hz) on ch 1 and raw output from oscillator on ch2.
 Disabled chronyd..
 Test logging mrf event 125 (1Hz) on ch 1 and raw output from oscillator on ch2.
 
+plot diff:
+```
+cat time_mono_10*.log | grep BI01 | awk 'BEGIN{ f=1;} {if(f) {f=0;old=$4;}; diff=$4+0-old; old=$4;print $1 " " $2 " " $3 " " diff; }' | python ~/sources/ecmccomgui/pyDataManip/plotCaMonitor.py 
+```
+
+
 ## time_mono_11*
 Enabled chronyd..
 no filter in chrony
@@ -234,6 +240,11 @@ cat time_mono_11*.log | grep m0 | awk '{print($1 " " $2 " " $3 " " $4-999999999)
 
 ## time_mono_12*
 Disaable chrony again...
+
+plot diff:
+```
+cat time_mono_12*.log | grep BI01 | awk 'BEGIN{ f=1;} {if(f) {f=0;old=$4;}; diff=$4+0-old; old=$4;print $1 " " $2 " " $3 " " diff; }' | python ~/sources/ecmccomgui/pyDataManip/plotCaMonitor.py 
+```
 
 
 ## time_mono_13*
@@ -256,4 +267,11 @@ new measurement with log of shm in mrf.log (mrf ioc iocsh log)
 ## time_mono_16*
 removed printouts from time2ntp
 renice chrony to -20
+chrony filter 20
 resteed chrony, so some spike in begining
+
+2022-06-10 07:49: restared chrony with filter 0 approx. 
+
+2022-06-10 08:12: restared chrony with filter 8 and prec 5e-8 
+
+2022-06-10 08:42:16: Stable since last change but stop chrony to see raw signals over weekend instead. still same logfile
