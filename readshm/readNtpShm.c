@@ -142,7 +142,7 @@ int main(int argc, char *argv[]){
         printf("       polltime_s : poll time in seconds (optional)\n");
     }
 
-    printf("shmid %d,polltime %f\n",shmid,polltime);
+    printf("shmid %d\npolltime %f\n",shmid,polltime);
      
     if(setup(shmid)) {
         return EXIT_FAILURE;
