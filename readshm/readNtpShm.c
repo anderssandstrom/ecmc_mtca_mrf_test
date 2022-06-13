@@ -4,6 +4,7 @@
 #include <errno.h>
 #include <time.h>
 #include <unistd.h>
+#include <string.h>
 
 #include <sys/ipc.h>
 #include <sys/shm.h>
@@ -38,6 +39,29 @@ typedef struct {
 #define MICROS_PER_SEC 1000000UL
 
 shmSegment* seg;
+
+char time_now_str[35];
+
+int timespec2str(char *buf, uint len, struct timespec *ts) {
+    buf[0]=0;
+    int ret;
+    struct tm t;
+
+    tzset();
+    if (localtime_r(&(ts->tv_sec), &t) == NULL)
+        return 1;
+
+    ret = strftime(buf, len, "%F %T", &t);
+    if (ret == 0)
+        return 2;
+    len -= ret - 1;
+
+    ret = snprintf(&buf[strlen(buf)], len, ".%09ld", ts->tv_nsec);
+    if (ret >= len)
+        return 3;
+
+    return 0;
+}
 
 static int setup(int segid)
 {
@@ -120,10 +144,16 @@ int printShm(){
 
   timespec_diff(&rx,&evr,&diff);
 
+
+  timespec2str(&time_now_str[0],35, &myTime);
+
   printf("time now       : %09d s, %09d us, %09d ns\n",myTime.tv_sec,myTime.tv_nsec/1000,myTime.tv_nsec);
   printf("time shm ref   : %09d s, %09d us, %09d ns\n",evr.tv_sec,evr.tv_nsec/1000,evr.tv_nsec);
   printf("time shm rx    : %09d s, %09d us, %09d ns\n",rx.tv_sec,rx.tv_nsec/1000,rx.tv_nsec);    
   printf("diff rx vs ref : %09d ns\n",diff.tv_sec*NANOS_PER_SEC+diff.tv_nsec);
+  printf("DIFF %s %d\n",time_now_str,diff.tv_sec*NANOS_PER_SEC+diff.tv_nsec);
+ 
+  
   fflush(stdout);
   return EXIT_SUCCESS;
 }
