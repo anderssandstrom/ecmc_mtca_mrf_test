@@ -1,18 +1,34 @@
 shmid 2
 polltime 1.000000
-time now       : 1655120578 s, 000000333 us, 000333212 ns
-time shm ref   : 1655120578 s, 000000049 us, 000049016 ns
-time shm rx    : 1655120578 s, 000000049 us, 000049084 ns
-diff rx vs ref : 000000068 ns
-time now       : 1655120579 s, 000000400 us, 000400560 ns
-time shm ref   : 1655120579 s, 000000048 us, 000048789 ns
-time shm rx    : 1655120579 s, 000000048 us, 000048781 ns
-diff rx vs ref : -00000008 ns
-time now       : 1655120580 s, 000000462 us, 000462613 ns
-time shm ref   : 1655120580 s, 000000049 us, 000049095 ns
-time shm rx    : 1655120580 s, 000000049 us, 000049053 ns
-diff rx vs ref : -00000042 ns
-time now       : 1655120581 s, 000000524 us, 000524067 ns
-time shm ref   : 1655120581 s, 000000049 us, 000049266 ns
-time shm rx    : 1655120581 s, 000000049 us, 000049327 ns
-diff rx vs ref : 000000061 ns
+time now       : 1655120786 s, 000000408 us, 000408159 ns
+time shm ref   : 1655120786 s, 000000050 us, 000050742 ns
+time shm rx    : 1655120786 s, 000000051 us, 000051022 ns
+diff rx vs ref : 000000280 ns
+time now       : 1655120787 s, 000000476 us, 000476001 ns
+time shm ref   : 1655120787 s, 000000051 us, 000051616 ns
+time shm rx    : 1655120787 s, 000000051 us, 000051870 ns
+diff rx vs ref : 000000254 ns
+time now       : 1655120788 s, 000000537 us, 000537868 ns
+time shm ref   : 1655120788 s, 000000048 us, 000048743 ns
+time shm rx    : 1655120788 s, 000000049 us, 000049091 ns
+diff rx vs ref : 000000348 ns
+time now       : 1655120789 s, 000000599 us, 000599579 ns
+time shm ref   : 1655120789 s, 000000051 us, 000051946 ns
+time shm rx    : 1655120789 s, 000000052 us, 000052044 ns
+diff rx vs ref : 000000098 ns
+time now       : 1655120790 s, 000000661 us, 000661658 ns
+time shm ref   : 1655120790 s, 000000050 us, 000050424 ns
+time shm rx    : 1655120790 s, 000000050 us, 000050205 ns
+diff rx vs ref : -00000219 ns
+time now       : 1655120791 s, 000000724 us, 000724070 ns
+time shm ref   : 1655120791 s, 000000050 us, 000050117 ns
+time shm rx    : 1655120791 s, 000000049 us, 000049864 ns
+diff rx vs ref : -00000253 ns
+time now       : 1655120792 s, 000000786 us, 000786231 ns
+time shm ref   : 1655120792 s, 000000050 us, 000050572 ns
+time shm rx    : 1655120792 s, 000000050 us, 000050512 ns
+diff rx vs ref : -00000060 ns
+time now       : 1655120793 s, 000000848 us, 000848209 ns
+time shm ref   : 1655120793 s, 000000048 us, 000048789 ns
+time shm rx    : 1655120793 s, 000000048 us, 000048780 ns
+diff rx vs ref : -00000009 ns
