@@ -34,6 +34,9 @@ typedef struct {
 
 #define NTPD_SEG0 0x4E545030
 
+#define NANOS_PER_SEC 1000000000UL
+#define MICROS_PER_SEC 1000000UL
+
 shmSegment* seg;
 
 static int setup(int segid)
@@ -82,17 +85,44 @@ int printShm(){
   struct timespec myTime;
   clock_gettime(CLOCK_REALTIME, &myTime);
 
-  printf("time now     : %09d s, %09d us, %09d ns\n",myTime.tv_sec,myTime.tv_nsec/1000,myTime.tv_nsec);
-  if(seg->stampUsec == seg->stampNsec/1000) {
-    printf("time shm ref : %09d s, %09d us, %09d ns\n",seg->stampSec,seg->stampUsec,seg->stampNsec);
+
+  int diffS=0;
+  unsigned diffU=0;
+  unsigned diffN=0;
+  
+  diffS=seg->rxSec-seg->stampSec;
+  
+  if(seg->stampUsec == seg->stampNsec/1000 && seg->rxUsec == seg->rxNsec/1000) {
+    if (seg->stampNsec > seg->rxNsec) {
+      diffN=(NANOS_PER_SEC-seg->stampNsec)+seg->rxNsec;
+      diffS=diffS-1;
+    } else {
+      diffN=seg->rxNsec-seg->stampNsec;
+    }
+    diffU=diffN/1000;
   } else {
-    printf("time shm ref : %09d s, %09d us, %09d ns\n",seg->stampSec,seg->stampUsec,seg->stampUsec*1000); 
+    if (seg->stampUsec > seg->rxUsec) {
+      diffU=(MICROS_PER_SEC-seg->stampUsec)+seg->rxUsec;
+      diffS=diffS-1;
+    } else {
+      diffU=seg->rxNsec-seg->stampNsec;
+    }
+    diffN=diffU*1000;
+  }
+
+
+  printf("time now       : %09d s, %09d us, %09d ns\n",myTime.tv_sec,myTime.tv_nsec/1000,myTime.tv_nsec);
+  if(seg->stampUsec == seg->stampNsec/1000) {
+    printf("time shm ref   : %09d s, %09d us, %09d ns\n",seg->stampSec,seg->stampUsec,seg->stampNsec);
+  } else {
+    printf("time shm ref   : %09d s, %09d us, %09d ns\n",seg->stampSec,seg->stampUsec,seg->stampUsec*1000);    
   }
   if(seg->rxUsec == seg->rxNsec/1000) {
-    printf("time shm rx  : %09d s, %09d us, %09d ns\n",seg->rxSec,seg->rxUsec,seg->rxNsec);
+    printf("time shm rx    : %09d s, %09d us, %09d ns\n",seg->rxSec,seg->rxUsec,seg->rxNsec);    
   }  else {
-    printf("time shm rx  : %09d s, %09d us, %09d ns\n",seg->rxSec,seg->rxUsec,seg->rxUsec*1000);
+    printf("time shm rx    : %09d s, %09d us, %09d ns\n",seg->rxSec,seg->rxUsec,seg->rxUsec*1000);
   }
+   printf("diff rx vs ref : %09d s, %09d us, %09d ns\n",diffS,diffU,diffN);
 }
 
 /* main.c */
