@@ -64,21 +64,25 @@ static int setup(int segid)
 
 int waitForValid(){
   int counter = 0;
-  while(!seg->valid || counter<1000) {
+  while(!seg->valid && counter<1000) {
     usleep(1000);
     counter++;
   }
-  if(counter>=1000) {perror("no valid data timeout (1 sec)"); return 1;}
+  if(counter>=1000) {
+    printf("no valid data timeout (1 sec)\n");
+    return 1;
+  }
   return 0;
 }
 
 int printShm(){
   if(seg==NULL) {
-    perror("printShm: seg==NULL");
+    printf("printShm: seg==NULL\n");
     return EXIT_FAILURE;
   }
 
-  if(waitForValid){
+  if(waitForValid()){
+    printf("Wait timeout\n");
     return EXIT_FAILURE;
   }
   
@@ -123,6 +127,7 @@ int printShm(){
     printf("time shm rx    : %09d s, %09d us, %09d ns\n",seg->rxSec,seg->rxUsec,seg->rxUsec*1000);
   }
    printf("diff rx vs ref : %09d s, %09d us, %09d ns\n",diffS,diffU,diffN);
+  return EXIT_SUCCESS;
 }
 
 /* main.c */
@@ -145,16 +150,30 @@ int main(int argc, char *argv[]){
     printf("shmid %d\npolltime %f\n",shmid,polltime);
      
     if(setup(shmid)) {
+        printf("readNtpShm: Setup failure.");
         return EXIT_FAILURE;
     }
+    printf("Hepp 1");
+
     if(polltime>0) {
+      printf("Hepp 2");
+
       while(1) {
+      printf("Hepp 2.5");
+
         if(printShm()){
+          printf("Hepp 2.6");
           return EXIT_FAILURE;
         }
+        printf("Hepp 3");
+
         usleep(polltime*1000000);
       }
     } else {
+      printf("Hepp 4");
       printShm();
+      printf("Hepp 5");
     }
+    printf("Hepp 6");
+
 }
