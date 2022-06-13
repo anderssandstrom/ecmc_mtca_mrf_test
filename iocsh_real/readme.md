@@ -281,6 +281,33 @@ resteed chrony, so some spike in begining
 Enable chrony
 log also shm output from SHM with https://github.com/anderssandstrom/ecmc_mtca_mrf_test/tree/master/readshm
 
+```
 iocsh ecmc_lean_test_mono.script -l ~/sources/e3-ecmc/cellMods/ -l ~/sources/e3-ecmccfg/cellMods/
+```
+
+/etc/chrony.conf
+```
+# pool ntp-relay-cslab01.cslab.esss.lu.se iburst
+
+allow 127/8
+
+driftfile /var/lib/chrony/chrony.drift
+logdir /var/log/chrony
+rtcsync
+
+log rawmeasurements statistics tracking refclocks
+
+# Allow the system clock to be stepped in the first three updates
+# if its offset is larger than 1 second.
+makestep 1.0 3
+
+refclock SHM 2:perm=0777 poll 1 precision 1e-9 filter 64 prefer refid EVR
+```
+
+# Test 220
 
 
+same as above but new printout in readNtpShm
+```
+cat ../readshm/shm_220.log | grep DIFF | python ~/sources/ecmccomgui/pyDataManip/plotCaMonitor.py
+```
