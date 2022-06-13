@@ -4,6 +4,7 @@
 #include <errno.h>
 #include <time.h>
 #include <unistd.h>
+#include <inttypes.h>
 
 #include <sys/ipc.h>
 #include <sys/shm.h>
@@ -75,17 +76,6 @@ int waitForValid(){
   return 0;
 }
 
-static inline void timespec_diff(struct timespec *a, struct timespec *b,
-    struct timespec *result) {
-    result->tv_sec  = a->tv_sec  - b->tv_sec;
-    result->tv_nsec = a->tv_nsec - b->tv_nsec;
-    if (result->tv_nsec < 0) {
-        --result->tv_sec;
-        result->tv_nsec += 1000000000L;
-    }
-}
-
-
 int printShm(){
   if(seg==NULL) {
     printf("printShm: seg==NULL\n");
@@ -100,31 +90,41 @@ int printShm(){
   struct timespec myTime;
   clock_gettime(CLOCK_REALTIME, &myTime);
 
-  struct timespec diff,evr,rx;
 
-
-  evr.tv_sec=seg->stampSec;
-  rx.tv_sec=seg->rxSec;
- 
-  if(seg->stampUsec == seg->stampNsec/1000) {
-    evr.tv_nsec=seg->stampNsec;
+  int diffS=0;
+  int diffU=0;
+  int diffN=0;
+  
+  diffS=seg->rxSec-seg->stampSec;
+  
+  if(seg->stampUsec == seg->stampNsec/1000 && seg->rxUsec == seg->rxNsec/1000) {
+    uint64_t stamp=seg->stampSec*NANOS_PER_SEC+seg->stampNsec;
+    uint64_t rx=seg->rxSec*NANOS_PER_SEC+seg->rxNsec;
+    int64_t diff=rx-stamp;
+    diffS=diff/NANOS_PER_SEC;
+    diffN=diff-diffS*NANOS_PER_SEC;
+    diffU=diffN/1000;
   } else {
-    evr.tv_nsec=seg->stampUsec*1000;
+    uint64_t stamp=seg->stampSec*MICROS_PER_SEC+seg->stampNsec;
+    uint64_t rx=seg->rxSec*MICROS_PER_SEC+seg->rxNsec;
+    int64_t diff=rx-stamp;
+    diffS=diff/MICROS_PER_SEC;
+    diffU=diff-diffS*MICROS_PER_SEC; 
+    diffN=diffU*1000;
   }
-
-  if(seg->rxUsec == seg->rxNsec/1000) {
-    rx.tv_nsec=seg->rxNsec;
-  } else { 
-    rx.tv_nsec=seg->rxUsec*1000;
-  }
-
-  timespec_diff(&rx,&evr,&diff);
 
   printf("time now       : %09d s, %09d us, %09d ns\n",myTime.tv_sec,myTime.tv_nsec/1000,myTime.tv_nsec);
-  printf("time shm ref   : %09d s, %09d us, %09d ns\n",evr.tv_sec,evr.tv_nsec/1000,evr.tv_nsec);
-  printf("time shm rx    : %09d s, %09d us, %09d ns\n",rx.tv_sec,rx.tv_nsec/1000,rx.tv_nsec);    
-  printf("diff rx vs ref : %09d ns\n",diff.tv_sec*NANOS_PER_SEC+diff.tv_nsec);
-
+  if(seg->stampUsec == seg->stampNsec/1000) {
+    printf("time shm ref   : %09d s, %09d us, %09d ns\n",seg->stampSec,seg->stampUsec,seg->stampNsec);
+  } else {
+    printf("time shm ref   : %09d s, %09d us, %09d ns\n",seg->stampSec,seg->stampUsec,seg->stampUsec*1000);    
+  }
+  if(seg->rxUsec == seg->rxNsec/1000) {
+    printf("time shm rx    : %09d s, %09d us, %09d ns\n",seg->rxSec,seg->rxUsec,seg->rxNsec);    
+  }  else {
+    printf("time shm rx    : %09d s, %09d us, %09d ns\n",seg->rxSec,seg->rxUsec,seg->rxUsec*1000);
+  }
+   printf("diff rx vs ref : %09d s, %09d us, %09d ns\n",diffS,diffU,diffN);
   return EXIT_SUCCESS;
 }
 
@@ -151,18 +151,27 @@ int main(int argc, char *argv[]){
         printf("readNtpShm: Setup failure.");
         return EXIT_FAILURE;
     }
+    printf("Hepp 1");
 
     if(polltime>0) {
+      printf("Hepp 2");
 
       while(1) {
+      printf("Hepp 2.5");
 
         if(printShm()){
+          printf("Hepp 2.6");
           return EXIT_FAILURE;
         }
+        printf("Hepp 3");
 
         usleep(polltime*1000000);
       }
     } else {
+      printf("Hepp 4");
       printShm();
+      printf("Hepp 5");
     }
+    printf("Hepp 6");
+
 }
