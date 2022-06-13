@@ -275,3 +275,8 @@ resteed chrony, so some spike in begining
 2022-06-10 08:12: restared chrony with filter 8 and prec 5e-8 
 
 2022-06-10 08:42:16: Stable since last change but stop chrony to see raw signals over weekend instead. still same logfile
+
+
+# test 200
+Enable chrony
+log also shm output from SHM with https://github.com/anderssandstrom/ecmc_mtca_mrf_test/tree/master/readshm
