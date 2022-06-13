@@ -1,3 +1,15 @@
+/*************************************************************************\
+* Copyright (c) 2022 European Spallation Source ERIC
+* ecmc is distributed subject to a Software License Agreement found
+* in file LICENSE that is included with this distribution. 
+*
+*  readNtpShm.c
+*
+*  Created on: June 13, 2022
+*      Author: anderssandstrom
+*
+\*************************************************************************/
+
 
 #include <stdio.h>
 #include <stdlib.h>
