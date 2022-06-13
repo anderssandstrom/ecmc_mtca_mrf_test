@@ -280,3 +280,7 @@ resteed chrony, so some spike in begining
 # test 200
 Enable chrony
 log also shm output from SHM with https://github.com/anderssandstrom/ecmc_mtca_mrf_test/tree/master/readshm
+
+iocsh ecmc_lean_test_mono.script -l ~/sources/e3-ecmc/cellMods/ -l ~/sources/e3-ecmccfg/cellMods/
+
+
