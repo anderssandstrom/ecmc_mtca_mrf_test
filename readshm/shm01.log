@@ -1,0 +1,18 @@
+shmid 2
+polltime 1.000000
+time now       : 1655120578 s, 000000333 us, 000333212 ns
+time shm ref   : 1655120578 s, 000000049 us, 000049016 ns
+time shm rx    : 1655120578 s, 000000049 us, 000049084 ns
+diff rx vs ref : 000000068 ns
+time now       : 1655120579 s, 000000400 us, 000400560 ns
+time shm ref   : 1655120579 s, 000000048 us, 000048789 ns
+time shm rx    : 1655120579 s, 000000048 us, 000048781 ns
+diff rx vs ref : -00000008 ns
+time now       : 1655120580 s, 000000462 us, 000462613 ns
+time shm ref   : 1655120580 s, 000000049 us, 000049095 ns
+time shm rx    : 1655120580 s, 000000049 us, 000049053 ns
+diff rx vs ref : -00000042 ns
+time now       : 1655120581 s, 000000524 us, 000524067 ns
+time shm ref   : 1655120581 s, 000000049 us, 000049266 ns
+time shm rx    : 1655120581 s, 000000049 us, 000049327 ns
+diff rx vs ref : 000000061 ns

@@ -124,7 +124,7 @@ int printShm(){
   printf("time shm ref   : %09d s, %09d us, %09d ns\n",evr.tv_sec,evr.tv_nsec/1000,evr.tv_nsec);
   printf("time shm rx    : %09d s, %09d us, %09d ns\n",rx.tv_sec,rx.tv_nsec/1000,rx.tv_nsec);    
   printf("diff rx vs ref : %09d ns\n",diff.tv_sec*NANOS_PER_SEC+diff.tv_nsec);
-
+  fflush(stdout);
   return EXIT_SUCCESS;
 }
 
