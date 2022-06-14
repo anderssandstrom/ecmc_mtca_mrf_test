@@ -18,6 +18,8 @@ $(ECMCCFG_INIT)$(SCRIPTEXEC) ${ecmccfg_DIR}startup.cmd, "IOC=$(IOC),ECMC_VER=ecm
 # Note NELM equals oversampling factor in this case. Use +-320mv Config file for all 4 channels
 epicsEnvSet("NELM",              "20")
 epicsEnvSet("ECMC_EC_SLAVE_NUM",              "2")
+epicsEnvSet("ECMC_SAMPLE_RATE_MS", 0)
+
 ${SCRIPTEXEC} ${ecmccfg_DIR}addSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=EL1252"
 epicsEnvSet("ECMC_SAMPLE_RATE_MS", 10)
 #Apply hardware configuration
