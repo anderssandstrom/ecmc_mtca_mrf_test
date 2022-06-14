@@ -26,7 +26,7 @@ epicsEnvSet("SYS", "MCAG:")
 epicsEnvSet("EVR", "EVR-01")
 epicsEnvSet("DEV", "TS-$(EVR)")
 epicsEnvSet("SYSPV", "$(SYS)$(DEV)")
-epicsEnvSet("MRF_HW_DB", "evr-pcie-300dc-univ.db")
+epicsEnvSet("MRF_HW_DB", "evr-mtca-300-univ.db")
 epicsEnvSet("BASEEVTNO", "21")
 epicsEnvSet("BASEEVTNO", "21")
 epicsEnvSet("CHOP_DRV", "ECMC")
@@ -58,6 +58,7 @@ iocshLoad("$(cntpstats_DIR)/cntpstats.iocsh","SYS=$(SYS), DEV=$(DEV)")
 iocInit()
 
 iocshLoad("$(mrfioc2_DIR)/evr.r.iocsh", "P=$(SYSPV), EVR=EVR")
+
 
 ######### INPUTS #########
 # Trig-Ext-Sel changed from "Off" to "Edge", Code-Ext-SP changed from 0 to 10

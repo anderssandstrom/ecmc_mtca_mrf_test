@@ -17,7 +17,7 @@ require(mcoreutils)
 epicsEnvSet "PCIID" "8:00.0"
 
 
-mcoreThreadRuleAdd ecmc * * 2 EVRFIFO
+mcoreThreadRuleAdd mrf * * 2 EVRFIFO
 
 epicsEnvSet("TOP", "$(E3_CMD_TOP)/..")
 
@@ -26,7 +26,7 @@ epicsEnvSet("SYS", "MCAG:")
 epicsEnvSet("EVR", "EVR-01")
 epicsEnvSet("DEV", "TS-$(EVR)")
 epicsEnvSet("SYSPV", "$(SYS)$(DEV)")
-epicsEnvSet("MRF_HW_DB", "evr-pcie-300dc-univ.db")
+epicsEnvSet("MRF_HW_DB", "evr-mtca-300-univ.db")
 epicsEnvSet("BASEEVTNO", "21")
 epicsEnvSet("BASEEVTNO", "21")
 epicsEnvSet("CHOP_DRV", "ECMC")
@@ -58,118 +58,14 @@ iocshLoad("$(cntpstats_DIR)/cntpstats.iocsh","SYS=$(SYS), DEV=$(DEV)")
 iocInit()
 
 iocshLoad("$(mrfioc2_DIR)/evr.r.iocsh", "P=$(SYSPV), EVR=EVR")
-
-######### INPUTS #########
-# Trig-Ext-Sel changed from "Off" to "Edge", Code-Ext-SP changed from 0 to 10
-dbpf $(SYSPV):UnivIn-0-Lvl-Sel "Active High"
-dbpf $(SYSPV):UnivIn-0-Edge-Sel "Active Rising"
-dbpf $(SYSPV):Out-RB00-Src-SP 61
-dbpf $(SYSPV):UnivIn-0-Trig-Ext-Sel "Edge"
-dbpf $(SYSPV):UnivIn-0-Trig-Back-Sel "Off"
-dbpf $(SYSPV):UnivIn-0-Code-Ext-SP 21
-dbpf $(SYSPV):UnivIn-0-Code-Back-SP 0
-
-dbpf $(SYSPV):UnivIn-1-Lvl-Sel "Active High"
-dbpf $(SYSPV):UnivIn-1-Edge-Sel "Active Rising"
-dbpf $(SYSPV):Out-RB01-Src-SP 61
-dbpf $(SYSPV):UnivIn-1-Trig-Ext-Sel "Edge"
-dbpf $(SYSPV):UnivIn-1-Trig-Back-Sel "Off"
-dbpf $(SYSPV):UnivIn-1-Code-Ext-SP 22
-dbpf $(SYSPV):UnivIn-1-Code-Back-SP 0
-
-dbpf $(SYSPV):UnivIn-2-Lvl-Sel "Active High"
-dbpf $(SYSPV):UnivIn-2-Edge-Sel "Active Rising"
-dbpf $(SYSPV):Out-RB02-Src-SP 61
-dbpf $(SYSPV):UnivIn-2-Trig-Ext-Sel "Edge"
-dbpf $(SYSPV):UnivIn-2-Trig-Back-Sel "Off"
-dbpf $(SYSPV):UnivIn-2-Code-Ext-SP 23
-dbpf $(SYSPV):UnivIn-2-Code-Back-SP 0
-
-dbpf $(SYSPV):UnivIn-3-Lvl-Sel "Active High"
-dbpf $(SYSPV):UnivIn-3-Edge-Sel "Active Rising"
-dbpf $(SYSPV):Out-RB03-Src-SP 61
-dbpf $(SYSPV):UnivIn-3-Trig-Ext-Sel "Edge"
-dbpf $(SYSPV):UnivIn-3-Trig-Back-Sel "Off"
-dbpf $(SYSPV):UnivIn-3-Code-Ext-SP 24
-dbpf $(SYSPV):UnivIn-3-Code-Back-SP 0
-
-dbpf $(SYSPV):EvtA-SP.OUT "@OBJ=EVR,Code=10" 
-dbpf $(SYSPV):EvtA-SP.VAL 10 
-dbpf $(SYSPV):EvtB-SP.OUT "@OBJ=EVR,Code=11" 
-dbpf $(SYSPV):EvtB-SP.VAL 11 
-dbpf $(SYSPV):EvtC-SP.OUT "@OBJ=EVR,Code=12" 
-dbpf $(SYSPV):EvtC-SP.VAL 12
-dbpf $(SYSPV):EvtD-SP.OUT "@OBJ=EVR,Code=13"
-dbpf $(SYSPV):EvtD-SP.VAL 13
-dbpf $(SYSPV):EvtE-SP.OUT "@OBJ=EVR,Code=14"
-dbpf $(SYSPV):EvtE-SP.VAL 14
-dbpf $(SYSPV):EvtF-SP.OUT "@OBJ=EVR,Code=15"
-dbpf $(SYSPV):EvtF-SP.VAL 15
-dbpf $(SYSPV):EvtG-SP.OUT "@OBJ=EVR,Code=16"
-dbpf $(SYSPV):EvtG-SP.VAL 16
-dbpf $(SYSPV):EvtH-SP.OUT "@OBJ=EVR,Code=17"
-dbpf $(SYSPV):EvtH-SP.VAL 17
-dbpf $(SYSPV):EvtH-SP.OUT "@OBJ=EVR,Code=18"
-dbpf $(SYSPV):EvtH-SP.VAL 18
-dbpf $(SYSPV):EvtH-SP.OUT "@OBJ=EVR,Code=19"
-dbpf $(SYSPV):EvtH-SP.VAL 19
-dbpf $(SYSPV):EvtH-SP.OUT "@OBJ=EVR,Code=20"
-dbpf $(SYSPV):EvtH-SP.VAL 20
-
+iocshLoad("$(mrfioc2_DIR)/evrdlygen.r.iocsh", "P=$(SYSPV), EVR=EVR")
+iocshLoad("$(mrfioc2_DIR)/evrout.r.iocsh", "P=$(SYSPV), EVR=EVR")
+iocshLoad("$(mrfioc2_DIR)/evrin.r.iocsh", "P=$(SYSPV), EVR=EVR")
 
 
 ######### OUTPUTS #########
 #Set up delay generator 0 to trigger on event 14
 dbpf $(SYSPV):DlyGen-0-Width-SP 1000 #1ms
 dbpf $(SYSPV):DlyGen-0-Delay-SP 0 #0ms
-dbpf $(SYSPV):DlyGen-0-Evt-Trig0-SP 14
+dbpf $(SYSPV):DlyGen-0-Evt-Trig0-SP 125
 
-dbpf $(SYSPV):DlyGen-1-Evt-Trig0-SP 14
-dbpf $(SYSPV):DlyGen-1-Width-SP 2860 #1ms
-dbpf $(SYSPV):DlyGen-1-Delay-SP 0 #0ms
-
-dbpf $(SYSPV):DlyGen-2-Width-SP 1000 #1ms
-dbpf $(SYSPV):DlyGen-2-Delay-SP 0 #0ms
-dbpf $(SYSPV):DlyGen-2-Evt-Trig0-SP 14
-
-dbpf $(SYSPV):DlyGen-3-Width-SP 1000 #1ms
-dbpf $(SYSPV):DlyGen-3-Delay-SP 0 #0ms
-dbpf $(SYSPV):DlyGen-3-Evt-Trig0-SP 18
-
-# 88052496/11073=7952Hz
-dbpf $(SYSPV):PS-0-Div-SP 11073 
-#dbpf $(SYSPV):Out-RB04-Src-SP "Pulser 2"
-#dbpf $(SYSPV):Out-RB05-Src-SP "Pulser 2"
-#dbpf $(SYSPV):Out-RB06-Src-SP "Pulser 2"
-#dbpf $(SYSPV):Out-RB07-Src-SP "Pulser 2"
-dbpf $(SYSPV):Out-RB04-Src-Scale-SP "Prescaler 0"
-dbpf $(SYSPV):Out-RB05-Src-Scale-SP "Prescaler 0"
-dbpf $(SYSPV):Out-RB06-Src-Scale-SP "Prescaler 0"
-dbpf $(SYSPV):Out-RB07-Src-Scale-SP "Prescaler 0"
-
-
-######## Sequencer #########
-dbpf $(SYSPV):EndEvtTicks 4
-
-# Load sequencer setup
-dbpf $(SYSPV):SoftSeq-0-Load-Cmd 1
-
-# Enable sequencer
-dbpf $(SYSPV):SoftSeq-0-Enable-Cmd 1
-
-# Select run mode, "Single" needs a new Enable-Cmd every time, "Normal" needs Enable-Cmd once
-dbpf $(SYSPV):SoftSeq-0-RunMode-Sel "Normal"
-
-
-# Use ticks or microseconds
-dbpf $(SYSPV):SoftSeq-0-TsResolution-Sel "Ticks"
-
-# Select trigger source for soft seq 0, trigger source 0, delay gen 0
-dbpf $(SYSPV):SoftSeq-0-TrigSrc-0-Sel 0
-
-# Commit all the settings for the sequnce
-# commit-cmd by evrseq!!! 
-dbpf $(SYSPV):SoftSeq-0-Commit-Cmd "1"
-
-# Route 1 hz to ouput 0 instead of 14Hz (asm)
-dbpf MCAG:TS-EVR-01:DlyGen-0-Evt-Trig0-SP 125

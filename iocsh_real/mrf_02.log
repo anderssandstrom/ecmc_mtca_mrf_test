@@ -5,10 +5,10 @@
 ## please run iocsh without the real-time option
 ##
 #
-# Start at "2022-W23-Jun09-1443-45-CEST"
+# Start at "2022-W24-Jun14-1117-15-CEST"
 #
 # Version information:
-# European Spallation Source ERIC : iocsh (4.0.0-PID-5806)
+# European Spallation Source ERIC : iocsh (4.0.0-PID-19396)
 #
 # --->--> snip -->--> 
 # Please Use Version and other environment variables
@@ -38,10 +38,10 @@
 # --->--> snip -->--> 
 #
 # Set REQUIRE_IOC for its internal PVs
-epicsEnvSet REQUIRE_IOC "REQMOD:lab-mot-ctrl-cp-5806"
+epicsEnvSet REQUIRE_IOC "REQMOD:lab-mot-ctrl-cp-19396"
 #
 # Enable an exit subroutine for sotfioc
-dbLoadRecords "/epics/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:lab-mot-ctrl-cp-5806"
+dbLoadRecords "/epics/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:lab-mot-ctrl-cp-19396"
 #
 # Set E3_IOCSH_TOP for the absolute path where iocsh is executed.
 epicsEnvSet E3_IOCSH_TOP "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real"
@@ -86,11 +86,11 @@ require(mcoreutils)
 Module mcoreutils version 1.2.2+0 found in /epics/base-7.0.6.1/require/4.0.0/siteMods/mcoreutils/1.2.2+0/
 Loading library /epics/base-7.0.6.1/require/4.0.0/siteMods/mcoreutils/1.2.2+0/lib/linux-x86_64/libmcoreutils.so
 Loaded mcoreutils version 1.2.2+0
-Loading dbd file /epics/base-7.macLib: macro essioc_DIR is undefined (expanding string iocshLoad("$(essioc_DIR)/essioc.iocsh"))
+Loading dbd file /epics/basemacLib: macro essioc_DIR is undefined (expanding string iocshLoad("$(essioc_DIR)/essioc.iocsh"))
 Notice: devPCIFindSpec() expect B:D.F in hex
 Failed to open resource file for PCI device 0000:08:00.0: Permission denied
 Found SFP Strangeness 00000000
-0.6.1/require/4.0.0/siteMods/mcoreutils/1.2.2+0/dbd/mcoreutils.dbd
+-7.0.6.1/require/4.0.0/siteMods/mcoreutils/1.2.2+0/dbd/mcoreutils.dbd
 Calling function mcoreutils_registerRecordDeviceDriver
 MCoreUtils version 1.2.2+0
 MCoreUtils: Read 0 thread rule(s) from /etc/rtrules
@@ -106,14 +106,14 @@ Loading module info records for mcoreutils
 #epicsEnvSet "EVROUTARGS" "BP0=0,BP1=1,BP2=49,BP3=4,BP4=5,BP6=7,FPUV0=52,FP0=53"
 #epicsEnvSet "EVRINARGS" "BP5EN=,BPE5=41,BP7EN=,BPE7=43"
 epicsEnvSet "PCIID" "8:00.0"
-mcoreThreadRuleAdd ecmc * * 2 EVRFIFO
+mcoreThreadRuleAdd mrf * * 2 EVRFIFO
 epicsEnvSet("TOP", "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real/..")
 epicsEnvSet("IOC", "mcag-evr-01")
 epicsEnvSet("SYS", "MCAG:")
 epicsEnvSet("EVR", "EVR-01")
 epicsEnvSet("DEV", "TS-EVR-01")
 epicsEnvSet("SYSPV", "MCAG:TS-EVR-01")
-epicsEnvSet("MRF_HW_DB", "evr-pcie-300dc-univ.db")
+epicsEnvSet("MRF_HW_DB", "evr-mtca-300-univ.db")
 epicsEnvSet("BASEEVTNO", "21")
 epicsEnvSet("BASEEVTNO", "21")
 epicsEnvSet("CHOP_DRV", "ECMC")
@@ -122,7 +122,7 @@ epicsEnvSet("CHOP_DRV", "ECMC")
 # loading databases
 # -----------------------------------------------------------------------------
 # E3 Common databases
-iocshLoad("/home/anderssandstrom/sources/e3-mrfioc2/cellMods/base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos//evr.iocsh", "EVRDB=evr-pcie-300dc-univ.db, P=MCAG:TS-EVR-01, EVR=EVR, PCIID=8:00.0")
+iocshLoad("/home/anderssandstrom/sources/e3-mrfioc2/cellMods/base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos//evr.iocsh", "EVRDB=evr-mtca-300-univ.db, P=MCAG:TS-EVR-01, EVR=EVR, PCIID=8:00.0")
 # @about: evr.iocsh
 mrmEvrSetupPCI "EVR" "8:00.0"
 Device EVR  8:0.0 slot=1-1
@@ -133,7 +133,7 @@ Sequencer capability detected
 mTCA: Out FP:4 FPUNIV:0 RB:16 IFP:32 GPIO:2
 EVR FIFO task start
 Enabling interrupts
-dbLoadRecords "evr-pcie-300dc-univ.db" "P=MCAG:TS-EVR-01, EVR=EVR, FEVT=88.0525"
+dbLoadRecords "evr-mtca-300-univ.db" "P=MCAG:TS-EVR-01, EVR=EVR, FEVT=88.0525"
 var evrMrmTimeNSOverflowThreshold 500000000
 iocshLoad("/home/anderssandstrom/sources/e3-mrfioc2/cellMods/base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos//evrevt.iocsh", "P=MCAG:TS-EVR-01")
 # @about: evrevt.iocsh
@@ -154,61 +154,11 @@ dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTND, OBJ=EVR, CODE=255, EVNT=25
 dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTNE, OBJ=EVR, CODE=255, EVNT=255"
 dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTNF, OBJ=EVR, CODE=255, EVNT=255"
 #dbLoadRecords("mrmevrtsbuf-univ.db","P=$(SYSPV), R="", S=":00-", EVR=EVR, CODE=21, TRIG=14, FLUSH=TimesRelPrevFlush, NELM=1000")
-#dbLoadRecords("mrmevrtsbuf-univ.db","P=$(SYSPV), R="", S=":01-", EVR=EVR, CODE=22, TRIG=14, FLUSH=TimesRmacLib: macro cntpstats_DIR is undefined (expanding string iocshLoad("$(cntpstats_DIR)/cntpstats.iocsh","SYS=$(SYS), DEV=$(DEV)"))
+#dbLoadRecords("mrmevrtsbuf-univ.db","P=$(SYSPV), R="", S=":01-", EVR=EVR, CODE=22, TRIG=14, FLUSH=TimesRelPrmacLib: macro cntpstats_DIR is undefined (expanding string iocshLoad("$(cntpstats_DIR)/cntpstats.iocsh","SYS=$(SYS), DEV=$(DEV)"))
 Starting iocInit
-MCAG:TS-EVR-01:Out-RB02-Ena-SP: failed to find/create object 'EVR:FrontUnivOut2' : Object not found : EVR:FrontUnivOut2
-MCAG:TS-EVR-01:Out-RB03-Ena-SP: failed to find/create object 'EVR:FrontUnivOut3' : Object not found : EVR:FrontUnivOut3
-MCAG:TS-EVR-01:Out-RB04-Ena-SP: failed to find/create object 'EVR:FrontUnivOut4' : Object not found : EVR:FrontUnivOut4
-MCAG:TS-EVR-01:Out-RB05-Ena-SP: failed to find/create object 'EVR:FrontUnivOut5' : Object not found : EVR:FrontUnivOut5
-MCAG:TS-EVR-01:Out-RB06-Ena-SP: failed to find/create object 'EVR:FrontUnivOut6' : Object not found : EVR:FrontUnivOut6
-MCAG:TS-EVR-01:Out-RB07-Ena-SP: failed to find/create object 'EVR:FrontUnivOut7' : Object not found : EVR:FrontUnivOut7
-MCAG:TS-EVR-01:Out-RB08-Ena-SP: failed to find/create object 'EVR:FrontUnivOut8' : Object not found : EVR:FrontUnivOut8
-MCAG:TS-EVR-01:Out-RB09-Ena-SP: failed to find/create object 'EVR:FrontUnivOut9' : Object not found : EVR:FrontUnivOut9
-MCAG:TS-EVR-01:Out-RB10-Ena-SP: failed to find/create object 'EVR:FrontUnivOut10' : Object not found : EVR:FrontUnivOut10
-MCAG:TS-EVR-01:Out-RB11-Ena-SP: failed to find/create object 'EVR:FrontUnivOut11' : Object not found : EVR:FrontUnivOut11
-MCAG:TS-EVR-01:Out-RB02-Src-RB_: failed to find/create object 'EVR:FrontUnivOut2' : Object not found : EVR:FrontUnivOut2
-MCAG:TS-EVR-01:Out-RB02-Src2-RB_: failed to find/create object 'EVR:FrontUnivOut2' : Object not found : EVR:FrontUnivOut2
-MCAG:TS-EVR-01:Out-RB03-Src-RB_: failed to find/create object 'EVR:FrontUnivOut3' : Object not found : EVR:FrontUnivOut3
-MCAG:TS-EVR-01:Out-RB03-Src2-RB_: failed to find/create object 'EVR:FrontUnivOut3' : Object not found : EVR:FrontUnivOut3
-MCAG:TS-EVR-01:Out-RB04-Src-RB_: failed to find/create object 'EVR:FrontUnivOut4' : Object not found : EVR:FrontUnivOut4
-MCAG:TS-EVR-01:Out-RB04-Src2-RB_: failed to find/create object 'EVR:FrontUnivOut4' : Object not found : EVR:FrontUnivOut4
-MCAG:TS-EVR-01:Out-RB05-Src-RB_: failed to find/create object 'EVR:FrontUnivOut5' : Object not found : EVR:FrontUnivOut5
-MCAG:TS-EVR-01:Out-RB05-Src2-RB_: failed to find/create object 'EVR:FrontUnivOut5' : Object not found : EVR:FrontUnivOut5
-MCAG:TS-EVR-01:Out-RB06-Src-RB_: failed to find/create object 'EVR:FrontUnivOut6' : Object not found : EVR:FrontUnivOut6
-MCAG:TS-EVR-01:Out-RB06-Src2-RB_: failed to find/create object 'EVR:FrontUnivOut6' : Object not found : EVR:FrontUnivOut6
-MCAG:TS-EVR-01:Out-RB07-Src-RB_: failed to find/create object 'EVR:FrontUnivOut7' : Object not found : EVR:FrontUnivOut7
-MCAG:TS-EVR-01:Out-RB07-Src2-RB_: failed to find/create object 'EVR:FrontUnivOut7' : Object not found : EVR:FrontUnivOut7
-MCAG:TS-EVR-01:Out-RB08-Src-RB_: failed to find/create object 'EVR:FrontUnivOut8' : Object not found : EVR:FrontUnivOut8
-MCAG:TS-EVR-01:Out-RB08-Src2-RB_: failed to find/create object 'EVR:FrontUnivOut8' : Object not found : EVR:FrontUnivOut8
-MCAG:TS-EVR-01:Out-RB09-Src-RB_: failed to find/create object 'EVR:FrontUnivOut9' : Object not found : EVR:FrontUnivOut9
-MCAG:TS-EVR-01:Out-RB09-Src2-RB_: failed to find/create object 'EVR:FrontUnivOut9' : Object not found : EVR:FrontUnivOut9
-MCAG:TS-EVR-01:Out-RB10-Src-RB_: failed to find/create object 'EVR:FrontUnivOut10' : Object not found : EVR:FrontUnivOut10
-MCAG:TS-EVR-01:Out-RB10-Src2-RB_: failed to find/create object 'EVR:FrontUnivOut10' : Object not found : EVR:FrontUnivOut10
-MCAG:TS-EVR-01:Out-RB11-Src-RB_: failed to find/create object 'EVR:FrontUnivOut11' : Object not found : EVR:FrontUnivOut11
-MCAG:TS-EVR-01:Out-RB11-Src2-RB_: failed to find/create object 'EVR:FrontUnivOut11' : Object not found : EVR:FrontUnivOut11
-MCAG:TS-EVR-01:Out-RB02-Src-SP: failed to find/create object 'EVR:FrontUnivOut2' : Object not found : EVR:FrontUnivOut2
-MCAG:TS-EVR-01:Out-RB02-Src2-SP: failed to find/create object 'EVR:FrontUnivOut2' : Object not found : EVR:FrontUnivOut2
-MCAG:TS-EVR-01:Out-RB03-Src-SP: failed to find/create object 'EVR:FrontUnivOut3' : Object not found : EVR:FrontUnivOut3
-MCAG:TS-EVR-01:Out-RB03-Src2-SP: failed to find/create object 'EVR:FrontUnivOut3' : Object not found : EVR:FrontUnivOut3
-MCAG:TS-EVR-01:Out-RB04-Src-SP: failed to find/create object 'EVR:FrontUnivOut4' : Object not found : EVR:FrontUnivOut4
-MCAG:TS-EVR-01:Out-RB04-Src2-SP: failed to find/create object 'EVR:FrontUnivOut4' : Object not found : EVR:FrontUnivOut4
-MCAG:TS-EVR-01:Out-RB05-Src-SP: failed to find/create object 'EVR:FrontUnivOut5' : Object not found : EVR:FrontUnivOut5
-MCAG:TS-EVR-01:Out-RB05-Src2-SP: failed to find/create object 'EVR:FrontUnivOut5' : Object not found : EVR:FrontUnivOut5
-MCAG:TS-EVR-01:Out-RB06-Src-SP: failed to find/create object 'EVR:FrontUnivOut6' : Object not found : EVR:FrontUnivOut6
-MCAG:TS-EVR-01:Out-RB06-Src2-SP: failed to find/create object 'EVR:FrontUnivOut6' : Object not found : EVR:FrontUnivOut6
-MCAG:TS-EVR-01:Out-RB07-Src-SP: failed to find/create object 'EVR:FrontUnivOut7' : Object not found : EVR:FrontUnivOut7
-MCAG:TS-EVR-01:Out-RB07-Src2-SP: failed to find/create object 'EVR:FrontUnivOut7' : Object not found : EVR:FrontUnivOut7
-MCAG:TS-EVR-01:Out-RB08-Src-SP: failed to find/create object 'EVR:FrontUnivOut8' : Object not found : EVR:FrontUnivOut8
-MCAG:TS-EVR-01:Out-RB08-Src2-SP: failed to find/create object 'EVR:FrontUnivOut8' : Object not found : EVR:FrontUnivOut8
-MCAG:TS-EVR-01:Out-RB09-Src-SP: failed to find/create object 'EVR:FrontUnivOut9' : Object not found : EVR:FrontUnivOut9
-MCAG:TS-EVR-01:Out-RB09-Src2-SP: failed to find/create object 'EVR:FrontUnivOut9' : Object not found : EVR:FrontUnivOut9
-MCAG:TS-EVR-01:Out-RB10-Src-SP: failed to find/create object 'EVR:FrontUnivOut10' : Object not found : EVR:FrontUnivOut10
-MCAG:TS-EVR-01:Out-RB10-Src2-SP: failed to find/create object 'EVR:FrontUnivOut10' : Object not found : EVR:FrontUnivOut10
-MCAG:TS-EVR-01:Out-RB11-Src-SP: failed to find/create object 'EVR:FrontUnivOut11' : Object not found : EVR:FrontUnivOut11
-MCAG:TS-EVR-01:Out-RB11-Src2-SP: failed to find/create object 'EVR:FrontUnivOut11' : Object not found : EVR:FrontUnivOut11
 iocRun: All initialization complete
 Starting NTP SHM writer for segment 2
-elPrevFlush, NELM=1000")
+evFlush, NELM=1000")
 #dbLoadRecords("mrmevrtsbuf-univ.db","P=$(SYSPV), R="", S=":02-", EVR=EVR, CODE=23, TRIG=14, FLUSH=TimesRelPrevFlush, NELM=1000")
 #dbLoadRecords("mrmevrtsbuf-univ.db","P=$(SYSPV), R="", S=":03-", EVR=EVR, CODE=24, TRIG=14, FLUSH=TimesRelPrevFlush, NELM=1000")
 time2ntp("EVR", 2)
@@ -265,177 +215,242 @@ Set EVR clock 88052500.000000
 DBF_DOUBLE:         88.0525   
 dbpf "MCAG:TS-EVR-01:Time-Clock-SP" "88.0525"
 DBF_DOUBLE:         88.0525   
-######### INPUTS #########
-# Trig-Ext-Sel changed from "Off" to "Edge", Code-Ext-SP changed from 0 to 10
-dbpf MCAG:TS-EVR-01:UnivIn-0-Lvl-Sel "Active High"
-PV 'MCAG:TS-EVR-01:UnivIn-0-Lvl-Sel' not found
-dbpf MCAG:TS-EVR-01:UnivIn-0-Edge-Sel "Active Rising"
-PV 'MCAG:TS-EVR-01:UnivIn-0-Edge-Sel' not found
-dbpf MCAG:TS-EVR-01:Out-RB00-Src-SP 61
-DBF_LONG:           61 = 0x3d 
-dbpf MCAG:TS-EVR-01:UnivIn-0-Trig-Ext-Sel "Edge"
-PV 'MCAG:TS-EVR-01:UnivIn-0-Trig-Ext-Sel' not found
-dbpf MCAG:TS-EVR-01:UnivIn-0-Trig-Back-Sel "Off"
-PV 'MCAG:TS-EVR-01:UnivIn-0-Trig-Back-Sel' not found
-dbpf MCAG:TS-EVR-01:UnivIn-0-Code-Ext-SP 21
-PV 'MCAG:TS-EVR-01:UnivIn-0-Code-Ext-SP' not found
-dbpf MCAG:TS-EVR-01:UnivIn-0-Code-Back-SP 0
-PV 'MCAG:TS-EVR-01:UnivIn-0-Code-Back-SP' not found
-dbpf MCAG:TS-EVR-01:UnivIn-1-Lvl-Sel "Active High"
-PV 'MCAG:TS-EVR-01:UnivIn-1-Lvl-Sel' not found
-dbpf MCAG:TS-EVR-01:UnivIn-1-Edge-Sel "Active Rising"
-PV 'MCAG:TS-EVR-01:UnivIn-1-Edge-Sel' not found
-dbpf MCAG:TS-EVR-01:Out-RB01-Src-SP 61
-DBF_LONG:           61 = 0x3d 
-dbpf MCAG:TS-EVR-01:UnivIn-1-Trig-Ext-Sel "Edge"
-PV 'MCAG:TS-EVR-01:UnivIn-1-Trig-Ext-Sel' not found
-dbpf MCAG:TS-EVR-01:UnivIn-1-Trig-Back-Sel "Off"
-PV 'MCAG:TS-EVR-01:UnivIn-1-Trig-Back-Sel' not found
-dbpf MCAG:TS-EVR-01:UnivIn-1-Code-Ext-SP 22
-PV 'MCAG:TS-EVR-01:UnivIn-1-Code-Ext-SP' not found
-dbpf MCAG:TS-EVR-01:UnivIn-1-Code-Back-SP 0
-PV 'MCAG:TS-EVR-01:UnivIn-1-Code-Back-SP' not found
-dbpf MCAG:TS-EVR-01:UnivIn-2-Lvl-Sel "Active High"
-PV 'MCAG:TS-EVR-01:UnivIn-2-Lvl-Sel' not found
-dbpf MCAG:TS-EVR-01:UnivIn-2-Edge-Sel "Active Rising"
-PV 'MCAG:TS-EVR-01:UnivIn-2-Edge-Sel' not found
-dbpf MCAG:TS-EVR-01:Out-RB02-Src-SP 61
-DBF_LONG:           61 = 0x3d 
-dbpf MCAG:TS-EVR-01:UnivIn-2-Trig-Ext-Sel "Edge"
-PV 'MCAG:TS-EVR-01:UnivIn-2-Trig-Ext-Sel' not found
-dbpf MCAG:TS-EVR-01:UnivIn-2-Trig-Back-Sel "Off"
-PV 'MCAG:TS-EVR-01:UnivIn-2-Trig-Back-Sel' not found
-dbpf MCAG:TS-EVR-01:UnivIn-2-Code-Ext-SP 23
-PV 'MCAG:TS-EVR-01:UnivIn-2-Code-Ext-SP' not found
-dbpf MCAG:TS-EVR-01:UnivIn-2-Code-Back-SP 0
-PV 'MCAG:TS-EVR-01:UnivIn-2-Code-Back-SP' not found
-dbpf MCAG:TS-EVR-01:UnivIn-3-Lvl-Sel "Active High"
-PV 'MCAG:TS-EVR-01:UnivIn-3-Lvl-Sel' not found
-dbpf MCAG:TS-EVR-01:UnivIn-3-Edge-Sel "Active Rising"
-PV 'MCAG:TS-EVR-01:UnivIn-3-Edge-Sel' not found
-dbpf MCAG:TS-EVR-01:Out-RB03-Src-SP 61
-DBF_LONG:           61 = 0x3d 
-dbpf MCAG:TS-EVR-01:UnivIn-3-Trig-Ext-Sel "Edge"
-PV 'MCAG:TS-EVR-01:UnivIn-3-Trig-Ext-Sel' not found
-dbpf MCAG:TS-EVR-01:UnivIn-3-Trig-Back-Sel "Off"
-PV 'MCAG:TS-EVR-01:UnivIn-3-Trig-Back-Sel' not found
-dbpf MCAG:TS-EVR-01:UnivIn-3-Code-Ext-SP 24
-PV 'MCAG:TS-EVR-01:UnivIn-3-Code-Ext-SP' not found
-dbpf MCAG:TS-EVR-01:UnivIn-3-Code-Back-SP 0
-PV 'MCAG:TS-EVR-01:UnivIn-3-Code-Back-SP' not found
-dbpf MCAG:TS-EVR-01:EvtA-SP.OUT "@OBJ=EVR,Code=10" 
-DBF_STRING:         "@OBJ=EVR,Code=10"  
-dbpf MCAG:TS-EVR-01:EvtA-SP.VAL 10 
-DBF_LONG:           10 = 0xa  
-dbpf MCAG:TS-EVR-01:EvtB-SP.OUT "@OBJ=EVR,Code=11" 
-DBF_STRING:         "@OBJ=EVR,Code=11"  
-dbpf MCAG:TS-EVR-01:EvtB-SP.VAL 11 
-DBF_LONG:           11 = 0xb  
-dbpf MCAG:TS-EVR-01:EvtC-SP.OUT "@OBJ=EVR,Code=12" 
-DBF_STRING:         "@OBJ=EVR,Code=12"  
-dbpf MCAG:TS-EVR-01:EvtC-SP.VAL 12
-DBF_LONG:           12 = 0xc  
-dbpf MCAG:TS-EVR-01:EvtD-SP.OUT "@OBJ=EVR,Code=13"
-DBF_STRING:         "@OBJ=EVR,Code=13"  
-dbpf MCAG:TS-EVR-01:EvtD-SP.VAL 13
-DBF_LONG:           13 = 0xd  
-dbpf MCAG:TS-EVR-01:EvtE-SP.OUT "@OBJ=EVR,Code=14"
-DBF_STRING:         "@OBJ=EVR,Code=14"  
-dbpf MCAG:TS-EVR-01:EvtE-SP.VAL 14
-DBF_LONG:           14 = 0xe  
-dbpf MCAG:TS-EVR-01:EvtF-SP.OUT "@OBJ=EVR,Code=15"
-DBF_STRING:         "@OBJ=EVR,Code=15"  
-dbpf MCAG:TS-EVR-01:EvtF-SP.VAL 15
+iocshLoad("/home/anderssandstrom/sources/e3-mrfioc2/cellMods/base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos//evrdlygen.r.iocsh", "P=MCAG:TS-EVR-01, EVR=EVR")
+# @about: evrdlygen.r.iocsh
+# Define pulsers - width
+dbpf "MCAG:TS-EVR-01:DlyGen-0-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-1-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-2-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-3-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-4-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-5-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-6-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-7-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-8-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-9-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-10-Width-SP" "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-11-Width-SP" "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-12-Width-SP" "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-13-Width-SP" "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-14-Width-SP" "0"
+DBF_DOUBLE:         0         
+# NULL pulser
+dbpf "MCAG:TS-EVR-01:DlyGen-15-Width-SP" "0"
+DBF_DOUBLE:         0         
+### Define pulsers - trigger events
+dbpf "MCAG:TS-EVR-01:DlyGen-0-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-1-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-2-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-3-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-4-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-5-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-6-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-7-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-8-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-9-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-10-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-11-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-12-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-13-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-14-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-15-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-0-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-1-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-2-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-3-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-4-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-5-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-6-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-7-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-8-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-9-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-10-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-11-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-12-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-13-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-14-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-15-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-0-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-1-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-2-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-3-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-4-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-5-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-6-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-7-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-8-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-9-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-10-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-11-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-12-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-13-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-14-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-15-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+iocshLoad("/home/anderssandstrom/sources/e3-mrfioc2/cellMods/base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos//evrout.r.iocsh", "P=MCAG:TS-EVR-01, EVR=EVR")
+# @about: evrout.r.iocsh
+# BP SRC configuration
+### MTCA EVR Backplane0, RX17 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back0-Src-SP" "15"
 DBF_LONG:           15 = 0xf  
-dbpf MCAG:TS-EVR-01:EvtG-SP.OUT "@OBJ=EVR,Code=16"
-DBF_STRING:         "@OBJ=EVR,Code=16"  
-dbpf MCAG:TS-EVR-01:EvtG-SP.VAL 16
-DBF_LONG:           16 = 0x10 
-dbpf MCAG:TS-EVR-01:EvtH-SP.OUT "@OBJ=EVR,Code=17"
-DBF_STRING:         "@OBJ=EVR,Code=17"  
-dbpf MCAG:TS-EVR-01:EvtH-SP.VAL 17
-DBF_LONG:           17 = 0x11 
-dbpf MCAG:TS-EVR-01:EvtH-SP.OUT "@OBJ=EVR,Code=18"
-DBF_STRING:         "@OBJ=EVR,Code=18"  
-dbpf MCAG:TS-EVR-01:EvtH-SP.VAL 18
-DBF_LONG:           18 = 0x12 
-dbpf MCAG:TS-EVR-01:EvtH-SP.OUT "@OBJ=EVR,Code=19"
-DBF_STRING:         "@OBJ=EVR,Code=19"  
-dbpf MCAG:TS-EVR-01:EvtH-SP.VAL 19
-DBF_LONG:           19 = 0x13 
-dbpf MCAG:TS-EVR-01:EvtH-SP.OUT "@OBJ=EVR,Code=20"
-DBF_STRING:         "@OBJ=EVR,Code=20"  
-dbpf MCAG:TS-EVR-01:EvtH-SP.VAL 20
-DBF_LONG:           20 = 0x14 
+### MTCA EVR Backplane1, TX17 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back1-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+### MTCA EVR Backplane2, RX18 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back2-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+### MTCA EVR Backplane3, TX18 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back3-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+### MTCA EVR Backplane4, RX19 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back4-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+### MTCA EVR Backplane5, TX19 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back5-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+### MTCA EVR Backplane6, RX20 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back6-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+### MTCA EVR Backplane7, TX20 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back7-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+# FP outputs
+dbpf "MCAG:TS-EVR-01:Out-FP0-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+dbpf "MCAG:TS-EVR-01:Out-FP1-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+dbpf "MCAG:TS-EVR-01:Out-FP2-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+dbpf "MCAG:TS-EVR-01:Out-FP3-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+dbpf "MCAG:TS-EVR-01:Out-FPUV0-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+dbpf "MCAG:TS-EVR-01:Out-FPUV1-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+dbpf "MCAG:TS-EVR-01:Out-FPUV2-Src-SP" "15"
+PV 'MCAG:TS-EVR-01:Out-FPUV2-Src-SP' not found
+dbpf "MCAG:TS-EVR-01:Out-FPUV3-Src-SP" "15"
+PV 'MCAG:TS-EVR-01:Out-FPUV3-Src-SP' not found
+iocshLoad("/home/anderssandstrom/sources/e3-mrfioc2/cellMods/base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos//evrin.r.iocsh", "P=MCAG:TS-EVR-01, EVR=EVR")
+# @about: evrin.r.iocsh
+# Backplane inputs
+#dbpf "MCAG:TS-EVR-01:Out-Back0-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back1-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back2-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back3-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back4-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back5-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back6-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back7-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:BPIn-0-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-1-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-2-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-3-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-4-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-5-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-6-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-7-Trig-Ext-Sel" "Edge"
+# Local EVR events
+#dbpf "MCAG:TS-EVR-01:BPIn-0-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-1-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-2-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-3-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-4-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-5-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-6-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-7-Code-Ext-SP" "0"
+# Front panel inputs
+#dbpf "MCAG:TS-EVR-01:In-0-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:In-1-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:In-2-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:In-3-Trig-Ext-Sel" "Edge"
+# Univ inputs
+#dbpf "MCAG:TS-EVR-01:UnivIn-0-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:UnivIn-1-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:UnivIn-2-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:UnivIn-3-Trig-Ext-Sel" "Edge"
+# Local EVR events for FP
+#dbpf "MCAG:TS-EVR-01:In-0-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:In-1-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:In-2-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:In-3-Code-Ext-SP" "0"
+# Local EVR events for UNIV
+#dbpf "MCAG:TS-EVR-01:UnivIn-0-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:UnivIn-1-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:UnivIn-2-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:UnivIn-3-Code-Ext-SP" "0"
 ######### OUTPUTS #########
 #Set up delay generator 0 to trigger on event 14
 dbpf MCAG:TS-EVR-01:DlyGen-0-Width-SP 1000 #1ms
 DBF_DOUBLE:         1000      
 dbpf MCAG:TS-EVR-01:DlyGen-0-Delay-SP 0 #0ms
 DBF_DOUBLE:         0         
-dbpf MCAG:TS-EVR-01:DlyGen-0-Evt-Trig0-SP 14
-DBF_LONG:           14 = 0xe  
-dbpf MCAG:TS-EVR-01:DlyGen-1-Evt-Trig0-SP 14
-DBF_LONG:           14 = 0xe  
-dbpf MCAG:TS-EVR-01:DlyGen-1-Width-SP 2860 #1ms
-DBF_DOUBLE:         2860      
-dbpf MCAG:TS-EVR-01:DlyGen-1-Delay-SP 0 #0ms
-DBF_DOUBLE:         0         
-dbpf MCAG:TS-EVR-01:DlyGen-2-Width-SP 1000 #1ms
-DBF_DOUBLE:         1000      
-dbpf MCAG:TS-EVR-01:DlyGen-2-Delay-SP 0 #0ms
-DBF_DOUBLE:         0         
-dbpf MCAG:TS-EVR-01:DlyGen-2-Evt-Trig0-SP 14
-DBF_LONG:           14 = 0xe  
-dbpf MCAG:TS-EVR-01:DlyGen-3-Width-SP 1000 #1ms
-DBF_DOUBLE:         1000      
-dbpf MCAG:TS-EVR-01:DlyGen-3-Delay-SP 0 #0ms
-DBF_DOUBLE:         0         
-dbpf MCAG:TS-EVR-01:DlyGen-3-Evt-Trig0-SP 18
-DBF_LONG:           18 = 0x12 
-# 88052496/11073=7952Hz
-dbpf MCAG:TS-EVR-01:PS-0-Div-SP 11073 
-DBF_LONG:           11073 = 0x2b41      
-#dbpf $(SYSPV):Out-RB04-Src-SP "Pulser 2"
-#dbpf $(SYSPV):Out-RB05-Src-SP "Pulser 2"
-#dbpf $(SYSPV):Out-RB06-Src-SP "Pulser 2"
-#dbpf $(SYSPV):Out-RB07-Src-SP "Pulser 2"
-dbpf MCAG:TS-EVR-01:Out-RB04-Src-Scale-SP "Prescaler 0"
-DBF_STRING:         "Prescaler 0"       
-dbpf MCAG:TS-EVR-01:Out-RB05-Src-Scale-SP "Prescaler 0"
-DBF_STRING:         "Prescaler 0"       
-dbpf MCAG:TS-EVR-01:Out-RB06-Src-Scale-SP "Prescaler 0"
-DBF_STRING:         "Prescaler 0"       
-dbpf MCAG:TS-EVR-01:Out-RB07-Src-Scale-SP "Prescaler 0"
-DBF_STRING:         "Prescaler 0"       
-######## Sequencer #########
-dbpf MCAG:TS-EVR-01:EndEvtTicks 4
-PV 'MCAG:TS-EVR-01:EndEvtTicks' not found
-# Load sequencer setup
-dbpf MCAG:TS-EVR-01:SoftSeq-0-Load-Cmd 1
-DBF_STRING:         "1"       
-# Enable sequencer
-dbpf MCAG:TS-EVR-01:SoftSeq-0-Enable-Cmd 1
-DBF_STRING:         "1"       
-# Select run mode, "Single" needs a new Enable-Cmd every time, "Normal" needs Enable-Cmd once
-dbpf MCAG:TS-EVR-01:SoftSeq-0-RunMode-Sel "Normal"
-DBF_STRING:         "Normal"  
-# Use ticks or microseconds
-dbpf MCAG:TS-EVR-01:SoftSeq-0-TsResolution-Sel "Ticks"
-DBF_STRING:         "Ticks"   
-# Select trigger source for soft seq 0, trigger source 0, delay gen 0
-dbpf MCAG:TS-EVR-01:SoftSeq-0-TrigSrc-0-Sel 0
-DBF_STRING:         "Pulser 0"          
-# Commit all the settings for the sequnce
-# commit-cmd by evrseq!!! 
-dbpf MCAG:TS-EVR-01:SoftSeq-0-Commit-Cmd "1"
-DBF_STRING:         "Commit"  
-# Route 1 hz to ouput 0 instead of 14Hz (asm)
 dbpf MCAG:TS-EVR-01:DlyGen-0-Evt-Trig0-SP 125
 DBF_LONG:           125 = 0x7d          
 epicsEnvSet EPICS_DRIVER_PATH /home/anderssandstrom/sources/e3-mrfioc2/cellMods//base-7.0.6.1/require-4.0.0:/epics/base-7.0.6.1/require/4.0.0/siteMods
 # Set the IOC Prompt String One 
-epicsEnvSet IOCSH_PS1 "lab-mot-ctrl-cp-5806 > "
+epicsEnvSet IOCSH_PS1 "lab-mot-ctrl-cp-19396 > "
 #
 # Real Time "RT"
-[?1034hlab-mot-ctrl-cp-5806 > First update ready for NTPD
+[?1034hlab-mot-ctrl-cp-19396 > First update ready for NTPD
