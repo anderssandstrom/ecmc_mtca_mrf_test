@@ -17,7 +17,7 @@ require(mcoreutils)
 epicsEnvSet "PCIID" "8:00.0"
 
 
-mcoreThreadRuleAdd ecmc * * 2 EVRFIFO
+mcoreThreadRuleAdd mrf * * 2 EVRFIFO
 
 epicsEnvSet("TOP", "$(E3_CMD_TOP)/..")
 
