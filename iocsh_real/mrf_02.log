@@ -5,10 +5,10 @@
 ## please run iocsh without the real-time option
 ##
 #
-# Start at "2022-W24-Jun14-1107-29-CEST"
+# Start at "2022-W24-Jun14-1117-15-CEST"
 #
 # Version information:
-# European Spallation Source ERIC : iocsh (4.0.0-PID-19211)
+# European Spallation Source ERIC : iocsh (4.0.0-PID-19396)
 #
 # --->--> snip -->--> 
 # Please Use Version and other environment variables
@@ -38,10 +38,10 @@
 # --->--> snip -->--> 
 #
 # Set REQUIRE_IOC for its internal PVs
-epicsEnvSet REQUIRE_IOC "REQMOD:lab-mot-ctrl-cp-19211"
+epicsEnvSet REQUIRE_IOC "REQMOD:lab-mot-ctrl-cp-19396"
 #
 # Enable an exit subroutine for sotfioc
-dbLoadRecords "/epics/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:lab-mot-ctrl-cp-19211"
+dbLoadRecords "/epics/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:lab-mot-ctrl-cp-19396"
 #
 # Set E3_IOCSH_TOP for the absolute path where iocsh is executed.
 epicsEnvSet E3_IOCSH_TOP "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real"
@@ -106,7 +106,7 @@ Loading module info records for mcoreutils
 #epicsEnvSet "EVROUTARGS" "BP0=0,BP1=1,BP2=49,BP3=4,BP4=5,BP6=7,FPUV0=52,FP0=53"
 #epicsEnvSet "EVRINARGS" "BP5EN=,BPE5=41,BP7EN=,BPE7=43"
 epicsEnvSet "PCIID" "8:00.0"
-mcoreThreadRuleAdd ecmc * * 2 EVRFIFO
+mcoreThreadRuleAdd mrf * * 2 EVRFIFO
 epicsEnvSet("TOP", "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real/..")
 epicsEnvSet("IOC", "mcag-evr-01")
 epicsEnvSet("SYS", "MCAG:")
@@ -154,11 +154,11 @@ dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTND, OBJ=EVR, CODE=255, EVNT=25
 dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTNE, OBJ=EVR, CODE=255, EVNT=255"
 dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTNF, OBJ=EVR, CODE=255, EVNT=255"
 #dbLoadRecords("mrmevrtsbuf-univ.db","P=$(SYSPV), R="", S=":00-", EVR=EVR, CODE=21, TRIG=14, FLUSH=TimesRelPrevFlush, NELM=1000")
-#dbLoadRecords("mrmevrtsbuf-univ.db","P=$(SYSPV), R="", S=":01-", EVR=EVR, CODE=22, TRIG=14, FLUSH=TimesRelPmacLib: macro cntpstats_DIR is undefined (expanding string iocshLoad("$(cntpstats_DIR)/cntpstats.iocsh","SYS=$(SYS), DEV=$(DEV)"))
+#dbLoadRecords("mrmevrtsbuf-univ.db","P=$(SYSPV), R="", S=":01-", EVR=EVR, CODE=22, TRIG=14, FLUSH=TimesRelPrmacLib: macro cntpstats_DIR is undefined (expanding string iocshLoad("$(cntpstats_DIR)/cntpstats.iocsh","SYS=$(SYS), DEV=$(DEV)"))
 Starting iocInit
 iocRun: All initialization complete
 Starting NTP SHM writer for segment 2
-revFlush, NELM=1000")
+evFlush, NELM=1000")
 #dbLoadRecords("mrmevrtsbuf-univ.db","P=$(SYSPV), R="", S=":02-", EVR=EVR, CODE=23, TRIG=14, FLUSH=TimesRelPrevFlush, NELM=1000")
 #dbLoadRecords("mrmevrtsbuf-univ.db","P=$(SYSPV), R="", S=":03-", EVR=EVR, CODE=24, TRIG=14, FLUSH=TimesRelPrevFlush, NELM=1000")
 time2ntp("EVR", 2)
@@ -450,15 +450,7 @@ dbpf MCAG:TS-EVR-01:DlyGen-0-Evt-Trig0-SP 125
 DBF_LONG:           125 = 0x7d          
 epicsEnvSet EPICS_DRIVER_PATH /home/anderssandstrom/sources/e3-mrfioc2/cellMods//base-7.0.6.1/require-4.0.0:/epics/base-7.0.6.1/require/4.0.0/siteMods
 # Set the IOC Prompt String One 
-epicsEnvSet IOCSH_PS1 "lab-mot-ctrl-cp-19211 > "
+epicsEnvSet IOCSH_PS1 "lab-mot-ctrl-cp-19396 > "
 #
 # Real Time "RT"
-[?1034hlab-mot-ctrl-cp-19211 > First update ready for NTPD
-incFail
-incFail
-incFail
-incFail
-incFail
-incFail
-
-lab-mot-ctrl-cp-19211 > # Real Time "RT"[K
+[?1034hlab-mot-ctrl-cp-19396 > First update ready for NTPD
