@@ -51,6 +51,7 @@ typedef struct {
 #define MICROS_PER_SEC 1000000UL
 
 shmSegment* seg;
+float polltime = 0;
 
 char time_now_str[35];
 
@@ -100,7 +101,7 @@ static int setup(int segid)
 
 int waitForValid(){
   int counter = 0;
-  while(!seg->valid && counter<1000) {
+  while(!seg->valid && counter<1000*polltime*2) {
     usleep(1000);
     counter++;
   }
@@ -172,7 +173,6 @@ int printShm(){
 
 /* main.c */
 int main(int argc, char *argv[]){
-    float polltime = 0;
     int shmid = 0;
     if(argc >= 2){
       shmid=atoi(argv[1]);
