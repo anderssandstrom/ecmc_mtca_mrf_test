@@ -306,8 +306,14 @@ refclock SHM 2:perm=0777 poll 1 precision 1e-9 filter 64 prefer refid EVR
 
 # Test 220
 
-
 same as above but new printout in readNtpShm
 ```
 cat ../readshm/shm_220.log | grep DIFF | python ~/sources/ecmccomgui/pyDataManip/plotCaMonitor.py
+
+```
+
+```
+iocsh ecmc_lean_test.script -l ~/sources/e3-ecmc/cellMods/ -l ~/sources/e3-ecmccfg/cellMods/ | tee test.log
+
+iocsh --realtime st.mrfioc_nanos.cmd -l ~/sources/e3-mrfioc2/cellMods/  | tee mrf_02.log
 ```
