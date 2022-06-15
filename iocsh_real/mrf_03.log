@@ -1,0 +1,65 @@
+## 
+## Better support for Real-Time IOC Application.
+## Now we set 'export LD_BIND_NOW=1'
+## If one may meet the 'Operation not permitted' message, 
+## please run iocsh without the real-time option
+##
+Module mrfioc2 version nano not available (but other versions are available)
+Aborting startup script
+#
+# Start at "2022-W24-Jun15-0826-29-CEST"
+#
+# Version information:
+# European Spallation Source ERIC : iocsh (4.0.0-PID-21635)
+#
+# --->--> snip -->--> 
+# Please Use Version and other environment variables
+# in order to report or debug this shell
+#
+# HOSTDISPLAY=""
+# WINDOWID="31457346"
+# PWD="/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real"
+# USER="anderssandstrom"
+# LOGNAME="anderssandstrom"
+# EPICS_HOST_ARCH="linux-x86_64"
+# EPICS_BASE="/epics/base-7.0.6.1"
+# E3_REQUIRE_NAME="require"
+# E3_REQUIRE_VERSION="4.0.0"
+# E3_REQUIRE_LOCATION="/epics/base-7.0.6.1/require/4.0.0"
+# E3_REQUIRE_BIN="/epics/base-7.0.6.1/require/4.0.0/bin"
+# E3_REQUIRE_DB="/epics/base-7.0.6.1/require/4.0.0/db"
+# E3_REQUIRE_DBD="/epics/base-7.0.6.1/require/4.0.0/dbd"
+# E3_REQUIRE_INC="/epics/base-7.0.6.1/require/4.0.0/include"
+# E3_REQUIRE_LIB="/epics/base-7.0.6.1/require/4.0.0/lib"
+# EPICS_DRIVER_PATH="/epics/base-7.0.6.1/require/4.0.0/siteMods"
+# EPICS_CA_AUTO_ADDR_LIST=""
+# EPICS_CA_ADDR_LIST=""
+# EPICS_PVA_AUTO_ADDR_LIST=""
+# EPICS_PVA_ADDR_LIST=""
+# PATH="/epics/base-7.0.6.1/require/4.0.0/bin:/epics/base-7.0.6.1/bin/linux-x86_64:/opt/conda/condabin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/anderssandstrom/.local/bin:/home/anderssandstrom/bin"
+# --->--> snip -->--> 
+#
+# Set REQUIRE_IOC for its internal PVs
+epicsEnvSet REQUIRE_IOC "REQMOD:mcag-dev-asm-02-21635"
+#
+# Enable an exit subroutine for sotfioc
+dbLoadRecords "/epics/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:mcag-dev-asm-02-21635"
+#
+# Set E3_IOCSH_TOP for the absolute path where iocsh is executed.
+epicsEnvSet E3_IOCSH_TOP "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real"
+#
+# 
+# Load require module, which has the version 4.0.0
+# 
+dlload /epics/base-7.0.6.1/require/4.0.0/lib/linux-x86_64/librequire.so
+dbLoadDatabase /epics/base-7.0.6.1/require/4.0.0/dbd/require.dbd
+require_registerRecordDeviceDriver
+Loading module info records for require
+# 
+# Set E3_CMD_TOP for the absolute path where st.mrfioc_nanos.cmd exists
+epicsEnvSet E3_CMD_TOP "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real"
+#
+iocshLoad 'st.mrfioc_nanos.cmd',''
+#!/usr/bin/env iocsh.bash
+#require(essioc)
+require mrfioc2 nano
