@@ -1,0 +1,444 @@
+## 
+## Better support for Real-Time IOC Application.
+## Now we set 'export LD_BIND_NOW=1'
+## If one may meet the 'Operation not permitted' message, 
+## please run iocsh without the real-time option
+##
+#
+# Start at "2022-W24-Jun15-0828-39-CEST"
+#
+# Version information:
+# European Spallation Source ERIC : iocsh (4.0.0-PID-4818)
+#
+# --->--> snip -->--> 
+# Please Use Version and other environment variables
+# in order to report or debug this shell
+#
+# HOSTDISPLAY=""
+# WINDOWID=""
+# PWD="/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real"
+# USER="anderssandstrom"
+# LOGNAME="anderssandstrom"
+# EPICS_HOST_ARCH="linux-x86_64"
+# EPICS_BASE="/epics/base-7.0.6.1"
+# E3_REQUIRE_NAME="require"
+# E3_REQUIRE_VERSION="4.0.0"
+# E3_REQUIRE_LOCATION="/epics/base-7.0.6.1/require/4.0.0"
+# E3_REQUIRE_BIN="/epics/base-7.0.6.1/require/4.0.0/bin"
+# E3_REQUIRE_DB="/epics/base-7.0.6.1/require/4.0.0/db"
+# E3_REQUIRE_DBD="/epics/base-7.0.6.1/require/4.0.0/dbd"
+# E3_REQUIRE_INC="/epics/base-7.0.6.1/require/4.0.0/include"
+# E3_REQUIRE_LIB="/epics/base-7.0.6.1/require/4.0.0/lib"
+# EPICS_DRIVER_PATH="/epics/base-7.0.6.1/require/4.0.0/siteMods"
+# EPICS_CA_AUTO_ADDR_LIST=""
+# EPICS_CA_ADDR_LIST=""
+# EPICS_PVA_AUTO_ADDR_LIST=""
+# EPICS_PVA_ADDR_LIST=""
+# PATH="/epics/base-7.0.6.1/require/4.0.0/bin:/epics/base-7.0.6.1/bin/linux-x86_64:/usr/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/anderssandstrom/.local/bin:/home/anderssandstrom/bin"
+# --->--> snip -->--> 
+#
+# Set REQUIRE_IOC for its internal PVs
+epicsEnvSet REQUIRE_IOC "REQMOD:lab-mot-ctrl-cp-4818"
+#
+# Enable an exit subroutine for sotfioc
+dbLoadRecords "/epics/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:lab-mot-ctrl-cp-4818"
+#
+# Set E3_IOCSH_TOP for the absolute path where iocsh is executed.
+epicsEnvSet E3_IOCSH_TOP "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real"
+#
+# 
+# Load require module, which has the version 4.0.0
+# 
+dlload /epics/base-7.0.6.1/require/4.0.0/lib/linux-x86_64/librequire.so
+dbLoadDatabase /epics/base-7.0.6.1/require/4.0.0/dbd/require.dbd
+require_registerRecordDeviceDriver
+Loading module info records for require
+# 
+# Set E3_CMD_TOP for the absolute path where st.mrfioc_nanos.cmd exists
+epicsEnvSet E3_CMD_TOP "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real"
+#
+iocshLoad 'st.mrfioc_nanos.cmd',''
+#!/usr/bin/env iocsh.bash
+require mrfioc2 asm_add_nanos
+Module mrfioc2 version asm_add_nanos found in /home/anderssandstrom/sources/e3-mrfioc2/cellMods//base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos/
+Module mrfioc2 depends on devlib2 2.11.0+0
+Module devlib2 version 2.11.0+0 found in /epics/base-7.0.6.1/require/4.0.0/siteMods/devlib2/2.11.0+0/
+Loading library /epics/base-7.0.6.1/require/4.0.0/siteMods/devlib2/2.11.0+0/lib/linux-x86_64/libdevlib2.so
+Loaded devlib2 version 2.11.0+0
+Loading dbd file /epics/base-7.0.6.1/require/4.0.0/siteMods/devlib2/2.11.0+0/dbd/devlib2.dbd
+Calling function devlib2_registerRecordDeviceDriver
+Loading module info records for devlib2
+Loading library /home/anderssandstrom/sources/e3-mrfioc2/cellMods//base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos/lib/linux-x86_64/libmrfioc2.so
+Loaded mrfioc2 version asm_add_nanos
+Loading dbd file /home/anderssandstrom/sources/e3-mrfioc2/cellMods//base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos/dbd/mrfioc2.dbd
+Calling function mrfioc2_registerRecordDeviceDriver
+Loading module info records for mrfioc2
+require(evr_seq_calc)
+Module evr_seq_calc version 1.0.0+0 found in /epics/base-7.0.6.1/require/4.0.0/siteMods/evr_seq_calc/1.0.0+0/
+Loading library /epics/base-7.0.6.1/require/4.0.0/siteMods/evr_seq_calc/1.0.0+0/lib/linux-x86_64/libevr_seq_calc.so
+Loaded evr_seq_calc version 1.0.0+0
+Loading dbd file /epics/base-7.0.6.1/require/4.0.0/siteMods/evr_seq_calc/1.0.0+0/dbd/evr_seq_calc.dbd
+Calling function evr_seq_calc_registerRecordDeviceDriver
+Loading module info records for evr_seq_calc
+require(mcoreutils)
+Module mcoreutils version 1.2.2+0 found in /epics/base-7.0.6.1/require/4.0.0/siteMods/mcoreutils/1.2.2+0/
+Loading library /epics/base-7.0.6.1/require/4.0.0/siteMods/mcoreutils/1.2.2+0/lib/linux-x86_64/libmcoreutils.so
+Loaded mcoreutils version 1.2.2+0
+Loading dbd file /epics/base-7.0.6.1/require/4.0.0/siteMods/mcoreutils/1.2.2+0/dbd/mcoreutils.dbd
+Calling function mcoreutils_registermacLib: macro essioc_DIR is undefined (expanding string iocshLoad("$(essioc_DIR)/essioc.iocsh"))
+Notice: devPCIFindSpec() expect B:D.F in hex
+Failed to open resource file for PCI device 0000:08:00.0: Permission denied
+Found SFP Strangeness 00000000
+macLib: macro cntpstats_DIR is undefined (expanding string iocshLoad("$(cntpstats_DIR)/cntpstats.iocsh","SYS=$(SYS), DEV=$(DEV)"))
+Starting iocInit
+cas warning: Configured TCP port was unavailable.
+cas warning: Using dynamically assigned TCP port 38902,
+cas warning: but now two or more servers share the same UDP port.
+cas warning: Depending on your IP kernel this server may not be
+cas warning: reachable with UDP unicast (a host's IP in EPICS_CA_ADDR_LIST)
+iocRun: All initialization complete
+RecordDeviceDriver
+MCoreUtils version 1.2.2+0
+MCoreUtils: Read 0 thread rule(s) from /etc/rtrules
+MCoreUtils: Read 0 thread rule(s) from /home/anderssandstrom/.rtrules
+Loading module info records for mcoreutils
+epicsEnvSet "PCIID" "8:00.0"
+mcoreThreadRuleAdd mrf * * 2 EVRFIFO
+epicsEnvSet("TOP", "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real/..")
+epicsEnvSet("IOC", "mcag-evr-01")
+epicsEnvSet("SYS", "MCAG:")
+epicsEnvSet("EVR", "EVR-01")
+epicsEnvSet("DEV", "TS-EVR-01")
+epicsEnvSet("SYSPV", "MCAG:TS-EVR-01")
+epicsEnvSet("MRF_HW_DB", "evr-mtca-300-univ.db")
+epicsEnvSet("BASEEVTNO", "21")
+epicsEnvSet("BASEEVTNO", "21")
+epicsEnvSet("CHOP_DRV", "ECMC")
+# -----------------------------------------------------------------------------
+# loading databases
+# -----------------------------------------------------------------------------
+# E3 Common databases
+iocshLoad("/home/anderssandstrom/sources/e3-mrfioc2/cellMods/base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos//evr.iocsh", "EVRDB=evr-mtca-300-univ.db, P=MCAG:TS-EVR-01, EVR=EVR, PCIID=8:00.0")
+# @about: evr.iocsh
+mrmEvrSetupPCI "EVR" "8:00.0"
+Device EVR  8:0.0 slot=1-1
+Using IRQ 142
+FWVersion 0x18070207
+Found version 519
+Sequencer capability detected
+mTCA: Out FP:4 FPUNIV:0 RB:16 IFP:32 GPIO:2
+EVR FIFO task start
+Enabling interrupts
+dbLoadRecords "evr-mtca-300-univ.db" "P=MCAG:TS-EVR-01, EVR=EVR, FEVT=88.0525"
+var evrMrmTimeNSOverflowThreshold 500000000
+iocshLoad("/home/anderssandstrom/sources/e3-mrfioc2/cellMods/base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos//evrevt.iocsh", "P=MCAG:TS-EVR-01")
+# @about: evrevt.iocsh
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTN0, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTN1, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTN2, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTN3, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTN4, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTN5, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTN6, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTN7, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTN8, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTN9, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTNA, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTNB, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTNC, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTND, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTNE, OBJ=EVR, CODE=255, EVNT=255"
+dbLoadRecords "evrevent.db" "EN=MCAG:TS-EVR-01:EVTNF, OBJ=EVR, CODE=255, EVNT=255"
+time2ntp("EVR", 2)
+iocInit()
+############################################################################
+## EPICS R7.0.6.1-E3-7.0.6.1-patch
+## Rev. 2022-03-11T15:27+0100
+############################################################################
+Set EVR clock 88052500.000000
+2022-06-15T08:28:40.617 Using dynamically assigned TCP port 38342.
+Starting NTP SHM writer for segment 2
+iocshLoad("/home/anderssandstrom/sources/e3-mrfioc2/cellMods/base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos//evr.r.iocsh", "P=MCAG:TS-EVR-01, EVR=EVR")
+# @about: evr.r.iocsh
+#Disable not used FIFO traffic: 0 cannot be applied
+dbpf "MCAG:TS-EVR-01:EvtA-SP.OUT" "@OBJ=EVR,Code=255"
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf "MCAG:TS-EVR-01:EvtB-SP.OUT" "@OBJ=EVR,Code=255"
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf "MCAG:TS-EVR-01:EvtC-SP.OUT" "@OBJ=EVR,Code=255"
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf "MCAG:TS-EVR-01:EvtD-SP.OUT" "@OBJ=EVR,Code=255"
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf "MCAG:TS-EVR-01:EvtE-SP.OUT" "@OBJ=EVR,Code=255"
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf "MCAG:TS-EVR-01:EvtF-SP.OUT" "@OBJ=EVR,Code=255"
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf "MCAG:TS-EVR-01:EvtG-SP.OUT" "@OBJ=EVR,Code=255"
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+dbpf "MCAG:TS-EVR-01:EvtH-SP.OUT" "@OBJ=EVR,Code=255"
+DBF_STRING:         "@OBJ=EVR,Code=255" 
+# Enable EVR
+dbpf "MCAG:TS-EVR-01:Ena-Sel" "Enabled"
+DBF_STRING:         "Enabled" 
+# Set delay compensation to X ns, needed to avoid timestamp issue
+dbpf "MCAG:TS-EVR-01:DC-Tgt-SP" "10000"
+DBF_DOUBLE:         10000     
+dbpf "MCAG:TS-EVR-01:DC-Ena-Sel" "Enable"
+DBF_STRING:         "Enable"  
+# Set the LED event 0 to event 14
+dbpf "MCAG:TS-EVR-01:Evt-Blink0-SP" "14"
+DBF_LONG:           14 = 0xe  
+# TIMESTAMP CONFIGURATION
+# 0-disabled: EVT_PPS comes from evg; 1-external; 2-Sys.Clock: locally generated EVT_PPS
+dbpf "MCAG:TS-EVR-01:TimeSrc-Sel" "0"
+DBF_STRING:         "Disable (noop)"    
+#dbpf "MCAG:TS-EVR-01:TimeSrc-Sel" "2"
+dbpf "MCAG:TS-EVR-01:Time-I.EVNT" "125"
+DBF_STRING:         "125"     
+dbpf "MCAG:TS-EVR-01:Time-I.INP" "@OBJ=EVR, Code=125"
+DBF_STRING:         "@OBJ=EVR, Code=125"          
+# Add proper ns calculation reference for the rf ticks
+dbpf "MCAG:TS-EVR-01:Link-Clk-SP" "88.0525"
+Set EVR clock 88052500.000000
+DBF_DOUBLE:         88.0525   
+dbpf "MCAG:TS-EVR-01:Time-Clock-SP" "88.0525"
+DBF_DOUBLE:         88.0525   
+iocshLoad("/home/anderssandstrom/sources/e3-mrfioc2/cellMods/base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos//evrdlygen.r.iocsh", "P=MCAG:TS-EVR-01, EVR=EVR")
+# @about: evrdlygen.r.iocsh
+# Define pulsers - width
+dbpf "MCAG:TS-EVR-01:DlyGen-0-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-1-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-2-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-3-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-4-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-5-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-6-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-7-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-8-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-9-Width-SP"  "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-10-Width-SP" "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-11-Width-SP" "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-12-Width-SP" "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-13-Width-SP" "0"
+DBF_DOUBLE:         0         
+dbpf "MCAG:TS-EVR-01:DlyGen-14-Width-SP" "0"
+DBF_DOUBLE:         0         
+# NULL pulser
+dbpf "MCAG:TS-EVR-01:DlyGen-15-Width-SP" "0"
+DBF_DOUBLE:         0         
+### Define pulsers - trigger events
+dbpf "MCAG:TS-EVR-01:DlyGen-0-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-1-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-2-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-3-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-4-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-5-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-6-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-7-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-8-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-9-Evt-Trig0-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-10-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-11-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-12-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-13-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-14-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-15-Evt-Trig0-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-0-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-1-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-2-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-3-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-4-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-5-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-6-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-7-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-8-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-9-Evt-Trig1-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-10-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-11-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-12-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-13-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-14-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-15-Evt-Trig1-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-0-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-1-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-2-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-3-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-4-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-5-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-6-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-7-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-8-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-9-Evt-Trig2-SP"  "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-10-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-11-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-12-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-13-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-14-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+dbpf "MCAG:TS-EVR-01:DlyGen-15-Evt-Trig2-SP" "0"
+DBF_LONG:           0 = 0x0   
+iocshLoad("/home/anderssandstrom/sources/e3-mrfioc2/cellMods/base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos//evrout.r.iocsh", "P=MCAG:TS-EVR-01, EVR=EVR")
+# @about: evrout.r.iocsh
+# BP SRC configuration
+### MTCA EVR Backplane0, RX17 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back0-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+### MTCA EVR Backplane1, TX17 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back1-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+### MTCA EVR Backplane2, RX18 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back2-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+### MTCA EVR Backplane3, TX18 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back3-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+### MTCA EVR Backplane4, RX19 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back4-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+### MTCA EVR Backplane5, TX19 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back5-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+### MTCA EVR Backplane6, RX20 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back6-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+### MTCA EVR Backplane7, TX20 (0)
+dbpf "MCAG:TS-EVR-01:Out-Back7-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+# FP outputs
+dbpf "MCAG:TS-EVR-01:Out-FP0-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+dbpf "MCAG:TS-EVR-01:Out-FP1-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+dbpf "MCAG:TS-EVR-01:Out-FP2-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+dbpf "MCAG:TS-EVR-01:Out-FP3-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+dbpf "MCAG:TS-EVR-01:Out-FPUV0-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+dbpf "MCAG:TS-EVR-01:Out-FPUV1-Src-SP" "15"
+DBF_LONG:           15 = 0xf  
+dbpf "MCAG:TS-EVR-01:Out-FPUV2-Src-SP" "15"
+PV 'MCAG:TS-EVR-01:Out-FPUV2-Src-SP' not found
+dbpf "MCAG:TS-EVR-01:Out-FPUV3-Src-SP" "15"
+PV 'MCAG:TS-EVR-01:Out-FPUV3-Src-SP' not found
+iocshLoad("/home/anderssandstrom/sources/e3-mrfioc2/cellMods/base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos//evrin.r.iocsh", "P=MCAG:TS-EVR-01, EVR=EVR")
+# @about: evrin.r.iocsh
+# Backplane inputs
+#dbpf "MCAG:TS-EVR-01:Out-Back0-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back1-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back2-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back3-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back4-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back5-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back6-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:Out-Back7-Src-Scale-SP" "Tri-state"
+#dbpf "MCAG:TS-EVR-01:BPIn-0-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-1-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-2-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-3-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-4-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-5-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-6-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:BPIn-7-Trig-Ext-Sel" "Edge"
+# Local EVR events
+#dbpf "MCAG:TS-EVR-01:BPIn-0-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-1-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-2-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-3-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-4-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-5-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-6-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:BPIn-7-Code-Ext-SP" "0"
+# Front panel inputs
+#dbpf "MCAG:TS-EVR-01:In-0-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:In-1-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:In-2-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:In-3-Trig-Ext-Sel" "Edge"
+# Univ inputs
+#dbpf "MCAG:TS-EVR-01:UnivIn-0-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:UnivIn-1-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:UnivIn-2-Trig-Ext-Sel" "Edge"
+#dbpf "MCAG:TS-EVR-01:UnivIn-3-Trig-Ext-Sel" "Edge"
+# Local EVR events for FP
+#dbpf "MCAG:TS-EVR-01:In-0-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:In-1-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:In-2-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:In-3-Code-Ext-SP" "0"
+# Local EVR events for UNIV
+#dbpf "MCAG:TS-EVR-01:UnivIn-0-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:UnivIn-1-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:UnivIn-2-Code-Ext-SP" "0"
+#dbpf "MCAG:TS-EVR-01:UnivIn-3-Code-Ext-SP" "0"
+######### OUTPUTS #########
+#Set up delay generator 0 to trigger on event 14
+dbpf MCAG:TS-EVR-01:DlyGen-0-Width-SP 1000 #1ms
+DBF_DOUBLE:         1000      
+dbpf MCAG:TS-EVR-01:DlyGen-0-Delay-SP 0 #0ms
+DBF_DOUBLE:         0         
+dbpf MCAG:TS-EVR-01:DlyGen-0-Evt-Trig0-SP 125
+DBF_LONG:           125 = 0x7d          
+epicsEnvSet EPICS_DRIVER_PATH /home/anderssandstrom/sources/e3-mrfioc2/cellMods//base-7.0.6.1/require-4.0.0:/epics/base-7.0.6.1/require/4.0.0/siteMods
+# Set the IOC Prompt String One 
+epicsEnvSet IOCSH_PS1 "lab-mot-ctrl-cp-4818 > "
+#
+# Real Time "RT"
+[?1034hlab-mot-ctrl-cp-4818 > 
