@@ -317,3 +317,9 @@ iocsh ecmc_lean_test.script -l ~/sources/e3-ecmc/cellMods/ -l ~/sources/e3-ecmcc
 
 iocsh --realtime st.mrfioc_nanos.cmd -l ~/sources/e3-mrfioc2/cellMods/  | tee mrf_02.log
 ```
+
+# test 250
+new electrical connection, no missed pulses
+chrony off
+
+
