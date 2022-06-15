@@ -320,6 +320,11 @@ iocsh --realtime st.mrfioc_nanos.cmd -l ~/sources/e3-mrfioc2/cellMods/  | tee mr
 
 # test 250
 new electrical connection, no missed pulses
+
 chrony off
+
+use older version of mrfioc but with nano support. Help from Gabriel Fedel:
+
+https://gitlab.esss.lu.se/gabrielfedel/mrfioc2.git branch nano
 
 
