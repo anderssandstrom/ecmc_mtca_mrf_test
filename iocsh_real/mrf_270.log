@@ -5,10 +5,10 @@
 ## please run iocsh without the real-time option
 ##
 #
-# Start at "2022-W25-Jun20-1220-48-CEST"
+# Start at "2022-W25-Jun20-1257-18-CEST"
 #
 # Version information:
-# European Spallation Source ERIC : iocsh (4.0.0-PID-11047)
+# European Spallation Source ERIC : iocsh (4.0.0-PID-13057)
 #
 # --->--> snip -->--> 
 # Please Use Version and other environment variables
@@ -38,10 +38,10 @@
 # --->--> snip -->--> 
 #
 # Set REQUIRE_IOC for its internal PVs
-epicsEnvSet REQUIRE_IOC "REQMOD:lab-mot-ctrl-cp-11047"
+epicsEnvSet REQUIRE_IOC "REQMOD:lab-mot-ctrl-cp-13057"
 #
 # Enable an exit subroutine for sotfioc
-dbLoadRecords "/epics/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:lab-mot-ctrl-cp-11047"
+dbLoadRecords "/epics/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:lab-mot-ctrl-cp-13057"
 #
 # Set E3_IOCSH_TOP for the absolute path where iocsh is executed.
 epicsEnvSet E3_IOCSH_TOP "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real"
@@ -93,12 +93,8 @@ Failed to open resource file for PCI device 0000:08:00.0: Permission denied
 Found SFP Strangeness 00000000
 macLib: macro cntpstats_DIR is undefined (expanding string iocshLoad("$(cntpstats_DIR)/cntpstats.iocsh","SYS=$(SYS), DEV=$(DEV)"))
 Starting iocInit
-cas warning: Configured TCP port was unavailable.
-cas warning: Using dynamically assigned TCP port 42624,
-cas warning: but now two or more servers share the same UDP port.
-cas warning: Depending on your IP kernel this server may not be
-cas warning: reachable with UDP unicast (a host's IP in EPICS_CA_ADDR_LIST)
 iocRun: All initialization complete
+Starting NTP SHM writer for segment 2
 ion 1.2.2+0
 MCoreUtils: Read 0 thread rule(s) from /etc/rtrules
 MCoreUtils: Read 0 thread rule(s) from /home/anderssandstrom/.rtrules
@@ -157,8 +153,6 @@ iocInit()
 ## Rev. 2022-03-11T15:27+0100
 ############################################################################
 Set EVR clock 88052500.000000
-2022-06-20T12:20:49.044 Using dynamically assigned TCP port 59858.
-Starting NTP SHM writer for segment 2
 iocshLoad("/home/anderssandstrom/sources/e3-mrfioc2/cellMods/base-7.0.6.1/require-4.0.0/mrfioc2/nano//evr.r.iocsh", "P=MCAG:TS-EVR-01, EVR=EVR")
 # @about: evr.r.iocsh
 #Disable not used FIFO traffic: 0 cannot be applied
@@ -439,58 +433,88 @@ dbpf MCAG:TS-EVR-01:DlyGen-0-Evt-Trig0-SP 125
 DBF_LONG:           125 = 0x7d          
 epicsEnvSet EPICS_DRIVER_PATH /home/anderssandstrom/sources/e3-mrfioc2/cellMods//base-7.0.6.1/require-4.0.0:/epics/base-7.0.6.1/require/4.0.0/siteMods
 # Set the IOC Prompt String One 
-epicsEnvSet IOCSH_PS1 "lab-mot-ctrl-cp-11047 > "
+epicsEnvSet IOCSH_PS1 "lab-mot-ctrl-cp-13057 > "
 #
 # Real Time "RT"
-[?1034hlab-mot-ctrl-cp-11047 > incFail
-incFail
-incFail
+[?1034hlab-mot-ctrl-cp-13057 > EVR TIMESTAMP FAIL
 incFail
 
-lab-mot-ctrl-cp-11047 > incFail
-
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > incFail
-
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > incFail
-
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > 
-lab-mot-ctrl-cp-11047 > incFail
-incFail
-incFail
-incFail
-incFail
-incFail
-incFail
-incFail
-incFail
-incFail
-incFail
-incFail
-incFail
-incFail
-incFail
-incFail
-incFail
+lab-mot-ctrl-cp-13057 > EVR TIMESTAMP FAIL
 incFail
 
-lab-mot-ctrl-cp-11047 > incFail
+lab-mot-ctrl-cp-13057 > EVR TIMESTAMP FAIL
+incFail
 
-lab-mot-ctrl-cp-11047 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > EVR TIMESTAMP FAIL
+incFail
+
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > EVR TIMESTAMP FAIL
+incFail
+
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > EVR TIMESTAMP FAIL
+incFail
+
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > First update ready for NTPD
+
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > # Real Time "RT"[K
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13057 > 
