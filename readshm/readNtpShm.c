@@ -101,14 +101,14 @@ static int setup(int segid)
 
 int waitForValid(){
   int counter = 0;
-  while(!seg->valid && counter<1000*polltime*2) {
-    usleep(1000);
+  while(!seg->valid /*&& counter<5000*polltime*2*/) {
+    usleep(500);
     counter++;
   }
-  if(counter>=1000) {
+/*  if(counter>=5000*polltime*2) {
     printf("no valid data timeout (1 sec)\n");
     return 1;
-  }
+  }*/
   return 0;
 }
 
@@ -162,8 +162,9 @@ int printShm(){
 
   printf("time now       : %09d s, %09d us, %09d ns\n",myTime.tv_sec,myTime.tv_nsec/1000,myTime.tv_nsec);
   printf("time shm ref   : %09d s, %09d us, %09d ns\n",evr.tv_sec,evr.tv_nsec/1000,evr.tv_nsec);
-  printf("time shm rx    : %09d s, %09d us, %09d ns\n",rx.tv_sec,rx.tv_nsec/1000,rx.tv_nsec);    
+  printf("time shm rx    : %09d s, %09d us, %09d ns\n",rx.tv_sec,rx.tv_nsec/1000,rx.tv_nsec);
   printf("diff rx vs ref : %09d ns\n",diff.tv_sec*NANOS_PER_SEC+diff.tv_nsec);
+  printf("VALID %s %d\n",time_now_str,seg->valid);
   printf("DIFF %s %d\n",time_now_str,diff.tv_sec*NANOS_PER_SEC+diff.tv_nsec);
  
   
