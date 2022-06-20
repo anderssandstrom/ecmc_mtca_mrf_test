@@ -327,4 +327,10 @@ use older version of mrfioc but with nano support. Help from Gabriel Fedel:
 
 https://gitlab.esss.lu.se/gabrielfedel/mrfioc2.git branch nano
 
+# test 260
 
+start chrony again
+
+also log shm
+
+Seems readNtpShm is not always finding a valid value in 1s.. Removed check. Will loop untill valid is high
