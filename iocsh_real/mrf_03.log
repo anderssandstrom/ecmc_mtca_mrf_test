@@ -4,18 +4,32 @@
 ## If one may meet the 'Operation not permitted' message, 
 ## please run iocsh without the real-time option
 ##
+<<<<<<< HEAD
+Module mrfioc2 version nano not available (but other versions are available)
+Aborting startup script
+#
+# Start at "2022-W24-Jun15-0826-29-CEST"
+#
+# Version information:
+# European Spallation Source ERIC : iocsh (4.0.0-PID-21635)
+=======
 #
 # Start at "2022-W24-Jun15-0828-39-CEST"
 #
 # Version information:
 # European Spallation Source ERIC : iocsh (4.0.0-PID-4818)
+>>>>>>> 0b47b277131c1e110761956206af958171a87aba
 #
 # --->--> snip -->--> 
 # Please Use Version and other environment variables
 # in order to report or debug this shell
 #
 # HOSTDISPLAY=""
+<<<<<<< HEAD
+# WINDOWID="31457346"
+=======
 # WINDOWID=""
+>>>>>>> 0b47b277131c1e110761956206af958171a87aba
 # PWD="/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real"
 # USER="anderssandstrom"
 # LOGNAME="anderssandstrom"
@@ -34,6 +48,16 @@
 # EPICS_CA_ADDR_LIST=""
 # EPICS_PVA_AUTO_ADDR_LIST=""
 # EPICS_PVA_ADDR_LIST=""
+<<<<<<< HEAD
+# PATH="/epics/base-7.0.6.1/require/4.0.0/bin:/epics/base-7.0.6.1/bin/linux-x86_64:/opt/conda/condabin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/anderssandstrom/.local/bin:/home/anderssandstrom/bin"
+# --->--> snip -->--> 
+#
+# Set REQUIRE_IOC for its internal PVs
+epicsEnvSet REQUIRE_IOC "REQMOD:mcag-dev-asm-02-21635"
+#
+# Enable an exit subroutine for sotfioc
+dbLoadRecords "/epics/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:mcag-dev-asm-02-21635"
+=======
 # PATH="/epics/base-7.0.6.1/require/4.0.0/bin:/epics/base-7.0.6.1/bin/linux-x86_64:/usr/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/anderssandstrom/.local/bin:/home/anderssandstrom/bin"
 # --->--> snip -->--> 
 #
@@ -42,6 +66,7 @@ epicsEnvSet REQUIRE_IOC "REQMOD:lab-mot-ctrl-cp-4818"
 #
 # Enable an exit subroutine for sotfioc
 dbLoadRecords "/epics/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:lab-mot-ctrl-cp-4818"
+>>>>>>> 0b47b277131c1e110761956206af958171a87aba
 #
 # Set E3_IOCSH_TOP for the absolute path where iocsh is executed.
 epicsEnvSet E3_IOCSH_TOP "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real"
@@ -59,6 +84,10 @@ epicsEnvSet E3_CMD_TOP "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_r
 #
 iocshLoad 'st.mrfioc_nanos.cmd',''
 #!/usr/bin/env iocsh.bash
+<<<<<<< HEAD
+#require(essioc)
+require mrfioc2 nano
+=======
 require mrfioc2 asm_add_nanos
 Module mrfioc2 version asm_add_nanos found in /home/anderssandstrom/sources/e3-mrfioc2/cellMods//base-7.0.6.1/require-4.0.0/mrfioc2/asm_add_nanos/
 Module mrfioc2 depends on devlib2 2.11.0+0
@@ -441,6 +470,7 @@ epicsEnvSet EPICS_DRIVER_PATH /home/anderssandstrom/sources/e3-mrfioc2/cellMods/
 epicsEnvSet IOCSH_PS1 "lab-mot-ctrl-cp-4818 > "
 #
 # Real Time "RT"
+<<<<<<< HEAD
 [?1034hlab-mot-ctrl-cp-4818 > incFail
 incFail
 incFail
@@ -164019,3 +164049,7 @@ incFail
 incFail
 incFail
 incFail
+=======
+[?1034hlab-mot-ctrl-cp-4818 > 
+>>>>>>> 0b47b277131c1e110761956206af958171a87aba
+>>>>>>> b3ddff0deda396784b4d58f051a7e770741f91c8
