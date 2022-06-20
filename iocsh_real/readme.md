@@ -334,3 +334,10 @@ start chrony again
 also log shm
 
 Seems readNtpShm is not always finding a valid value in 1s.. Removed check. Will loop untill valid is high
+
+
+Conenction to EVR crashed.. Seems to have double mrf ioc running..
+
+# test 270
+Same as 260.. 
+
