@@ -5,10 +5,10 @@
 ## please run iocsh without the real-time option
 ##
 #
-# Start at "2022-W25-Jun20-1257-18-CEST"
+# Start at "2022-W25-Jun20-1405-22-CEST"
 #
 # Version information:
-# European Spallation Source ERIC : iocsh (4.0.0-PID-13057)
+# European Spallation Source ERIC : iocsh (4.0.0-PID-13725)
 #
 # --->--> snip -->--> 
 # Please Use Version and other environment variables
@@ -38,10 +38,10 @@
 # --->--> snip -->--> 
 #
 # Set REQUIRE_IOC for its internal PVs
-epicsEnvSet REQUIRE_IOC "REQMOD:lab-mot-ctrl-cp-13057"
+epicsEnvSet REQUIRE_IOC "REQMOD:lab-mot-ctrl-cp-13725"
 #
 # Enable an exit subroutine for sotfioc
-dbLoadRecords "/epics/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:lab-mot-ctrl-cp-13057"
+dbLoadRecords "/epics/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:lab-mot-ctrl-cp-13725"
 #
 # Set E3_IOCSH_TOP for the absolute path where iocsh is executed.
 epicsEnvSet E3_IOCSH_TOP "/home/anderssandstrom/sources/ecmc_mtca_mrf_test/iocsh_real"
@@ -433,88 +433,40 @@ dbpf MCAG:TS-EVR-01:DlyGen-0-Evt-Trig0-SP 125
 DBF_LONG:           125 = 0x7d          
 epicsEnvSet EPICS_DRIVER_PATH /home/anderssandstrom/sources/e3-mrfioc2/cellMods//base-7.0.6.1/require-4.0.0:/epics/base-7.0.6.1/require/4.0.0/siteMods
 # Set the IOC Prompt String One 
-epicsEnvSet IOCSH_PS1 "lab-mot-ctrl-cp-13057 > "
+epicsEnvSet IOCSH_PS1 "lab-mot-ctrl-cp-13725 > "
 #
 # Real Time "RT"
-[?1034hlab-mot-ctrl-cp-13057 > EVR TIMESTAMP FAIL
+[?1034hlab-mot-ctrl-cp-13725 > First update ready for NTPD
+EVR TIMESTAMP FAIL
+incFail
+EVR TIMESTAMP FAIL
+incFail
+EVR TIMESTAMP FAIL
+incFail
+EVR TIMESTAMP FAIL
+incFail
+EVR TIMESTAMP FAIL
+incFail
+EVR TIMESTAMP FAIL
 incFail
 
-lab-mot-ctrl-cp-13057 > EVR TIMESTAMP FAIL
-incFail
-
-lab-mot-ctrl-cp-13057 > EVR TIMESTAMP FAIL
-incFail
-
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > EVR TIMESTAMP FAIL
-incFail
-
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > EVR TIMESTAMP FAIL
-incFail
-
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > EVR TIMESTAMP FAIL
-incFail
-
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > First update ready for NTPD
-
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > # Real Time "RT"[K
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
-lab-mot-ctrl-cp-13057 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > dbgrep *EvtA*
+MCAG:TS-EVR-01:EvtACnt-I
+MCAG:TS-EVR-01:EvtA-SP
+lab-mot-ctrl-cp-13725 > 
+lab-mot-ctrl-cp-13725 > 
