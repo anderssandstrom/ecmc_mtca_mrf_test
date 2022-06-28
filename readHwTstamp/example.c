@@ -5,16 +5,16 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <linux/errqueue.h>
+//#include <linux/errqueue.h>
 #include <sys/ioctl.h>
 #include <linux/sockios.h>
-#include <net/if.h>
+//#include <net/if.h>
 #include <unistd.h>
 #include <time.h>
 #include <poll.h>
 #include <linux/if.h>
 
-#define RAW_SOCKET 0 // Set to 0 to use an UDP socket, set to 1 to use raw socket
+#define RAW_SOCKET 1 // Set to 0 to use an UDP socket, set to 1 to use raw socket
 #define NUM_TESTS 2
 
 #if RAW_SOCKET
@@ -86,7 +86,8 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
 
     // Send 10 packets
     const int n_packets = 10;
-    for (int i = 0; i < n_packets; ++i) {
+    int i=0;
+    for (i = 0; i < n_packets; ++i) {
         sprintf(buffer, "Packet %d", i);
         if (sendto(sock, buffer, buffer_len, 0, (struct sockaddr*) &si_server, sizeof(si_server)) < 0) {
             die("sendto()");
@@ -99,7 +100,7 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
         char data[256];
         struct msghdr msg;
         struct iovec entry;
-        char ctrlBuf[CMSG_SPACE(sizeof(struct scm_timestamping))];
+        char ctrlBuf[CMSG_SPACE(sizeof(struct timespec)*3)];
 
         memset(&msg, 0, sizeof(msg));
         msg.msg_iov = &entry;
@@ -118,14 +119,14 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
 
         // Extract and print ancillary data (SW or HW tx timestamps)
         struct cmsghdr *cmsg = NULL;
-        struct scm_timestamping hw_ts;
+        struct timespec *hw_ts;
 
         for(cmsg=CMSG_FIRSTHDR(&msg);cmsg!=NULL;cmsg=CMSG_NXTHDR(&msg, cmsg)) {
             if(cmsg->cmsg_level==SOL_SOCKET && cmsg->cmsg_type==SO_TIMESTAMPING) {
-                hw_ts=*((struct scm_timestamping *)CMSG_DATA(cmsg));
-                fprintf(stdout,"HW: %lu s, %lu ns\n",hw_ts.ts[2].tv_sec,hw_ts.ts[2].tv_nsec);
-                fprintf(stdout,"ts[1] - ???: %lu s, %lu ns\n",hw_ts.ts[1].tv_sec,hw_ts.ts[1].tv_nsec);
-                fprintf(stdout,"SW: %lu s, %lu ns\n",hw_ts.ts[0].tv_sec,hw_ts.ts[0].tv_nsec);
+                hw_ts=((struct timespec *)CMSG_DATA(cmsg));
+                fprintf(stdout,"HW: %lu s, %lu ns\n",hw_ts[2].tv_sec,hw_ts[2].tv_nsec);
+                fprintf(stdout,"ts[1] - ???: %lu s, %lu ns\n",hw_ts[1].tv_sec,hw_ts[1].tv_nsec);
+                fprintf(stdout,"SW: %lu s, %lu ns\n",hw_ts[0].tv_sec,hw_ts[0].tv_nsec);
             }
         }
 
@@ -206,8 +207,8 @@ int main(int argc, char* argv[]) {
             die("inet_aton()");
         }
     #endif
-
-    for(int i=0;i<NUM_TESTS;i++) {
+    int i=0;
+    for(i=0;i<NUM_TESTS;i++) {
         fprintf(stdout,"Iteration: %d - HW_STAMPS? %d\n",i,i%2);
         run_test(argc,argv,i%2,sock,(void *)&si_server);
     }
