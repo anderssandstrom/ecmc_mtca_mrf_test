@@ -42,3 +42,20 @@ anderssandstrom@lab-mot-ctrl-cpu-1 ecmc_mtca_mrf_test]$ ethercat -p2  reg_read 0
 ## System time delay
 [anderssandstrom@lab-mot-ctrl-cpu-1 ecmc_mtca_mrf_test]$ ethercat -p2  reg_read 0x928 4 --type uint32
 0x00000127 295
+
+
+
+
+
+#  Configure network card
+
+  251  2022-06-27 14:58:44 ip a
+  252  2022-06-27 14:58:58 ethtool -T eno1
+  255  2022-06-27 15:02:24 sudo yum install linuxptp
+  256  2022-06-27 15:03:06 hwstamp_ctl
+  
+
+## Enable hw stamp on recive
+  260  2022-06-27 15:04:24 sudo hwstamp_ctl -r 1  -i  eno1
+  261  2022-06-27 15:04:48 systemctl start ethercat
+
