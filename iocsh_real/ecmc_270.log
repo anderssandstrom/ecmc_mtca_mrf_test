@@ -10826,4 +10826,16 @@ epicsEnvSet EPICS_DRIVER_PATH /home/anderssandstrom/sources/e3-ecmccfg/cellMods/
 # Set the IOC Prompt String One 
 epicsEnvSet IOCSH_PS1 "lab-mot-ctrl-cp-25019 > "
 #
+<<<<<<< HEAD
 [?1034hlab-mot-ctrl-cp-25019 > 
+=======
+[?1034hlab-mot-ctrl-cp-13804 > 
+lab-mot-ctrl-cp-13804 > 
+lab-mot-ctrl-cp-13804 > 
+lab-mot-ctrl-cp-13804 > 
+lab-mot-ctrl-cp-13804 > 
+lab-mot-ctrl-cp-13804 > 
+lab-mot-ctrl-cp-13804 > 
+lab-mot-ctrl-cp-13804 > 
+lab-mot-ctrl-cp-13804 > 
+>>>>>>> d177605bb71304f2f108bb24cdb9de5f58674ef3

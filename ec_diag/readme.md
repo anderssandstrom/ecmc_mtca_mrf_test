@@ -20,3 +20,42 @@
  1078  2022-06-22 12:43:23 watch -n0 "ethercat reg_read -p2 -tsm32 0x92c"
 
 ```
+
+## System time
+ethercat -p2  reg_read 0x910 8 --type uint64
+
+## Recivie time ECAT
+[anderssandstrom@lab-mot-ctrl-cpu-1 ecmc_mtca_mrf_test]$ ethercat -p2  reg_read 0x918 8 --type uint64
+0x00022fe77090a34b 615621025899339
+
+[anderssandstrom@lab-mot-ctrl-cpu-1 ecmc_mtca_mrf_test]$ ethercat -p2  reg_read 0x918 4 --type uint32
+0x7090a34b 1888527179
+
+
+## System time offset
+[anderssandstrom@lab-mot-ctrl-cpu-1 ecmc_mtca_mrf_test]$ ethercat -p2  reg_read 0x920 8 --type uint64
+0x09d2fef4449f47a3 707908416527353763
+
+anderssandstrom@lab-mot-ctrl-cpu-1 ecmc_mtca_mrf_test]$ ethercat -p2  reg_read 0x920 4 --type uint32
+0x449f47a3 1151289251
+
+## System time delay
+[anderssandstrom@lab-mot-ctrl-cpu-1 ecmc_mtca_mrf_test]$ ethercat -p2  reg_read 0x928 4 --type uint32
+0x00000127 295
+
+
+
+
+
+#  Configure network card
+
+  251  2022-06-27 14:58:44 ip a
+  252  2022-06-27 14:58:58 ethtool -T eno1
+  255  2022-06-27 15:02:24 sudo yum install linuxptp
+  256  2022-06-27 15:03:06 hwstamp_ctl
+  
+
+## Enable hw stamp on recive
+  260  2022-06-27 15:04:24 sudo hwstamp_ctl -r 1  -i  eno1
+  261  2022-06-27 15:04:48 systemctl start ethercat
+
