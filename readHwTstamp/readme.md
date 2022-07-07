@@ -1,4 +1,8 @@
-gcc  example.c -o example
+gcc  readNicTs.c -o readNicTs
+
+sudo ./readNicTs <ifname> <hw 1/0> 
+
+sudo ./readNicTs eno1 0 
 
 
  1209  2022-07-07 10:50:33 cat log.log | grep SW | awk '{print $4}'
