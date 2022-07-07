@@ -344,7 +344,10 @@ MAde alot of tests at this time of teh spike on the local cpu..
 
 IOC_MTCA:m0s002-BI01-TimeRiseTS 2022-06-27 08:17:55.999980 999979853  
 
-
-
 # test 280
 same as 270
+rebooted EVG so rubbish
+
+# test 290
+Same as 270
+

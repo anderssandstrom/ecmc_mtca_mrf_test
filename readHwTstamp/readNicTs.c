@@ -28,6 +28,37 @@ void die(char* s)
     exit(1);
 }
 
+static inline void timespec_diff(struct timespec *a, struct timespec *b,
+    struct timespec *result) {
+    result->tv_sec  = a->tv_sec  - b->tv_sec;
+    result->tv_nsec = a->tv_nsec - b->tv_nsec;
+    if (result->tv_nsec < 0) {
+        --result->tv_sec;
+        result->tv_nsec += 1000000000L;
+    }
+}
+
+int timespec2str(char *buf, uint len, struct timespec *ts) {
+    buf[0]=0;
+    int ret;
+    struct tm t;
+
+    tzset();
+    if (localtime_r(&(ts->tv_sec), &t) == NULL)
+        return 1;
+
+    ret = strftime(buf, len, "%F %T", &t);
+    if (ret == 0)
+        return 2;
+    len -= ret - 1;
+
+    ret = snprintf(&buf[strlen(buf)], len, ".%09ld", ts->tv_nsec);
+    if (ret >= len)
+        return 3;
+
+    return 0;
+}
+
 // Wait for data to be available on the socket error queue, as detailed in https://www.kernel.org/doc/Documentation/networking/timestamping.txt
 int pollErrqueueWait(int sock,uint64_t timeout_ms) {
     struct pollfd errqueueMon;
@@ -72,9 +103,9 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
             die("ioctl()");
         }
 
-        flags=SOF_TIMESTAMPING_RX_HARDWARE | SOF_TIMESTAMPING_TX_HARDWARE | SOF_TIMESTAMPING_RAW_HARDWARE;
+        flags=SOF_TIMESTAMPING_RX_HARDWARE; //| SOF_TIMESTAMPING_TX_HARDWARE | SOF_TIMESTAMPING_RAW_HARDWARE;
     } else {
-       flags=SOF_TIMESTAMPING_SOFTWARE | SOF_TIMESTAMPING_TX_SOFTWARE | SOF_TIMESTAMPING_RX_SOFTWARE;
+       flags=SOF_TIMESTAMPING_RX_SOFTWARE;//SOF_TIMESTAMPING_SOFTWARE | SOF_TIMESTAMPING_TX_SOFTWARE | SOF_TIMESTAMPING_RX_SOFTWARE;
     }
 
     if(setsockopt(sock,SOL_SOCKET,SO_TIMESTAMPNS,&flags,sizeof(flags))<0) {
@@ -85,7 +116,7 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
     char buffer[buffer_len];
 
     // Send 10 packets
-    const int n_packets = 100;
+    const int n_packets = 100000;
     int i=0;
     for (i = 0; i < n_packets; ++i) {
         //sprintf(buffer, "Packet %d", i);
@@ -93,7 +124,7 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
         //    die("sendto()");
         //}
 
-        fprintf(stdout,"Sent packet number %d/%d\n",i,n_packets);
+        //fprintf(stdout,"Sent packet number %d/%d\n",i,n_packets);
         fflush(stdout);
 
         // Obtain the sent packet timestamp.
@@ -112,29 +143,34 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
         msg.msg_control = &ctrlBuf;
         msg.msg_controllen = sizeof(ctrlBuf);
         // Wait for data to be available on the error queue
-        printf("Wait for data\n");
+        //printf("Wait for data\n");
         //pollErrqueueWait(sock,-1); // -1 = no timeout is set
         //if (recvmsg(sock, &msg, MSG_ERRQUEUE) < 0) {
         if (recvmsg(sock, &msg, MSG_DONTWAIT) < 0) {
             //die("recvmsg()");
         }
-        printf("After wait for data\n");
+        //printf("After wait for data\n");
 
         // Extract and print ancillary data (SW or HW tx timestamps)
         struct cmsghdr *cmsg = NULL;
         struct timespec *hw_ts;
+        char timestamp[35];
 
         for(cmsg=CMSG_FIRSTHDR(&msg);cmsg!=NULL;cmsg=CMSG_NXTHDR(&msg, cmsg)) {
             if(cmsg->cmsg_level==SOL_SOCKET && cmsg->cmsg_type==SCM_TIMESTAMPNS) {
                 hw_ts=((struct timespec *)CMSG_DATA(cmsg));
-                fprintf(stdout,"HW: %lu s, %lu ns\n",hw_ts[2].tv_sec,hw_ts[2].tv_nsec);
+                if(hw_stamps) {
+                  fprintf(stdout,"HW: %lu s, %lu ns\n",hw_ts[2].tv_sec,hw_ts[2].tv_nsec);
+                } else {
+                  timespec2str(&timestamp[0],35, &hw_ts[0]);
+                  fprintf(stdout,"SW: %lu s, %lu ns (%s)\n",hw_ts[0].tv_sec,hw_ts[0].tv_nsec,timestamp);
+                }
                 fprintf(stdout,"ts[1] - ???: %lu s, %lu ns\n",hw_ts[1].tv_sec,hw_ts[1].tv_nsec);
-                fprintf(stdout,"SW: %lu s, %lu ns\n",hw_ts[0].tv_sec,hw_ts[0].tv_nsec);
             }
         }
 
         // Wait 1s before sending next packet
-        //sleep(1);
+        usleep(100);
     }
     return 0;
 }
@@ -144,13 +180,15 @@ int main(int argc, char* argv[]) {
     char* destination_ip = "192.168.1.211";
     int destination_port = 1234;
     struct in_addr sourceIP;
-
+    int usehw=0;
     fprintf(stdout,"Program started.\n");
 
-    if(argc!=2) {
-        fprintf(stderr,"Error. You should specify the interface name.\n");
+    if(argc!=3) {
+        fprintf(stderr,"Error. readNicTs <if> <hw_clock 1/0>.\n");
         exit(1);
     }
+    
+    usehw=atoi(argv[2]);
     // Create socket
     #if RAW_SOCKET
 //        if ((sock = socket(AF_PACKET,SOCK_RAW,htons(ETH_P_ALL))) < 0) {
@@ -215,10 +253,8 @@ int main(int argc, char* argv[]) {
         }
     #endif
     int i=0;
-    for(i=0;i<NUM_TESTS;i++) {
-        fprintf(stdout,"Iteration: %d - HW_STAMPS? %d\n",i,i%2);
-        run_test(argc,argv,i%2,sock,(void *)&si_server);
-    }
+
+    run_test(argc,argv,usehw,sock,(void *)&si_server);
 
     close(sock);
 
