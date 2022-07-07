@@ -24,3 +24,26 @@ sudo ./readNicTs eno1 0
  1278  2022-07-07 12:39:04 cat log_3.log | grep SW | grep 1657190262 | awk 'BEGIN{ first=1} {if(first) {first=0;old=$4;} if($4 != old){print $4; old=$4;} }' | wc -l
  1279  2022-07-07 12:39:13 cat log_3.log | grep SW | grep 1657190261 | awk 'BEGIN{ first=1} {if(first) {first=0;old=$4;} if($4 != old){print $4; old=$4;} }' | wc -l
  1280  2022-07-07 12:39:42 cat log_3.log | grep SW | grep 1657190260 | awk 'BEGIN{ first=1} {if(first) {first=0;old=$4;} if($4 != old){print $4; old=$4;} }' | wc -l
+
+
+
+
+# ecmc
+cat ecmc_send.log   | awk '{print substr($2,4)}' | python ~/sources/ecmccomgui/pyDataManip/plotData.py
+
+
+# readNicTs
+cat rec_ts.log | awk 'BEGIN{ first=1} {if(first) {first=0;old=$4;} if($4 != old){print $4; old=$4;} }'  | awk '{print " " substr($1,4)}' | grep " 7" | python ~/sources/ecmccomgui/pyDataManip/plotData.py 
+
+conclusion is that all data in rec_ts.log starting at 0.7ms is send of frames. Frames are then recived approx 300us after. So all data accessible from 
+
+# ethercat tool
+(ecmccomgui_py36) (7.0.6.1-4.0.0)[anderssandstrom@mcag-dev-asm-02 ecmc_mtca_mrf_test]$  ethercat -p0  reg_read 0x900  -tsm32
+0x4e023133 1308766515
+(ecmccomgui_py36) (7.0.6.1-4.0.0)[anderssandstrom@mcag-dev-asm-02 ecmc_mtca_mrf_test]$  ethercat -p0  reg_read 0x904  -tsm32
+0x4e023db3 1308769715
+(ecmccomgui_py36) (7.0.6.1-4.0.0)[anderssandstrom@mcag-dev-asm-02 ecmc_mtca_mrf_test]$  ethercat -p0  reg_read 0x908  -tsm32
+0x00000000 0
+(ecmccomgui_py36) (7.0.6.1-4.0.0)[anderssandstrom@mcag-dev-asm-02 ecmc_mtca_mrf_test]$  ethercat -p0  reg_read 0x90C  -tsm32
+0x6c726556 1819436374
+
