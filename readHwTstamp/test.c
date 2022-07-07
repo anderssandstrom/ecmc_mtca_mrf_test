@@ -74,10 +74,10 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
 
         flags=SOF_TIMESTAMPING_RX_HARDWARE | SOF_TIMESTAMPING_TX_HARDWARE | SOF_TIMESTAMPING_RAW_HARDWARE;
     } else {
-       flags=SOF_TIMESTAMPING_SOFTWARE | SOF_TIMESTAMPING_TX_SOFTWARE;
+       flags=SOF_TIMESTAMPING_SOFTWARE | SOF_TIMESTAMPING_TX_SOFTWARE | SOF_TIMESTAMPING_RX_SOFTWARE;
     }
 
-    if(setsockopt(sock,SOL_SOCKET,SO_TIMESTAMPING,&flags,sizeof(flags))<0) {
+    if(setsockopt(sock,SOL_SOCKET,SO_TIMESTAMPNS,&flags,sizeof(flags))<0) {
         die("setsockopt()");
     }
 
@@ -85,7 +85,7 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
     char buffer[buffer_len];
 
     // Send 10 packets
-    const int n_packets = 10;
+    const int n_packets = 100;
     int i=0;
     for (i = 0; i < n_packets; ++i) {
         //sprintf(buffer, "Packet %d", i);
@@ -112,17 +112,20 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
         msg.msg_control = &ctrlBuf;
         msg.msg_controllen = sizeof(ctrlBuf);
         // Wait for data to be available on the error queue
-        pollErrqueueWait(sock,-1); // -1 = no timeout is set
-        if (recvmsg(sock, &msg, MSG_ERRQUEUE) < 0) {
-            die("recvmsg()");
+        printf("Wait for data\n");
+        //pollErrqueueWait(sock,-1); // -1 = no timeout is set
+        //if (recvmsg(sock, &msg, MSG_ERRQUEUE) < 0) {
+        if (recvmsg(sock, &msg, MSG_DONTWAIT) < 0) {
+            //die("recvmsg()");
         }
+        printf("After wait for data\n");
 
         // Extract and print ancillary data (SW or HW tx timestamps)
         struct cmsghdr *cmsg = NULL;
         struct timespec *hw_ts;
 
         for(cmsg=CMSG_FIRSTHDR(&msg);cmsg!=NULL;cmsg=CMSG_NXTHDR(&msg, cmsg)) {
-            if(cmsg->cmsg_level==SOL_SOCKET && cmsg->cmsg_type==SO_TIMESTAMPING) {
+            if(cmsg->cmsg_level==SOL_SOCKET && cmsg->cmsg_type==SCM_TIMESTAMPNS) {
                 hw_ts=((struct timespec *)CMSG_DATA(cmsg));
                 fprintf(stdout,"HW: %lu s, %lu ns\n",hw_ts[2].tv_sec,hw_ts[2].tv_nsec);
                 fprintf(stdout,"ts[1] - ???: %lu s, %lu ns\n",hw_ts[1].tv_sec,hw_ts[1].tv_nsec);
@@ -131,7 +134,7 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
         }
 
         // Wait 1s before sending next packet
-        sleep(1);
+        //sleep(1);
     }
     return 0;
 }
@@ -179,7 +182,7 @@ int main(int argc, char* argv[]) {
 
         memset(&si_server, 0, sizeof(si_server));
         si_server.sll_ifindex=ifindex;
-        si_server.sll_family=AF_PACKET;
+        si_server.sll_family=PF_PACKET;
         si_server.sll_protocol=htons(ETH_P_ALL);
     #else
         struct sockaddr_in si_server;
@@ -213,8 +216,8 @@ int main(int argc, char* argv[]) {
     #endif
     int i=0;
     for(i=0;i<NUM_TESTS;i++) {
-        fprintf(stdout,"Iteration: %d - HW_STAMPS? %d\n",i,1);
-        run_test(argc,argv,1,sock,(void *)&si_server);
+        fprintf(stdout,"Iteration: %d - HW_STAMPS? %d\n",i,i%2);
+        run_test(argc,argv,i%2,sock,(void *)&si_server);
     }
 
     close(sock);
