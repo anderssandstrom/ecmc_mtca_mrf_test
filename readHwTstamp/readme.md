@@ -30,10 +30,10 @@ sudo ./readNicTs eno1 0
 
 # ecmc
 cat ecmc_send.log   | awk '{print substr($2,4)}' | python ~/sources/ecmccomgui/pyDataManip/plotData.py
-
+cat send_05.log  | grep 165 | grep -v ">"| awk '{print $2}' | rev | awk '{print substr($1,0,6)}' | rev  | python ~/sources/ecmccomgui/pyDataManip/plotData.py 
 
 # readNicTs
-cat rec_ts.log | awk 'BEGIN{ first=1} {if(first) {first=0;old=$4;} if($4 != old){print $4; old=$4;} }'  | awk '{print " " substr($1,4)}' | grep " 7" | python ~/sources/ecmccomgui/pyDataManip/plotData.py 
+cat test_sw_04.log | awk 'BEGIN{ first=1} {if(first) {first=0;old=$4;} if($4 != old){print $4; old=$4;} }'  |rev |awk '{ print " " substr($1,0,6);}' | rev |  python ~/sources/ecmccomgui/pyDataManip/plotData.py 
 
 conclusion is that all data in rec_ts.log starting at 0.7ms is send of frames. Frames are then recived approx 300us after. So all data accessible from 
 
