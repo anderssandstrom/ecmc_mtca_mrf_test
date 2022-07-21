@@ -37,6 +37,14 @@ cat test_sw_04.log | awk 'BEGIN{ first=1} {if(first) {first=0;old=$4;} if($4 != 
 
 conclusion is that all data in rec_ts.log starting at 0.7ms is send of frames. Frames are then recived approx 300us after. So all data accessible from 
 
+
+## test raspi (only SW)
+Time since last frame RX
+cat raspi_01.log | awk 'BEGIN{ first=1} {if(first) {first=0;old=$4;} if($4 != old){print $4-old; old=$4;} }'  |rev |awk '{ print " " substr($1,0,9);}' | rev | python ~/sources/ecmccomgui/pyDataManip/plotData.py 
+
+Plot only the small time diff:
+cat raspi_01.log | awk 'BEGIN{ first=1} {if(first) {first=0;old=$4;} if($4 != old){ if($4-old>0 && $4-old<100000+0) {print $4-old;}; old=$4;} }'  |rev |awk '{ print " " substr($1,0,9);}' | rev | python ~/sources/ecmccomgui/pyDataManip/plotData.py 
+
 # ethercat tool
 (ecmccomgui_py36) (7.0.6.1-4.0.0)[anderssandstrom@mcag-dev-asm-02 ecmc_mtca_mrf_test]$  ethercat -p0  reg_read 0x900  -tsm32
 0x4e023133 1308766515
@@ -46,4 +54,6 @@ conclusion is that all data in rec_ts.log starting at 0.7ms is send of frames. F
 0x00000000 0
 (ecmccomgui_py36) (7.0.6.1-4.0.0)[anderssandstrom@mcag-dev-asm-02 ecmc_mtca_mrf_test]$  ethercat -p0  reg_read 0x90C  -tsm32
 0x6c726556 1819436374
+
+
 
