@@ -104,7 +104,7 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
             die("ioctl()");
         }
 
-        flags=SOF_TIMESTAMPING_RX_HARDWARE | SOF_TIMESTAMPING_TX_HARDWARE | SOF_TIMESTAMPING_SYS_HARDWARE;
+        flags=SOF_TIMESTAMPING_RX_HARDWARE | SOF_TIMESTAMPING_TX_HARDWARE | SOF_TIMESTAMPING_RAW_HARDWARE;
         type = SO_TIMESTAMPING;
         if(setsockopt(sock,SOL_SOCKET,SO_TIMESTAMPING,&flags,sizeof(flags))<0) {
           die("setsockopt()");
