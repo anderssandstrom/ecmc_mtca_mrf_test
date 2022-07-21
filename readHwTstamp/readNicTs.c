@@ -104,7 +104,7 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
             die("ioctl()");
         }
 
-        flags=SOF_TIMESTAMPING_RX_HARDWARE | SOF_TIMESTAMPING_TX_HARDWARE | SOF_TIMESTAMPING_RAW_HARDWARE;
+        flags=SOF_TIMESTAMPING_RX_HARDWARE | SOF_TIMESTAMPING_TX_HARDWARE | SOF_TIMESTAMPING_SYS_HARDWARE;
         type = SO_TIMESTAMPING;
         if(setsockopt(sock,SOL_SOCKET,SO_TIMESTAMPING,&flags,sizeof(flags))<0) {
           die("setsockopt()");
@@ -120,10 +120,16 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
 
     const int buffer_len = 256;
     char buffer[buffer_len];
+    struct timespec oldTime, oldts1;
 
-    // Send 10 packets
     const int n_packets = 100000;
     int i=0;
+    oldTime.tv_nsec=0;
+    oldTime.tv_sec=0;
+    oldts1.tv_nsec=0;
+    oldts1.tv_sec=0;
+    
+
     for (i = 0; i < n_packets; ++i) {
         //sprintf(buffer, "Packet %d", i);
         //if (sendto(sock, buffer, buffer_len, 0, (struct sockaddr*) &si_server, sizeof(si_server)) < 0) {
@@ -138,6 +144,7 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
         struct msghdr msg;
         struct iovec entry;
         char ctrlBuf[CMSG_SPACE(sizeof(struct timespec)*3)];
+
 
         memset(&msg, 0, sizeof(msg));
         msg.msg_iov = &entry;
@@ -167,13 +174,25 @@ int run_test(int argc, char* argv[], int hw_stamps, int sock, void *si_server_pt
             if(cmsg->cmsg_level==SOL_SOCKET && cmsg->cmsg_type==type) {
                 hw_ts=((struct timespec *)CMSG_DATA(cmsg));
                 if(hw_stamps) {
-                  timespec2str(&timestamp[0],35, &hw_ts[2]);
-                  fprintf(stdout,"HW: %lu s, %lu ns (%s)\n",hw_ts[2].tv_sec,hw_ts[2].tv_nsec,timestamp);
+                  if(oldTime.tv_sec !=hw_ts[2].tv_sec || oldTime.tv_nsec !=hw_ts[2].tv_nsec) {
+                    timespec2str(&timestamp[0],35, &hw_ts[2]);                  
+                    fprintf(stdout,"HW: %lu s, %lu ns (%s)\n",hw_ts[2].tv_sec,hw_ts[2].tv_nsec,timestamp);
+                  }
+                  oldTime.tv_sec=hw_ts[2].tv_sec;
+                  oldTime.tv_nsec=hw_ts[2].tv_nsec;
                 } else {
-                  timespec2str(&timestamp[0],35, &hw_ts[0]);
-                  fprintf(stdout,"SW: %lu s, %lu ns (%s)\n",hw_ts[0].tv_sec,hw_ts[0].tv_nsec,timestamp);
+                  if(oldTime.tv_sec !=hw_ts [0].tv_sec || oldTime.tv_nsec != hw_ts[0].tv_nsec) {
+                    timespec2str(&timestamp[0],35, &hw_ts[0]);
+                    fprintf(stdout,"SW: %lu s, %lu ns (%s)\n",hw_ts[0].tv_sec,hw_ts[0].tv_nsec,timestamp);
+                  }
+                  oldTime.tv_sec=hw_ts[0].tv_sec;
+                  oldTime.tv_nsec=hw_ts[0].tv_nsec;
                 }
-                //fprintf(stdout,"ts[1] - ???: %lu s, %lu ns\n",hw_ts[1].tv_sec,hw_ts[1].tv_nsec);
+                if(oldts1.tv_sec !=hw_ts [1].tv_sec || oldts1.tv_nsec != hw_ts[1].tv_nsec) {
+                  fprintf(stdout,"ts[1] - ???: %lu s, %lu ns\n",hw_ts[1].tv_sec,hw_ts[1].tv_nsec);
+                }
+                oldts1.tv_sec=hw_ts[1].tv_sec;
+                oldts1.tv_nsec=hw_ts[1].tv_nsec;
             }
         }
 
