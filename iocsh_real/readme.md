@@ -1,9 +1,17 @@
 # mrf
 ```
 ./epics/....setenv
-iocsh st.cmd
 
-# old way, not working...
+iocsh st.ioc_nanos.cmd -l  ~/sources/e3-mrfioc2/cellMods/
+
+# ecmc
+```
+./epics/....setenv
+iocsh ecmc_lean.cmd
+```
+
+
+# old way BELOW, not working...
 
 conda activate mrfconda
 iocsh.bash st.cmd
