@@ -9,7 +9,10 @@ iocsh st.ioc_nanos.cmd -l  ~/sources/e3-mrfioc2/cellMods/
 ./epics/....setenv
 iocsh ecmc_lean.cmd
 ```
-
+# Log data
+```
+camonitor IOC_MTCA:m0s002-BI01-TimeRise IOC_MTCA:m0s002-BI01-TimeRiseTS IOC_MTCA:m0s002-BI02-TimeRise IOC_MTCA:m0s002-BI02-TimeRiseTS
+```
 
 # old way BELOW, not working...
 
