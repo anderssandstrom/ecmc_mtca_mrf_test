@@ -1,5 +1,30 @@
 # ecmc_mtca_mrf_test
 
+
+# mrf
+
+
+```
+cd iocsh_real
+./epics/....setenv
+
+iocsh st.ioc_nanos.cmd -l  ~/sources/e3-mrfioc2/cellMods/
+
+# ecmc
+```
+cd iocsh_real
+./epics/....setenv
+iocsh ecmc_lean.cmd
+```
+# Log data
+```
+camonitor IOC_MTCA:m0s002-BI01-TimeRise IOC_MTCA:m0s002-BI01-TimeRiseTS IOC_MTCA:m0s002-BI02-TimeRise IOC_MTCA:m0s002-BI02-TimeRiseTS
+```
+
+
+
+
+
 ## Host
 https://csentry.esss.lu.se/network/hosts/view/lab-mot-ctrl-cpu-1
 
