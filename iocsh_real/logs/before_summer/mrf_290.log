@@ -439,3 +439,8 @@ epicsEnvSet IOCSH_PS1 "lab-mot-ctrl-cp-26121 > "
 EVR TIMESTAMP FAIL
 incFail
 [?1034hlab-mot-ctrl-cp-26121 > First update ready for NTPD
+CAS: Client disconnected - No route to host
+EVR TIMESTAMP FAIL
+incFail
+EVR TIMESTAMP FAIL
+incFail

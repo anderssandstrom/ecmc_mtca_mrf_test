@@ -10844,4 +10844,6 @@ epicsEnvSet EPICS_DRIVER_PATH /home/anderssandstrom/sources/e3-ecmccfg/cellMods/
 # Set the IOC Prompt String One 
 epicsEnvSet IOCSH_PS1 "lab-mot-ctrl-cp-26181 > "
 #
-[?1034hlab-mot-ctrl-cp-26181 > 
+[?1034hlab-mot-ctrl-cp-26181 > CAS: Client disconnected - No route to host
+CAS: CA beacon send to 172.30.41.63:5065 error: Network is unreachable
+CAS: CA beacon send to 172.30.41.63:5065 ok
