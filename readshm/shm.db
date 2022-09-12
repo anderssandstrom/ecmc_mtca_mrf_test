@@ -1,0 +1,11 @@
+record(ai,"${P}ShmTimeDiff"){
+  field(DESC, "Shm time diff [ns]")
+  field(EGU,  "ns")
+}
+
+record(bi,"${P}ShmValid"){
+  field(DESC, "Shm segment valid")
+  field(ONAM, "1")
+  field(ZNAM, "0")
+} 
+
