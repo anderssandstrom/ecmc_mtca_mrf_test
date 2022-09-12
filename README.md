@@ -22,7 +22,7 @@ iocsh ecmc_lean.cmd
 # Log data
 ```
 camonitor IOC_MTCA:m0s002-BI01-TimeRise IOC_MTCA:m0s002-BI01-TimeRiseTS IOC_MTCA:m0s002-BI02-TimeRise IOC_MTCA:m0s002-BI02-TimeRiseTS
-
+```
 If also shm should be logged:
 ```
 camonitor -n IOC_TEST:ShmValid IOC_TEST:ShmTimeDiff IOC_MTCA:m0s002-BI01-TimeRiseTS IOC_MTCA:m0s002-BI02-TimeRiseTS
