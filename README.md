@@ -10,6 +10,8 @@ cd iocsh_real
 
 iocsh st.ioc_nanos.cmd -l  ~/sources/e3-mrfioc2/cellMods/
 
+Go to GUI and set univ output TCKLA tp Pulser 0
+
 # ecmc
 ```
 cd iocsh_real
