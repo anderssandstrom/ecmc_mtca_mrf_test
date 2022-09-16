@@ -1,6 +1,8 @@
 #!/usr/bin/env iocsh.bash
 #require(essioc)
-require mrfioc2 asm_add_nanos
+#require mrfioc2 asm_add_nanos
+require mrfioc2 nano
+
 require(evr_seq_calc)
 require(mcoreutils)
 
