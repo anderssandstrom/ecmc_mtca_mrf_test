@@ -9,6 +9,7 @@ cd iocsh_real
 ./epics/....setenv
 
 iocsh st.ioc_nanos.cmd -l  ~/sources/e3-mrfioc2/cellMods/
+```
 
 Go to GUI and set univ output TCKLA tp Pulser 0
 
@@ -22,10 +23,11 @@ iocsh ecmc_lean.cmd
 ```
 camonitor IOC_MTCA:m0s002-BI01-TimeRise IOC_MTCA:m0s002-BI01-TimeRiseTS IOC_MTCA:m0s002-BI02-TimeRise IOC_MTCA:m0s002-BI02-TimeRiseTS
 ```
+If also shm should be logged:
+```
+camonitor -n IOC_TEST:ShmValid IOC_TEST:ShmTimeDiff IOC_MTCA:m0s002-BI01-TimeRiseTS IOC_MTCA:m0s002-BI02-TimeRiseTS
 
-
-
-
+```
 
 ## Host
 https://csentry.esss.lu.se/network/hosts/view/lab-mot-ctrl-cpu-1
