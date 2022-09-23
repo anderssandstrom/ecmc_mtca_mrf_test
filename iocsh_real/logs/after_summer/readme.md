@@ -140,3 +140,6 @@ Sep 22 17:39:47 lab-mot-ctrl-cpu-1.cslab.esss.lu.se chronyd[868]: Selected sourc
 Sep 22 17:39:47 lab-mot-ctrl-cpu-1.cslab.esss.lu.se chronyd[868]: System clock wrong by -1.006621 seconds, adjustment started
 
 
+# Data 2x.log
+Added more printoust in mrf code.
+
