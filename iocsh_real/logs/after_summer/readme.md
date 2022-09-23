@@ -126,6 +126,8 @@ incFail
 2022-09-23T02:34:06.272 Undecipherable messag
 ```
 
+For some reaon this line fails: https://github.com/anderssandstrom/mrfioc2/blob/3becf41dae9b9edab371aeecd1d821041bc148e8/evrApp/src/ntpShm.cpp#L146
+
 # Problem 1: form 2022-09-21T17:34:25.546 to 2022-09-22T05:04:59.097
 
 Sep 21 21:56:58 lab-mot-ctrl-cpu-1.cslab.esss.lu.se chronyd[868]: Can't synchronise: no selectable sources
@@ -136,3 +138,5 @@ Sep 21 21:59:24 lab-mot-ctrl-cpu-1.cslab.esss.lu.se chronyd[868]: Selected sourc
 Sep 22 17:37:19 lab-mot-ctrl-cpu-1.cslab.esss.lu.se chronyd[868]: Can't synchronise: no selectable sources
 Sep 22 17:39:47 lab-mot-ctrl-cpu-1.cslab.esss.lu.se chronyd[868]: Selected source EVR
 Sep 22 17:39:47 lab-mot-ctrl-cpu-1.cslab.esss.lu.se chronyd[868]: System clock wrong by -1.006621 seconds, adjustment started
+
+
