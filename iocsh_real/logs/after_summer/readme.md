@@ -143,3 +143,5 @@ Sep 22 17:39:47 lab-mot-ctrl-cpu-1.cslab.esss.lu.se chronyd[868]: System clock w
 # Data 2x.log
 Added more printoust in mrf code.
 
+# Data 30.log 
+EVG was restarted several times so should be spikes.
